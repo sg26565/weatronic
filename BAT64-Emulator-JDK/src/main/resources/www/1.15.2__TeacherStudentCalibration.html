@@ -1,0 +1,227 @@
+<!DOCTYPE html SYSTEM "html">
+<html>
+	
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		
+<title>1.15.2__TeacherStudentCalibration</title>
+		
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+		
+<link href="css/bat60.css" rel="Stylesheet" type="text/css">
+		
+		
+<script src="js/jquery-1.11.0.min.js" type="text/javascript"></script>
+		<script src="js/common.js" type="text/javascript"></script>
+		<script defer src="1.15.2__TeacherStudentCalibration.js" type="text/javascript"></script>
+		
+		
+<style type="text/css">
+			
+			.monitor_block {
+				background:				rgba(255, 255, 255, .2);
+				border-color:			#000 #000 #000 #999;
+				border-style:			solid;
+				border-width:			0px 1px 0px 1px;
+				color:					#fff;
+				float:					left;
+				font-size:				16px;
+				height:					82px;
+				margin-top:				6px;
+				width:					222px;
+			}
+			.monitor_block_row_top {
+				background:				rgba(0, 0, 0, .5);
+				border:					0;
+				height:					18px;
+				line-height:			18px;
+				margin-top:				0px;
+				padding:				3px 0px 3px 0px;
+				width:					100%;
+			}
+			.monitor_block_row_top div {
+				border-color:			#999;
+				border-style:			solid;
+				border-width:			0px 1px 0px 0px;
+				max-width:				126px;
+				overflow:				hidden;
+				padding:				0px 2px 0px 2px;
+				text-overflow:			ellipsis;
+				white-space:			nowrap;
+				word-break:				break-all;
+			}
+			.monitor_block_row_top div:first-child {
+				max-width:				49px;
+				min-width:				20px;
+				text-align:				center;
+			}
+			.monitor_block_row_top div:last-child {
+				border-width:			0px 0px 0px 1px;
+				text-align:				center;
+				width:					58px;
+			}
+			.monitor_block_row_bottom {
+				border-color:			#000;
+				border-style:			solid;
+				border-width:			0px 0px 1px 0px;
+				height:					48px;
+				line-height:			48px;
+				margin-top:				33px;
+				padding:				0;
+				position:				absolute;
+				width:					221px;
+			}
+			.servo_center, .servo_graph {
+				height:					40px;
+				position:				absolute;
+			}
+			.servo_center {
+				border-color:			#999;
+				border-style:			solid;
+				border-width:			0px 1px 0px 0px;
+				width:					110px;
+			}
+			.servo_graph {
+				background:				rgba(96, 153, 240, .7);
+			}
+			.scrollContainerOuterVertical{
+				height:					inherit;
+			}
+			.mCustomScrollBox>.mCSB_scrollTools {
+				height:					350px !important;
+			}
+		</style>
+	
+</head>
+	
+<body>
+		
+<main>
+			
+<div id="Page_Name_Tag">Teacher_Student_Calibration_View_Label</div>
+			
+<header>
+				
+<div class="header_group_icon">
+					
+<div class="group_icon_wrench"></div>
+				
+</div>
+				
+<div class="header_center">
+					
+<div class="header_1st_div" id="Teacher_Student_Calibration_View_Label">Lehrer - Sch&uuml;ler</div>
+					
+<div class="header_sub_spacer"></div>
+					
+<div class="header_sub_div" id="Model_Name"></div>
+					
+<div class="header_sub_spacer"></div>
+					
+<div class="header_sub_div" id="Flight_Mode"></div>
+				
+</div>
+				
+<div class="header_battery_value" id="Battery_Value">-- V</div>
+				
+<div class="header_battery">          
+					
+<div class="header_battery_image">
+						
+<div class="battery_spacer"></div>
+						
+<div class="battery_segment" id="Battery_80"></div>
+						
+<div class="battery_segment" id="Battery_60"></div>
+						
+<div class="battery_segment" id="Battery_40"></div>
+						
+<div class="battery_segment" id="Battery_20"></div>
+						
+<div class="battery_segment" id="Battery_0"></div>
+					
+</div>
+				
+</div>
+			
+</header>
+			
+<article>
+				
+<div class="content_width_list" style="height: 357px; width: 672px;">
+					
+<div class="scrollContainerOuterVertical" id="List_Container" style="max-height: 357px;">
+						
+<div class="inner_list_content" id="scrollContainerInnerVertical">
+						
+</div>
+					
+</div>
+				
+</div>
+				
+<aside class="ard_buttons" id="Toggle_Buttons">
+					
+<div class="button_white round_top inactive" style="width: 60px; height: 61px;">
+						
+<a class="icon_control_map_blue" draggable="false" id="Teacher_Student_Calibration_View_Button"></a>
+					
+</div>
+					
+<div class="button_blue round_bottom" style="width: 60px; height: 61px;">
+						
+<a class="icon_servo_monitor_white" draggable="false" id="Teacher_Student_Settings_View_Button"></a>
+					
+</div>
+				
+</aside>
+			
+</article>
+			
+<footer>
+				
+<div class="black_bar"></div>
+				
+<div class="left_button_box" id="Additional_Button_Box" style="display: none;">
+					
+<div class="button_blue round_all" id="Additional_Button" style="width: 180px; height: 60px;">
+						
+<a draggable="false" id="Start_Calibration_Label">Start Kalibrierung</a>
+						<a draggable="false" id="Confirm_Calibration_Label" style="display: none;">Best&auml;tigen</a>
+						<a draggable="false" id="SetCenter_Calibration_Label" style="display: none;">Mitte speichern</a>
+					
+</div>
+				
+</div>
+				
+<div class="right_button_box" id="Button_Box">
+					
+<div class="button_blue round_all" style="width: 60px; height: 60px; margin-right: 4px;">
+						
+<a class="option_button" draggable="false" href="1.15.2__TeacherStudentCalibration.html" id="Option_Button"></a>
+					
+</div>
+					
+<div id="Navi_Box">
+						
+<div class="button_blue round_all" style="width: 180px; height: 60px;">
+							
+<a class="back_button" draggable="false" href="1.15.0__TeacherStudent.html" id="Navi_Button"></a>
+						
+</div>
+					
+</div>
+				
+</div>
+			
+</footer>
+			
+<div id="Pop_Up_Blocker"></div>
+			
+<div id="Pop_Up" style="position: absolute; top: 80px; padding-left: 12px; z-index: 100000;"></div>
+		
+</main>
+	
+</body>
+
+</html>

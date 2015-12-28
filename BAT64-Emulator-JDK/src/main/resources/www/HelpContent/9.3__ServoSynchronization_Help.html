@@ -1,0 +1,289 @@
+<!DOCTYPE html SYSTEM "html">
+<html>
+	
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		
+<title>9.3__ServoSynchronisation_Help</title>
+		
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+		
+<link href="/css/bat60.css" rel="Stylesheet" type="text/css">
+		
+		
+<script src="/js/jquery-1.11.0.min.js" type="text/javascript"></script>
+		<script src="/js/common.js" type="text/javascript"></script>
+		<script defer src="HelpContent.js" type="text/javascript"></script>	
+		
+		
+<style type="text/css">
+			
+		.content_full_block {
+			background:	rgba(255, 255, 255, .9) !important;
+			border-style: solid;
+			border-width: 4px 4px 4px 4px;
+			border-radius: 6px 6px 0px  6px;
+			background-color: #fff;
+			color: #000;
+			font-size: 20px;
+			height: 385px;
+			overflow: hidden;
+			text-align:	justify;
+			width: 752px;
+		}
+		.content_full_block_list{
+
+			margin-top: 0px;
+			position: relative;
+			width: 720px;
+			padding: 0 15px 0 15px;
+		}
+		ul{
+			margin-left: -20px;
+		}
+		li{
+			
+		}
+		</style>
+	
+</head>
+	
+<body>
+		
+<main>
+			
+<header>
+				
+<div class="header_group_icon">
+					
+<div class="group_icon_help"></div>
+				
+</div>
+				
+<div class="header_center">
+					
+<div class="header_1st_div" id="Help_Page_Label">Hilfe</div>
+					
+<div class="header_sub_spacer"></div>
+					
+<div class="header_sub_div" id="Help_Page"></div>
+				
+</div>
+				
+<div class="header_battery_value" id="Battery_Value">-- V</div>
+				
+<div class="header_battery">          
+					
+<div class="header_battery_image">
+						
+<div class="battery_spacer"></div>
+						
+<div class="battery_segment" id="Battery_80"></div>
+						
+<div class="battery_segment" id="Battery_60"></div>
+						
+<div class="battery_segment" id="Battery_40"></div>
+						
+<div class="battery_segment" id="Battery_20"></div>
+						
+<div class="battery_segment" id="Battery_0"></div>
+					
+</div>
+				
+</div>
+			
+</header>
+			
+<article>
+				
+<div class="content_full_block scrollContainerOuterVertical" id="List_Container">
+					
+<div class="content_full_block_list" id="scrollContainerInnerVertical">
+						
+<p>
+							
+<span id="Help_ServoSynchronization_1a_Label">Servo Synchronisation - In diesem Men&uuml; werden die Servos der einzelnen Gruppen synchronisiert. Ebenso kann die Synchronisierung automatische durchgef&uuml;hrt werden ( nur f&uuml;r Gizmo Empf&auml;nger ).</span>
+<br>
+							
+<span id="Help_ServoSynchronization_1b_Label">Auf der linken Seite befinden sich allgemeine Einstellungen, rechts werden die Servos der jeweiligen Gruppe angezeigt.</span>
+						
+</p>
+						
+<span id="Help_ServoSynchronization_2_Label">Optionen:</span>
+						
+<ul style="margin-top: 0;">
+							
+<li>
+								
+<span id="Help_ServoSynchronization_3a_Label">Gruppe, W&auml;hlen Sie die einzustellende Gruppe aus. der Gruppenname richtet sich entweder nach der grafischen Zuweisung oder einer eigenen Gruppe.</span>
+								
+<ul>
+									
+<li>
+										
+<span id="Help_ServoSynchronization_3b_Label">In der grafischen Ansicht erstellte Gruppen:</span>
+										
+<ul>
+											
+<li>
+												
+<span id="Help_ServoSynchronization_3c_Label">Der erste Buchstabe gibt Auskunft &uuml;ber:</span>
+<br>
+												
+<span id="Help_ServoSynchronization_3d_Label" style="margin-left: 20px;">L = Linker Fl&uuml;gel / R = rechter Fl&uuml;gel / E = H&ouml;henruder / R = Seitenruder / W = Fl&uuml;gelmitte</span>
+											
+</li>
+											
+<li>
+												
+<span id="Help_ServoSynchronization_3e_Label">Der zweite Buchstabe gibt Auskunft &uuml;ber die Position:</span>
+												
+<ul>
+													
+<li id="Help_ServoSynchronization_3f_Label">Am Fl&uuml;gel ist es eine Zahl, dabei beginnt die Nummerierung bei 1 in der Mitte.</li>
+													
+<li id="Help_ServoSynchronization_3g_Label">Am Leitwerk ist es ein Buchstabe, C = Mitte / L = Links / R = Rechts.</li>
+												
+</ul>
+											
+</li>
+										
+</ul>
+									
+</li>
+									
+<li id="Help_ServoSynchronization_3h_Label">Wenn Sie die Gruppe manuell angelegt haben, dann werden die einzelnen Gruppen jeweils mit einem Buchstaben von A bis N bezeichnet.</li>
+								
+</ul>
+							
+</li>
+							
+<li style="margin-top: 1em;">
+								
+<span id="Help_ServoSynchronization_4a_Label">Genauigkeit: Es gibt 3 Auswahlm&ouml;glichkeiten</span>
+								
+<ul>
+									
+<li id="Help_ServoSynchronization_4b_Label">Einfach, der Mittelpunkt und jeder 4te Punkt zwischen den Limits.</li>
+									
+<li id="Help_ServoSynchronization_4c_Label">Standard, der Mittelpunkt und jeder 2te Punkt zwischen den Limits.</li>
+									
+<li>
+										
+<span id="Help_ServoSynchronization_4d_Label">Fein, der Mittelpunkt und jeder Punkt zwischen den Limits.</span>
+										
+<table>
+											
+<tr>
+												
+<td align="center" valign="top">
+<div class="icon_info"></div>
+</td>
+												<td><span id="Help_ServoSynchronization_4e_Label">BITTE BEACHTEN: Die Einstellung fein f&uuml;hrt zu sehr langen Laufzeiten der automatischen Synchronisierung.</span></td>
+											
+</tr>
+										
+</table>	
+									
+</li>
+								
+</ul>
+							
+</li>
+							
+<li style="margin-top: 1em;">
+								
+<span id="Help_ServoSynchronization_5a_Label">Strom Max. Hier kann die Strombegrenzung f&uuml;r die automatische Synchronisation eingestellt werden. Wir empfehlen den Maximalstrom entsprechend den folgenden Vorgaben einzustellen um die Servos vor &Uuml;berlast zu sch&uuml;tzen.</span>
+								
+<ul>
+									
+<li id="Help_ServoSynchronization_5b_Label">Analog servo "standard" : 1.0 A</li>
+									
+<li id="Help_ServoSynchronization_5c_Label">Analog servo "power" : 1.5 A</li>
+									
+<li id="Help_ServoSynchronization_5d_Label">Digital servo "standard" : 2.0 A</li>
+									
+<li id="Help_ServoSynchronization_5e_Label">Digital servo "power" : 3.0 A</li>
+									
+<li id="Help_ServoSynchronization_5f_Label">Digital servo "extreme power" : 5.0 A</li>
+								
+</ul>
+							
+</li>
+						
+</ul>
+						
+<span id="Help_ServoSynchronization_6_Label">Servos:</span>
+						
+<ul style="margin-top: 0;">
+							
+<li id="Help_ServoSynchronization_7a_Label">Pos.: Die Servosteckplatznummer.</li>
+							
+<li id="Help_ServoSynchronization_7b_Label" style="margin-top: 1em;">Servo: Der Servoname zur Information</li>
+							
+<li style="margin-top: 1em;">
+								
+<span id="Help_ServoSynchronization_7d_Label">Umkehr: &Auml;ndern Sie die Laufrichtung der Slaveservos hier</span>
+								
+<table>
+									
+<tr>
+										
+<td align="center" valign="top">
+<div class="icon_info"></div>
+</td>
+										<td>
+											<span id="Help_ServoSynchronization_7e_Label">BITTE BEACHTEN: Pr&uuml;fen Sie die Laufrichtung bevor Sie die Gest&auml;nge einh&auml;ngen wenn mehrere Servos mechanisch verbunden werden</span>
+											<span id="Help_ServoSynchronization_7f_Label">Benutzen Sie die "Richtung pr&uuml;fen" Funktion um dies vorher zu testen </span>
+										</td>
+									
+</tr>
+								
+</table>		
+							
+</li>
+							
+<li id="Help_ServoSynchronization_7g_Label" style="margin-top: 1em;">Kurve: Stellen Sie hier die Abweichung des Slaveservos zum Master ein. Benutzen Sie daf&uuml;r die Kurvenpunkte.</li>
+<br>
+						
+</ul>
+					
+</div>
+				
+</div>
+			
+</article>
+			
+<footer>
+				
+<div class="black_bar"></div>
+				
+<div class="right_button_box">
+					
+<div class="button_blue round_all" id="Option_Box" style="width: 60px; height: 60px; margin-right: 4px;">
+<a class="option_button" draggable="false" href="1.1.0__ModelConfiguration.html" id="Option_Button"></a>
+</div>
+					
+<div id="Navi_Box">
+						
+<div class="button_blue round_all" style="width: 180px; height: 60px;">
+<a class="back_button" draggable="false" href="/0.1__HomeScreen.html" id="Navi_Button"></a>
+</div>
+					
+</div>					
+				
+</div>
+			
+</footer>
+			
+<div id="Pop_Up_Blocker"></div>
+			
+<div id="Pop_Up" style="position: absolute; z-index: 1000;"></div>
+		
+</main>
+		
+		
+	
+</body>
+
+</html>

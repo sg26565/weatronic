@@ -1,0 +1,261 @@
+<!DOCTYPE html SYSTEM "html">
+<html>
+	
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		
+<title>1.17.1__BluetoothConfiguration</title>
+		
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+		
+<meta content="Blubb" name="description">
+		
+<link href="css/bat60.css" rel="Stylesheet" type="text/css">
+		
+		
+<script src="js/jquery-1.11.0.min.js" type="text/javascript"></script>
+		<script src="js/raphael.js" type="text/javascript"></script>
+		<script src="js/common.js" type="text/javascript"></script>
+		<script defer src="1.17.1__BluetoothConfiguration.js" type="text/javascript"></script>	
+		
+		
+<style type="text/css">
+			
+			.label {
+				overflow:				hidden;
+				text-overflow:			ellipsis;
+				white-space:			nowrap;
+				width:					230px;
+			}
+			.list_block, .list_content_row {
+				width:					760px;
+			}
+			.list_content_row:first-child {
+				border-width:			1px 0px 1px 0px;
+			}
+			.content {
+				border-width:			1px 1px 1px 0px;
+				width:					510px;
+			}
+			.input {
+				color:					#fff;
+				font-size:				20px;
+				outline:				0;
+			}
+			.background {
+				background:				rgba(255, 255, 255, .2);
+				background: 			-moz-linear-gradient(top, rgba(255, 255, 255, .2) 0%, rgba(255, 255, 255, .2) 100%); 
+				background:				-webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(255, 255, 255, .2)), color-stop(100%, rgba(255, 255, 255, .2))); 
+				background:				-webkit-linear-gradient(top, rgba(255, 255, 255, .2) 0%, rgba(255, 255, 255, .2) 100%); 
+				background:				-o-linear-gradient(top, rgba(255, 255, 255, .2) 0%, rgba(255, 255, 255, .2) 100%); 
+				background:				-ms-linear-gradient(top, rgba(255, 255, 255, .2) 0%, rgba(255, 255, 255, .2) 100%); 
+				background:				linear-gradient(to bottom, rgba(255, 255, 255, .27) 0%, rgba(255, 255, 255, .1) 100%); 
+			}
+			.list_content_row input {
+				background:				-moz-linear-gradient(top, rgba(126, 126, 126, .8) 0%, rgba(79, 79, 79, .8) 100%); 
+				background:				-webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(126, 126, 126, .8)), color-stop(100%, rgba(79, 79, 79, .8))); 
+				background:				-webkit-linear-gradient(top, rgba(126, 126, 126, .8) 0%, rgba(79, 79, 79, .8) 100%); 
+				background:				-o-linear-gradient(top, rgba(126, 126, 126, .8) 0%, rgba(79, 79, 79, .8) 100%); 
+				background:				-ms-linear-gradient(top, rgba(126, 126, 126, .8) 0%, rgba(79, 79, 79, .8) 100%); 
+				background:				linear-gradient(to bottom, rgba(126, 126, 126, .8) 0%, rgba(79, 79, 79, .8) 100%); 
+				border-color:			#000 #000 #000 #999;
+				border-style:			solid;
+				border-width:			0px 1px 0px 1px;
+				height:					69px;
+				line-height:			69px;
+				padding:				0px 4px 0px 4px;
+			}
+			.mCustomScrollBox>.mCSB_scrollTools {
+				height:					274px !important;
+			}
+			#Bluetooth_Status_Label, #Bluetooth_Show_PW_Label {
+				color:					#fff;
+				font-size:				20px;
+				height:					44px;
+				line-height:			44px;
+				margin-left:			20px;
+				width:					279px;
+			}
+		</style>
+	
+</head>
+	
+<body>
+		
+<main>
+			
+<div id="Page_Name_Tag">Bluetooth_Configuration_Label</div>
+			
+<header>
+				
+<div class="header_group_icon">
+					
+<div class="group_icon_wrench"></div>
+				
+</div>
+				
+<div class="header_center">
+					
+<div class="header_1st_div" id="Bluetooth_Configuration_Label">Bluetooth Konfiguration</div>
+					
+<div class="header_sub_spacer"></div>
+					
+<div class="header_sub_div" id="Model_Name"></div>
+				
+</div>
+				
+<div class="header_battery_value" id="Battery_Value">-- V</div>
+				
+<div class="header_battery">          
+					
+<div class="header_battery_image">
+						
+<div class="battery_spacer"></div>
+						
+<div class="battery_segment" id="Battery_80"></div>
+						
+<div class="battery_segment" id="Battery_60"></div>
+						
+<div class="battery_segment" id="Battery_40"></div>
+						
+<div class="battery_segment" id="Battery_20"></div>
+						
+<div class="battery_segment" id="Battery_0"></div>
+					
+</div>
+				
+</div>
+			
+</header>
+			
+<article>
+				
+<div style="width: 760px; height: 60px; margin-top: 9px;">
+					
+<div class="background" id="Bluetooth_Status" style="width: 40px; height: 40px; border: 2px solid #fff; border-radius: 4px;">
+						
+<img draggable="false" height="35" id="Bluetooth_Status_Img" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACoAAAAjCAYAAADizJiTAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2RpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo4QUU1Nzg4RUM3NDRFMjExQTNCREVFNkMxQjk4MkM0NiIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpCQUIxRDZCQTlCMEExMUUyQTcxMEEzNzJDMzE5ODFDMyIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpCQUIxRDZCOTlCMEExMUUyQTcxMEEzNzJDMzE5ODFDMyIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IFdpbmRvd3MiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDpBQkE3RDFEQUYyOUFFMjExQkY4NkRDQzBDNkQwODQ3QiIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo4QUU1Nzg4RUM3NDRFMjExQTNCREVFNkMxQjk4MkM0NiIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/Psw8DHIAAADdSURBVHja7NjrCoMwDAXg6fbcGWcv3lHYj9GbaTpPMvBAQaHgh61NcEsp3f4heyCLfEYzj0BIfN2/qhl56Z2HpDpSzouIbGKjIivsHmRP9nL33KOaN5kDz6U3IdlQM5IJXUKyoMtIBvQnyCOotCqEB3IElVE5YyN7UFXtZSJbUHXtZSJL6FTtZSJLKJQPEjaytfQW7OnI3sc0g6UgR8eTFktBHh34iILUlFBEQGprPbyRM00JPJGz3RO8kJY2Dx5Iaz8KNnKlcQYTmYf139Ozc31atuu34wUNnrcAAwCJ1ARaCuqr5QAAAABJRU5ErkJggg==" style="margin: 4px 0px 0px -1px; display: none;" width="42">
+					</div>	
+					
+<div id="Bluetooth_Status_Label">Bluetooth aktiv</div>
+					
+<div class="background" id="Bluetooth_Show_PW" style="width: 40px; height: 40px; border: 2px solid #fff; border-radius: 4px;">
+						
+<img draggable="false" height="35" id="Bluetooth_Show_PW_Img" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACoAAAAjCAYAAADizJiTAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2RpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo4QUU1Nzg4RUM3NDRFMjExQTNCREVFNkMxQjk4MkM0NiIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpCQUIxRDZCQTlCMEExMUUyQTcxMEEzNzJDMzE5ODFDMyIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpCQUIxRDZCOTlCMEExMUUyQTcxMEEzNzJDMzE5ODFDMyIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IFdpbmRvd3MiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDpBQkE3RDFEQUYyOUFFMjExQkY4NkRDQzBDNkQwODQ3QiIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo4QUU1Nzg4RUM3NDRFMjExQTNCREVFNkMxQjk4MkM0NiIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/Psw8DHIAAADdSURBVHja7NjrCoMwDAXg6fbcGWcv3lHYj9GbaTpPMvBAQaHgh61NcEsp3f4heyCLfEYzj0BIfN2/qhl56Z2HpDpSzouIbGKjIivsHmRP9nL33KOaN5kDz6U3IdlQM5IJXUKyoMtIBvQnyCOotCqEB3IElVE5YyN7UFXtZSJbUHXtZSJL6FTtZSJLKJQPEjaytfQW7OnI3sc0g6UgR8eTFktBHh34iILUlFBEQGprPbyRM00JPJGz3RO8kJY2Dx5Iaz8KNnKlcQYTmYf139Ozc31atuu34wUNnrcAAwCJ1ARaCuqr5QAAAABJRU5ErkJggg==" style="margin: 4px 0px 0px -1px; display: none;" width="42">
+					</div>	
+					
+<div id="Bluetooth_Show_PW_Label">Pin anzeigen</div>
+					
+<div id="Connection_Canvas" style="margin-top: 8px;"></div>
+				
+</div>
+				
+<div class="list_block">
+					
+<div class="list_content scrollContainerOuterVertical" id="List_Container" style="width: 760px; max-height: 332px;">
+						
+<div class="inner_list_content" id="scrollContainerInnerVertical">
+							
+<div class="list_content_row">
+								
+<div class="label no_edit" id="Bluetooth_Name_Label">Name</div>
+								
+<div class="content keypad-tag" id="Bluetooth_Name"></div>
+							
+</div>
+							
+<div class="list_content_row">
+								
+<div class="label no_edit" id="Bluetooth_Max_Power_Label">Max. Sendeleistung</div>
+								
+<div class="content num-ipt-tag" id="Bluetooth_Max_Power"></div>
+							
+</div>
+							
+<div class="list_content_row">
+								
+<div class="label no_edit" id="Bluetooth_Pin_Label">Pin</div>
+								
+<input class="content input" id="Bluetooth_Pin" readonly type="password" value="">
+							
+</div>
+							
+<div class="list_content_row">
+								
+<div class="label no_edit" id="Bluetooth_Protocol_Label">Protokoll</div>
+								
+<div class="content" id="Bluetooth_Protocol"></div>
+							
+</div>
+							
+<div class="list_content_row" id="Bluetooth_TxRate_Row" style="display: none;">
+								
+<div class="label no_edit" id="Bluetooth_TxRate_Label">GPS &Uuml;bertragungsrate</div>
+								
+<div class="content" id="Bluetooth_TxRate"></div>
+							
+</div>
+							
+<div class="list_content_row" id="Bluetooth_Channel1_Row" style="display: none;">
+								
+<div class="label no_edit" id="Bluetooth_Channel1_Label">Funktion 1</div>
+								
+<div class="content" id="Bluetooth_Channel1"></div>
+							
+</div>
+							
+<div class="list_content_row" id="Bluetooth_Channel2_Row" style="display: none;">
+								
+<div class="label no_edit" id="Bluetooth_Channel2_Label">Funktion 2</div>
+								
+<div class="content" id="Bluetooth_Channel2"></div>
+							
+</div>
+							
+<div class="list_content_row" id="Bluetooth_Telemetrie_Row" style="display: none;">
+								
+<div class="label no_edit" id="Bluetooth_Telemetrie_Label">Telemetrie</div>
+								
+<div class="content" id="Bluetooth_Telemetrie"></div>
+							
+</div>
+						
+</div>
+					
+</div>
+				
+</div>
+			
+</article>
+			
+<footer>
+				
+<div class="black_bar"></div>
+				
+<div class="right_button_box">
+					
+<div class="button_blue round_all" style="width: 60px; height: 60px; margin-right: 4px;">
+<a class="option_button" draggable="false" href="1.17.2__BluetoothConfiguration.html" id="Option_Button"></a>
+</div>
+					
+<div id="Navi_Box">
+						
+<div class="button_blue round_all" style="width: 180px; height: 60px;">
+<a class="back_button" draggable="false" href="1.12.0__TelemetryConfiguration.html" id="Navi_Button"></a>
+</div>
+					
+</div>
+				
+</div>
+			
+</footer>
+			
+<div id="Pop_Up_Blocker"></div>
+			
+<div id="Pop_Up" style="position: absolute; z-index: 100000;"></div>
+		
+</main>
+	
+</body>
+
+</html>

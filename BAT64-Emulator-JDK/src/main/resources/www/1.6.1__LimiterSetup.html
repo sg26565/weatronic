@@ -1,0 +1,325 @@
+<!DOCTYPE html SYSTEM "html">
+<html>
+	
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		
+<title>1.6.1__LimiterSetup</title>
+		
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+		
+<link href="css/bat60.css" rel="Stylesheet" type="text/css">
+		
+		
+<script src="js/jquery-1.11.0.min.js" type="text/javascript"></script>
+		<script src="js/common.js" type="text/javascript"></script>
+		<script defer src="1.6.1__LimiterSetup.js" type="text/javascript"></script>
+		
+		
+<style type="text/css">
+			
+			.blocklist_cell:not(:first-child) {
+				padding:				0px 10px 0px 10px;
+			}
+			#Limiter_Zones {
+				border-radius:			5px;
+				height:					344px;
+				overflow:				hidden;
+				position:				absolute;
+				width:					344px;
+			}
+			#Limiter_Zones div {
+				background:				rgba(255, 0, 0, .5);
+				border-color:			rgba(255, 0, 0, .75);
+				border-style:			solid;
+				
+				width:					344px;
+			}
+			#Limiter_Above_Zone {
+				border-radius:			5px 5px 0px 0px;
+				border-width:			0px 0px 1px 0px;
+				height:					0%;
+			}
+			#Limiter_Below_Zone {
+				border-radius:			0px 0px 5px 5px;
+				border-width:			1px 0px 0px 0px;
+				height:					0%;
+				margin-top:				0%;
+			}
+		</style>
+	
+</head>
+	
+<body>
+		
+<main>
+			
+<div id="Page_Name_Tag">Limiter_Setup_Label</div>
+			
+<header>
+				
+<div class="header_group_icon">
+					
+<div class="group_icon_wrench"></div>
+				
+</div>
+				
+<div class="header_center">
+					
+<div class="header_1st_div" id="Limiter_Setup_Label">Setup</div>
+					
+<div class="header_sub_spacer"></div>
+					
+<div class="header_sub_div" id="Limiter_Name"></div>
+					
+<div class="header_sub_spacer"></div>
+					
+<div class="header_sub_div" id="Flight_Mode"></div>
+				
+</div>
+				
+<div class="header_battery_value" id="Battery_Value">-- V</div>
+				
+<div class="header_battery">          
+					
+<div class="header_battery_image">
+						
+<div class="battery_spacer"></div>
+						
+<div class="battery_segment" id="Battery_80"></div>
+						
+<div class="battery_segment" id="Battery_60"></div>
+						
+<div class="battery_segment" id="Battery_40"></div>
+						
+<div class="battery_segment" id="Battery_20"></div>
+						
+<div class="battery_segment" id="Battery_0"></div>
+					
+</div>
+				
+</div>
+			
+</header>
+			
+<article>
+				
+<div class="content_width_blocklist_left">
+					
+<div class="control_header_1row">
+						
+<div class="sub_cell">
+							
+<div class="cell_label">
+								
+<div class="cell_label" id="Control_Name">
+									
+<img alt="" draggable="false" height="52" id="Control_IMG" src="" style="margin: 1px 0px 0px -6px;" width="72">
+								</div>
+							
+</div>
+							
+<div class="cell_value" id="Control_Value" style="padding-left: 2px;">--%</div>
+						
+</div>
+						
+<div class="cell_label">
+<div id="Function_Name">Function</div>:</div>
+						
+<div class="cell_value" id="Function_Value">--%</div>
+					
+</div>
+					
+<div class="content_blocklist">
+						
+<div class="content_blocklist_row">
+							
+<div class="blocklist_cell" id="Limiter_Function_Label">Funktion</div>
+							
+<div class="blocklist_cell" id="Limiter_Function_Name" style="text-align: left; width: 219px;">--</div>
+						
+</div>
+					
+</div>
+					
+<div class="content_blocklist" style="border-width: 0px 0px 1px 0px;">
+						
+<div class="list_header" id="LimitAbove_Label" style="padding: 4px 10px 4px 10px; width: 388px;">Begrenzung von Oben</div>
+						
+<div class="content_blocklist_row">
+							
+<div class="blocklist_cell underlined" id="Limit_Above_Label">Grenzwert</div>
+							
+<div class="blocklist_cell underlined no_edit" id="Limit_Above_Empty_Value" style="width: 98px;">--%</div>
+							
+<div class="blocklist_cell underlined" id="Limit_Above_High_Value" style="display: none; width: 98px;">--%</div>
+							
+<div class="blocklist_cell underlined" id="Limit_Above_Center_Value" style="display: none; width: 98px;">--%</div>
+							
+<div class="blocklist_cell underlined" id="Limit_Above_Low_Value" style="display: none; width: 98px;">--%</div>
+							
+<div class="blocklist_cell" style="padding: 0; width: 119px;">
+								
+<div class="blocklist_sub_cell">
+									
+<div class="icon_fs-img_empty" id="Limit_Above_Empty_IMG"></div>
+									
+<div class="icon_fs-img_high" id="Limit_Above_High_IMG" style="display: none;"></div>
+									
+<div class="icon_fs-img_center" id="Limit_Above_Center_IMG" style="display: none;"></div>
+									
+<div class="icon_fs-img_low" id="Limit_Above_Low_IMG" style="display: none;"></div>
+								
+</div>
+								
+<div class="blocklist_sub_cell">
+									
+<img alt="" draggable="false" height="61" id="Limit_Above_Control" width="85">
+								</div>
+							
+</div>
+						
+</div>
+					
+</div>
+					
+<div class="content_blocklist" style="border-width: 0px 0px 1px 0px;">
+						
+<div class="list_header" id="LimitBelow_Label" style="padding: 4px 10px 4px 10px; width: 388px;">Begrenzung von Unten</div>
+						
+<div class="content_blocklist_row">
+							
+<div class="blocklist_cell underlined" id="Limit_Below_Label">Grenzwert</div>
+							
+<div class="blocklist_cell no_edit" id="Limit_Below_Empty_Value" style="width: 98px;">--%</div>
+							
+<div class="blocklist_cell underlined" id="Limit_Below_High_Value" style="display: none; width: 98px;">--%</div>
+							
+<div class="blocklist_cell underlined" id="Limit_Below_Center_Value" style="display: none; width: 98px;">--%</div>
+							
+<div class="blocklist_cell underlined" id="Limit_Below_Low_Value" style="display: none; width: 98px;">--%</div>
+							
+<div class="blocklist_cell" style="padding: 0; width: 119px;">
+								
+<div class="blocklist_sub_cell">
+									
+<div class="icon_fs-img_empty" id="Limit_Below_Empty_IMG"></div>
+									
+<div class="icon_fs-img_high" id="Limit_Below_High_IMG" style="display: none;"></div>
+									
+<div class="icon_fs-img_center" id="Limit_Below_Center_IMG" style="display: none;"></div>
+									
+<div class="icon_fs-img_low" id="Limit_Below_Low_IMG" style="display: none;"></div>
+								
+</div>
+								
+<div class="blocklist_sub_cell">
+									
+<img alt="" draggable="false" height="61" id="Limit_Below_Control" width="85">
+								</div>
+							
+</div>
+						
+</div>
+					
+</div>
+				
+</div>
+				
+<div class="content_width_canvas_right">
+					
+<div class="axes_canvas_layer" id="Axes_Canvas">
+						
+<svg xmlns="http://www.w3.org/2000/svg" height="344" version="1.1" width="344">
+							
+<path d="M0,172H344" style="stroke: #fff; stroke-width: 2;"></path>
+							
+<path d="M172,0V344" style="stroke: #fff; stroke-width: 2;"></path>
+						
+</svg>
+					
+</div>
+					
+<div class="label_canvas_layer">
+						
+<div class="label_top_left">
+<span id="Live_Data_Label">Live Daten</span> / <span id="Function_Name_Canvas"></span>
+</div>
+						
+<div class="label_bottom_right">
+<span id="Live_Data_Control_Label">Live Daten / Geber</span>
+</div>
+						
+<div class="label_percent_center">0%</div>
+						
+<div class="label_percent_top">+100%</div>
+						
+<div class="label_percent_right">+100%</div>
+						
+<div class="label_percent_bottom">-100%</div>
+						
+<div class="label_percent_left">-100%</div>
+					
+</div>
+					
+<canvas class="curve_canvas_layer" height="344" id="Curve_Canvas" width="344"></canvas>
+					
+<div id="Limiter_Zones">
+						
+<div id="Limiter_Above_Zone" style="display: none;"></div>
+						
+<div id="Limiter_Below_Zone" style="display: none;"></div>
+					
+</div>
+					
+<canvas class="crosshair_canvas_layer" height="344" id="Crosshair_Canvas_X" width="344"></canvas>
+					
+<canvas class="crosshair_canvas_layer" height="344" id="Crosshair_Canvas_Y" width="344"></canvas>
+				
+</div>
+			
+</article>
+			
+<footer>
+				
+<div class="black_bar"></div>
+				
+<div class="right_button_box">
+					
+<div class="button_blue round_all" style="width: 60px; height: 60px; margin-right: 4px;">
+<a class="option_button" draggable="false" href="1.6.1__LimiterSetup.html" id="Option_Button"></a>
+</div>
+					
+<div id="Navi_Box">
+						
+<div class="button_blue round_all" style="width: 180px; height: 60px;">
+<a class="back_button" draggable="false" href="1.6.0__Limiters.html" id="Navi_Button"></a>
+</div>
+					
+</div>
+					
+<div id="Safe_Cancel_Box" style="display: none;">
+						
+<div class="button_blue round_left" style="width: 89px; height: 60px;">
+<a class="check_button" draggable="false" href="1.6.1__LimiterSetup.html" id="Safe_Button"></a>
+</div>
+						
+<div class="button_blue round_right" style="width: 89px; height: 60px;">
+<a class="delete_button" draggable="false" href="1.6.1__LimiterSetup.html" id="Cancel_Button"></a>
+</div>
+					
+</div>
+				
+</div>
+			
+</footer>
+			
+<div id="Pop_Up_Blocker"></div>
+			
+<div id="Pop_Up" style="position: absolute; z-index: 100000;"></div>
+		
+</main>
+	
+</body>
+
+</html>

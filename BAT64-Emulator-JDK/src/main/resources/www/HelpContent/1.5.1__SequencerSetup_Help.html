@@ -1,0 +1,227 @@
+<!DOCTYPE html SYSTEM "html">
+<html>
+	
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		
+<title>1.5.1__SequencerSetup_Help</title>
+		
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+		
+<link href="/css/bat60.css" rel="Stylesheet" type="text/css">
+		
+		
+<script src="/js/jquery-1.11.0.min.js" type="text/javascript"></script>
+		<script src="/js/common.js" type="text/javascript"></script>
+		<script defer src="HelpContent.js" type="text/javascript"></script>	
+		
+		
+<style type="text/css">
+			
+		.content_full_block {
+			background:	rgba(255, 255, 255, .9) !important;
+			border-style: solid;
+			border-width: 4px 4px 4px 4px;
+			border-radius: 6px 6px 0px  6px;
+			background-color: #fff;
+			color: #000;
+			font-size: 20px;
+			height: 385px;
+			overflow: hidden;
+			text-align:	justify;
+			width: 752px;
+		}
+		.content_full_block_list{
+
+			margin-top: 0px;
+			position: relative;
+			width: 720px;
+			padding: 0 15px 0 15px;
+		}
+		ul{
+			margin-left: -20px;
+		}
+		li{
+			
+		}
+		</style>
+	
+</head>
+	
+<body>
+		
+<main>
+			
+<header>
+				
+<div class="header_group_icon">
+					
+<div class="group_icon_help"></div>
+				
+</div>
+				
+<div class="header_center">
+					
+<div class="header_1st_div" id="Help_Page_Label">Hilfe</div>
+					
+<div class="header_sub_spacer"></div>
+					
+<div class="header_sub_div" id="Help_Page"></div>
+				
+</div>
+				
+<div class="header_battery_value" id="Battery_Value">-- V</div>
+				
+<div class="header_battery">          
+					
+<div class="header_battery_image">
+						
+<div class="battery_spacer"></div>
+						
+<div class="battery_segment" id="Battery_80"></div>
+						
+<div class="battery_segment" id="Battery_60"></div>
+						
+<div class="battery_segment" id="Battery_40"></div>
+						
+<div class="battery_segment" id="Battery_20"></div>
+						
+<div class="battery_segment" id="Battery_0"></div>
+					
+</div>
+				
+</div>
+			
+</header>
+			
+<article>
+				
+<div class="content_full_block scrollContainerOuterVertical" id="List_Container">
+					
+<div class="content_full_block_list" id="scrollContainerInnerVertical">
+						
+<p id="Help_SequencerSetup_1_Label">Setup, hier k&ouml;nnen alle beteiligten Servos eingetragen und die Bewegungen angepasst werden. Oben in dieser Ansicht erscheint eine kleine Grafik, die die komplette Sequenz darstellt und alle Servoeinstellungen. Links ist die Startposition (0%), rechts die Endposition (100%). Der blaue Balken zeigt die aktuelle Position innerhalb der Bewegung. Ist ein Modell gebunden, zeigt der Balken den Verlauf der Sequenz grafisch an.</p>
+						
+<ul>
+							
+<li>
+								
+<span id="Help_SequencerSetup_2a_Label">Ber&uuml;hren Sie "+" um ein Servo der Sequenz hinzuzuf&uuml;gen.</span>
+								
+<table>
+									
+<tr>
+										
+<td align="center" valign="top">
+<div class="icon_info"></div>
+</td>
+										<td>
+											<span id="Help_SequencerSetup_2b_Label">ANMERKUNG: Bitte beachten Sie, dass alle Servos, die einem Sequenzer zugeordnet werden, keiner anderen Funktion mehr zur Verf&uuml;gung stehen.</span>
+<br>
+											
+<span id="Help_SequencerSetup_2c_Label">Umgekehrt stehen alle Servos, die bereits einer Funktion zugeordnet wurden, nicht f&uuml;r einen Sequenzer zur Auswahl.</span>
+										</td>
+									
+</tr>
+								
+</table>
+							
+</li>
+							
+<li>
+								
+<p id="Help_SequencerSetup_3a_Label">Pos., zeigt den physikalischen Steckplatz des Servos im Empf&auml;nger</p>
+							
+</li>
+							
+<li>
+								
+<p id="Help_SequencerSetup_3b_Label">Sequenzer, zeigt Ihnen den Namen des Servos. In Men&uuml;punkt "Servo Konfiguration" kann der Name des Servos, die Mitte und die Limits ge&auml;ndert werden.</p>
+							
+</li>
+							
+<li>
+								
+<p id="Help_SequencerSetup_3c_Label">Anfang definiert den Start-Zeitpunkt des Servos in % der Zeit. Hat die Sequenz eine Dauer von 40 Sekunden und der Anfang wird hier auf 20% gesetzt, wird dieser Servo genau nach 8 Sekunden angesprochen.</p>
+							
+</li>
+							
+<li>
+								
+<p id="Help_SequencerSetup_3d_Label">Wert definiert den Wert (die Servoposition) f&uuml;r den ersten "Punkt" - die erste Positionsver&auml;nderung, die der Servo durchf&uuml;hren soll</p>
+							
+</li>
+							
+<li>
+								
+<p id="Help_SequencerSetup_3e_Label">Ende definiert den Zeitpunkt, wann dieser Servo mit der Bewegung stoppt. Hat die Sequenz eine Dauer von 40 Sekunden und das Ende wird auf 50% gesetzt, endet die Bewegung des Servos nach 20 Sekunden.</p>
+							
+</li>
+							
+<li>
+								
+<p id="Help_SequencerSetup_3f_Label">Wert definiert den Wert (die Servoposition) f&uuml;r den zweiten "Punkt".</p>
+							
+</li>
+						
+</ul>
+						
+<table>
+							
+<tr>
+								
+<td align="center" valign="top">
+<div class="icon_info"></div>
+</td>
+								<td>
+									<span id="Help_SequencerSetup_3g_Label">ANMERKUNG: Werden Servos in einer Sequenz mehrfach angesprochen, kann der Anfangswert (die Zeit, wann der Servo starten soll) nicht vor der Zeit liegen, wo der Servo vorher seine Bewegung beendet hat.</span>
+<br>
+								
+</td>
+							
+</tr>
+						
+</table>
+						
+<br>
+<br>
+					
+</div>
+				
+</div>
+			
+</article>
+			
+<footer>
+				
+<div class="black_bar"></div>
+				
+<div class="right_button_box">
+					
+<div class="button_blue round_all" id="Option_Box" style="width: 60px; height: 60px; margin-right: 4px;">
+<a class="option_button" draggable="false" href="1.1.0__ModelConfiguration.html" id="Option_Button"></a>
+</div>
+					
+<div id="Navi_Box">
+						
+<div class="button_blue round_all" style="width: 180px; height: 60px;">
+<a class="back_button" draggable="false" href="/0.1__HomeScreen.html" id="Navi_Button"></a>
+</div>
+					
+</div>					
+				
+</div>
+			
+</footer>
+			
+<div id="Pop_Up_Blocker"></div>
+			
+<div id="Pop_Up" style="position: absolute; z-index: 1000;"></div>
+		
+</main>
+		
+		
+	
+</body>
+
+</html>

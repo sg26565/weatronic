@@ -1,0 +1,221 @@
+<!DOCTYPE html SYSTEM "html">
+<html>
+	
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		
+<title>2.1__BatteryManager_Help</title>
+		
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+		
+<link href="/css/bat60.css" rel="Stylesheet" type="text/css">
+		
+		
+<script src="/js/jquery-1.11.0.min.js" type="text/javascript"></script>
+		<script src="/js/common.js" type="text/javascript"></script>
+		<script defer src="HelpContent.js" type="text/javascript"></script>	
+		
+		
+<style type="text/css">
+			
+		.content_full_block {
+			background:			rgba(255, 255, 255, .9) !important;
+			background-color: 	#fff;
+			border-radius: 		6px 6px 0px  6px;
+			border-style: 		solid;
+			border-width: 		4px 4px 4px 4px;
+			color: 				#000;
+			font-size: 			20px;
+			height: 			385px;
+			overflow: 			hidden;
+			text-align:			justify;
+			width: 				752px;
+		}
+		.content_full_block_list{
+			margin-top: 		0px;
+			padding: 			0 15px 0 15px;
+			position: 			relative;
+			width: 				720px;
+		}
+		ul{
+			margin-left: 		-20px;
+		}
+		li{
+			
+		}
+		.mCSB_scrollTools {
+			height:				346px !important;
+		}
+		</style>
+	
+</head>
+	
+<body>
+		
+<main>
+			
+<header>
+				
+<div class="header_group_icon">
+					
+<div class="group_icon_help"></div>
+				
+</div>
+				
+<div class="header_center">
+					
+<div class="header_1st_div" id="Help_Page_Label">Hilfe</div>
+					
+<div class="header_sub_spacer"></div>
+					
+<div class="header_sub_div" id="Help_Page"></div>
+				
+</div>
+				
+<div class="header_battery_value" id="Battery_Value">-- V</div>
+				
+<div class="header_battery">          
+					
+<div class="header_battery_image">
+						
+<div class="battery_spacer"></div>
+						
+<div class="battery_segment" id="Battery_80"></div>
+						
+<div class="battery_segment" id="Battery_60"></div>
+						
+<div class="battery_segment" id="Battery_40"></div>
+						
+<div class="battery_segment" id="Battery_20"></div>
+						
+<div class="battery_segment" id="Battery_0"></div>
+					
+</div>
+				
+</div>
+			
+</header>
+			
+<article>
+				
+<div class="content_full_block scrollContainerOuterVertical" id="List_Container">
+					
+<div class="content_full_block_list" id="scrollContainerInnerVertical">
+						
+<p id="Help_BatteryManager_1_Label">Batterie Manager - &Uuml;berpr&uuml;fen Sie die gesch&auml;tzte Restkapazit&auml;t jeder Zelle, die aktuelle Spannung und den Zustand der Zellen.</p>
+						
+<p id="Help_BatteryManager_2_Label">Die blau hinterlegten Zellen werden aktuell f&uuml;r die Versorgung des Senders genutzt, die grau hinterlegte Zelle dient als Reserve.</p>
+						
+<p>
+							
+<span id="Help_BatteryManager_3a_Label">Die rechte Spalte zeigt den Status jeder Zelle an.</span>
+<br>
+							
+<span id="Help_BatteryManager_3b_Label">Es gibt 3 verschiedene Statuse:</span>
+						
+</p>
+						
+<table border="0">
+							
+<tr>
+								
+<td>
+									<img src="data:image/png;base64,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" style="float:left; margin-right:10px;">
+								</td>
+								<td>
+									
+<div style="margin: 0.5em 0 0.5em 0;">
+										
+<span id="Help_BatteryManager_4a_Label" style="clear: both;">Zeigt Zellstatus OK an.</span>
+<br>
+										
+									
+</div>
+								
+</td>
+							
+</tr>
+							
+<tr>
+								
+<td>
+									<img src="data:image/png;base64,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" style="float:left; margin-right:10px;">
+								</td>
+								<td>
+									
+<div style="margin: 0.5em 0 0.5em 0;">
+										
+<span id="Help_BatteryManager_5a_Label" style="clear: both;">Zeigt an, dass die Zelle OK ist aber geladen werden sollte bzw. noch nicht voll geladen ist.</span>
+<br>
+										
+<span id="Help_BatteryManager_5b_Label">Achtung: Die Reservezelle warnt bereits bei einer Spannung kleiner 3,9V um eine vollgeladene Reservezelle f&uuml;r maximale Betriebssicherheit zu gew&auml;hrleisten.</span>
+									
+</div>	
+								
+</td>
+							
+</tr>
+							
+<tr>
+								
+<td>
+									<img src="data:image/png;base64,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" style="float:left; margin-right:10px;">
+								</td>
+								<td>
+									
+<div style="margin: 0.5em 0 0.5em 0;">
+										
+<span id="Help_BatteryManager_6a_Label" style="clear: both;">Die Zelle kann nicht geladen werden oder weist eine Fehlfunktion auf.</span>
+<br>
+										
+<span id="Help_BatteryManager_6b_Label">Bitte schalten Sie den Sender aus und laden diesen vollst&auml;ndig. Schalten Sie erneut ein und pr&uuml;fen die Statusanzeige. Wenn das Symbol nach wie vor erscheint wenden Sie sich bitte an unseren Kundenservice.</span>
+									
+</div>	
+								
+</td>
+							
+</tr>
+						
+</table>
+						
+<br>
+					
+</div>
+				
+</div>
+			
+</article>
+			
+<footer>
+				
+<div class="black_bar"></div>
+				
+<div class="right_button_box">
+					
+<div class="button_blue round_all" id="Option_Box" style="width: 60px; height: 60px; margin-right: 4px;">
+<a class="option_button" draggable="false" href="1.1.0__ModelConfiguration.html" id="Option_Button"></a>
+</div>
+					
+<div id="Navi_Box">
+						
+<div class="button_blue round_all" style="width: 180px; height: 60px;">
+<a class="back_button" draggable="false" href="/0.1__HomeScreen.html" id="Navi_Button"></a>
+</div>
+					
+</div>					
+				
+</div>
+			
+</footer>
+			
+<div id="Pop_Up_Blocker"></div>
+			
+<div id="Pop_Up" style="position: absolute; z-index: 1000;"></div>
+		
+</main>
+		
+		
+	
+</body>
+
+</html>

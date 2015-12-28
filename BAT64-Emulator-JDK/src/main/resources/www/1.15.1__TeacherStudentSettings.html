@@ -1,0 +1,255 @@
+<!DOCTYPE html SYSTEM "html">
+<html>
+	
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		
+<title>1.15__TeacherStudent</title>
+		
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+		
+<link href="css/bat60.css" rel="Stylesheet" type="text/css">
+		
+		
+<script src="js/jquery-1.11.0.min.js" type="text/javascript"></script>
+		<script src="js/common.js" type="text/javascript"></script>
+		<script defer src="1.15.1__TeacherStudentSettings.js" type="text/javascript"></script>	
+		
+		
+<style type="text/css">
+			
+			.list_student_io {
+				text-align:				center;
+				width:					80px;
+			}
+			.list_student_control {
+				background-position:	center;
+				background-repeat:		no-repeat;
+				width:					85px;
+			}
+			.list_content_row .list_student_control img {
+				margin-top:				4px;
+			}
+			.list_student_inverse {
+
+				text-align:				center;
+				width:					64px;
+			}
+			.indicator_button {
+				background-position:	center;
+				background-repeat:		no-repeat;
+			}
+			.indicator_button {
+				background-image:		url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADMAAAAyCAYAAADx/eOPAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoV2luZG93cykiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6RTMyMUM5RjBDREQ5MTFFMkEzMEFFRENGNENCRDUyOTAiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6RTMyMUM5RjFDREQ5MTFFMkEzMEFFRENGNENCRDUyOTAiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDpFMzIxQzlFRUNERDkxMUUyQTMwQUVEQ0Y0Q0JENTI5MCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDpFMzIxQzlFRkNERDkxMUUyQTMwQUVEQ0Y0Q0JENTI5MCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PlnpPr8AAAVBSURBVHja7JppbBVVFMdfX0spZSnIUi2JawXKEgmLhIKKRaICwQ8NgiwGNAiBhBACiIbEKMHUNCo1qbggH0ioHyQGA5oCgRQMpCaopRhoUbTKEoNQtrJYlvF/4n/CybXvvZk3d95riCf5pdMz996Zc++Zc867MxmO40TuFIlG7iBpz8Z0AFVgLrjLS4eMENwsBywAD4BfQQX1j4Op4BTYCE4mGKcUbObxO2BlwiuLMQEYAMrA16CIum7ggvOvfKfarnFuy9PUdQSbwDqlE7JALdteBY94uZ+sJGf+Go/HgVd5vBccAVc5+91AD9CJOldaQAOPB4AZPM4G23k8GYzicR04aPuZGQw+BD/wJkX2ges8HsK/t0Arj/uAXOP8DRok8qwaf7e6p+VKX+b5Dn241GrlJi9RF1Xu8DPoRH0NdS2gL3XfUvcbyKVus+qbR91EdZ3DINPrPSZamRK1ep8q91oBMrkKB6grBKON/p1BV7pQgTt/dLvuDAoiH4ALHHO16l8JbqoA0iuZlekHqsEtMFPpK9SsvUzdNP5/ArxA3VAwATwKsrmC8hCPB4+pNrIiB9WKvqLGPw/6UC99r3ClimOtTCxjxtAQkTPgQeoHg2vUH+dNdAVPMopl+IyGOaAHj2WsJmVMBfXiZnuUfkGs8eLlmVVqyXfyYZUl3wr6gvXgM/C30S8fDGSbHLpZF/An+8vfo+AYXc6V+eAj5YrFoJaBo576aiNoxHSzJYz5HVQO2K1mpIwzfy9nVOeEp8BasAs0O4lFckc9GMsxOoMGdb6GrilspO4vcJ+67pvMT1HTzWapgb5UNzsQXAY3aExUDXY3WAZ+cpKTkyC/jWdFZDb1vZXrTVfXLldty01jhhgzs0U9lNM5825beUZeA6edYLKE43VhuHaliUHDvd79YKH6/z3V9hxD+X8CgHRqVA23q9jvMgkccoJLvVr9Rca5VTEecHHxStXuEhgXL5oVqRUSY3qpc2+Am44dmc8xsxmeXRF3fojnZtND7lEJeo1KxlO8hGYpHj9Rbiar85VjT+oYNNpalU0qvO+irtEoNN/iM+45z7jkGxHNhpRy7J7gd+PcMJ4bCa4rveS6kkR5K5ExGywbUqce7qXGub0qWla20fcMo1vSPwHeZfLq76O6Pg1+YcKTnwR/MAkWMFm2MqGuMPpVstaTdi8a56TPUtActGouNEJnLDkA5iWaPRVMtBxjiHaTtylzvZRHXmuoh42wrUWi0RwfdVkBOGuMUaYi1hGlb/VqiB9jIgyZpkGfsxLwM85iY4yLqkx53gjTM/yM7fc3vxh0lBdbl6Ct5IcRrB7k58Bo1nV5DP9rWYFXqz6TWT6ZPz1CMUYYBF6Pc15uqIqlhimS7HZwBaIcq8joX0q3jaTCmHiB4gsfYfp7MNzi9a0ZU8Iq2K9cUaVNuzCmWO2TJSvzbBgTdEezJ5NjYcBdUNngGAN+TOde83ILhkS4Ufg+yAoySJCVkZKkkdtJtmQsNxZTvjJPWDZEZLFMcDqMmRXCawzZeemdamPywLAQjMnl/nRKjenIPTHbksmt3JQaE9aLUEftLafMmPPgRAjGyOuOy6k2Rt7J7AnBGHlteDwd0awqBGPWt7F3nZKkKdm6hmWIDWnhXsOpdKyM+PfbFlelPIghNmqzb8DHFgyp5duzQGLjOwDJOVvAM0n2b2Dmb2oPX2jIA/uc+njBj8ir8vE2DLHxUYPJRPVWOZ4c5uu8TJvXD+NzEylJRoBJ/DAhn5GvmR8nbAP7wSXbFw7DmLTJ/59otVf5R4ABABM2oyvND4AZAAAAAElFTkSuQmCC);
+				height:					58px;
+				width:					57px;
+			}
+			.value_lcr {
+				border-color: 			#999;
+  				border-style: 			solid;
+  				border-width: 			0px 2px 0px 0px;
+			}
+			.value_x_axis {
+				border-color: 			#999;
+  				border-style: 			solid;
+  				border-width: 			0px 0px 2px 0px;
+			}
+			.value_graph {
+				background: rgba(96, 153, 240, .7);
+			}
+		</style>
+	
+</head>
+	
+<body>
+		
+<main>
+			
+<div id="Page_Name_Tag">TeacherStudentSettings_Label</div>
+			
+<header>
+				
+<div class="header_group_icon">
+					
+<div class="group_icon_wrench"></div>
+				
+</div>
+				
+<div class="header_center">
+					
+<div class="header_1st_div" id="TeacherStudentSettings_Label">Lehrer - Sch&uuml;ler</div>
+					
+<div class="header_sub_spacer"></div>
+					
+<div class="header_sub_div" id="Model_Name"></div>
+				
+</div>
+				
+<div class="header_battery_value" id="Battery_Value">-- V</div>
+				
+<div class="header_battery">          
+					
+<div class="header_battery_image">
+						
+<div class="battery_spacer"></div>
+						
+<div class="battery_segment" id="Battery_80"></div>
+						
+<div class="battery_segment" id="Battery_60"></div>
+						
+<div class="battery_segment" id="Battery_40"></div>
+						
+<div class="battery_segment" id="Battery_20"></div>
+						
+<div class="battery_segment" id="Battery_0"></div>
+					
+</div>
+				
+</div>
+			
+</header>
+			
+<article>
+				
+<div class="content_width_list">
+					
+<div class="list_header">
+						
+<div class="list_student_io" id="Teacher_Input_Label">Kanal</div>
+						
+						
+						
+<div class="list_student_control" id="Teacher_Control_Label" style="display: none;">Geber</div>
+						
+<div class="list_student_control" id="Teacher_Backup_Label" style="display: none;">Backup</div>
+						
+<div class="list_student_inverse" id="Teacher_Inverse_Label" style="display: none;">Inv.</div>
+						
+<div id="Teacher_Value_Short" style="width: 407px; display: none;">
+							
+<div id="Teacher_TeacherValue_Label" style="width: inherit;">Ersetzt durch externen Kanal</div>
+						
+</div>
+						
+<div id="Teacher_Value_Mid" style="width: 480px; display: none;">	
+							
+<div id="Teacher_StudentValue_Label" style="width: inherit;">Ausgabewert</div>
+						
+</div>
+						
+						
+<div id="Teacher_Value_Short1" style="width: 407px; display: none;">	
+							
+<div id="Teacher_PilotValue_Label" style="width: inherit;">Zus&auml;tzlicher externer Kanal</div>
+						
+</div>	
+					
+</div>
+					
+<div class="list_content scrollContainerOuterVertical" id="List_Container" style="max-height: 315px;">
+						
+<div class="inner_list_content" id="scrollContainerInnerVertical">
+						
+							
+<div id="ContainerOuter_0">
+								
+							
+</div>		
+									
+							
+<div id="ContainerOuter_1"></div>
+							
+<div id="ContainerOuter_2"></div>
+							
+<div id="ContainerOuter_3"></div>
+							
+<div id="ContainerOuter_4"></div>
+							
+<div id="ContainerOuter_5"></div>
+							
+<div id="ContainerOuter_6"></div>
+							
+<div id="ContainerOuter_7"></div>
+							
+<div id="ContainerOuter_8"></div>
+							
+<div id="ContainerOuter_9"></div>
+							
+<div id="ContainerOuter_10"></div>
+							
+<div id="ContainerOuter_11"></div>
+
+						
+</div>
+					
+</div>
+				
+</div>
+				
+<aside id="ARD_Buttons">
+					
+<div class="ard_buttons">
+						
+<div class="button_blue round_top" style="width: 60px; height: 60px;">
+							
+<a class="icon_control_map_white" draggable="false" id="Teacher_Student_Calibration_View_Button"></a>
+						
+</div>
+						
+<div class="button_white round_bottom inactive" style="width: 60px; height: 60px;">
+							
+<a class="icon_servo_monitor_blue" draggable="false" id="Teacher_Student_Settings_View_Button"></a>
+						
+</div>
+					
+</div>
+					
+<div style="width: 62px; height: 10px;"></div>
+				
+</aside>
+			
+</article>
+			
+<footer>
+				
+<div class="black_bar"></div>
+				
+<div class="left_button_box" id="Additional_Button_Box" style="display: none;">
+					
+<div class="button_blue round_all" id="Additional_Button" style="width: 180px; height: 60px;">
+						
+<a draggable="false" id="Start_Calibration_Label">Start Kalibrierung</a>
+						<a draggable="false" id="Confirm_Calibration_Label" style="display: none;">Best&auml;tigen</a>
+						<a draggable="false" id="SetCenter_Calibration_Label" style="display: none;">Mitte speichern</a>
+					
+</div>
+				
+</div>
+				
+<div class="right_button_box" id="Button_Box">
+					
+<div class="button_blue round_all" style="width: 60px; height: 60px; margin-right: 4px;">
+<a class="option_button" draggable="false" href="1.15.1__TeacherStudentSettings.html" id="Option_Button"></a>
+</div>
+					
+<div id="Navi_Box">
+						
+<div class="button_blue round_all" style="width: 180px; height: 60px;">
+<a class="back_button" draggable="false" href="1.15.0__TeacherStudent.html" id="Navi_Button"></a>
+</div>
+					
+</div>
+				
+</div>
+			
+</footer>
+			
+<div id="Pop_Up_Blocker"></div>
+			
+<div id="Pop_Up" style="position: absolute; z-index: 100000;"></div>
+		
+</main>
+	
+</body>
+
+</html>

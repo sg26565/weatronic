@@ -1,0 +1,327 @@
+<!DOCTYPE html SYSTEM "html">
+<html>
+	
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		
+<title>1.2__ReceiverConfiguration</title>
+		
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+		
+<link href="css/bat60.css" rel="Stylesheet" type="text/css">
+		
+		
+<script src="js/jquery-1.11.0.min.js" type="text/javascript"></script>
+		<script src="js/common.js" type="text/javascript"></script>
+		<script defer src="1.2__ReceiverConfiguration.js" type="text/javascript"></script>	
+		
+		
+<style type="text/css">
+			
+			.blocklist_cell {
+				overflow:				hidden;
+				padding:				0px 10px 0px 10px;
+				text-align:				left !important;
+				text-overflow:			ellipsis;
+				white-space:			nowrap;
+			}
+			.content_blocklist_row .blocklist_cell:first-child {
+				width:					205px;
+			}
+			.double_row {
+				line-height:			31px;
+				white-space:			normal !important;
+			}
+			.receiver_image_bg {
+				background:				#e9e9e9; 
+				background:				-moz-linear-gradient(top, #e9e9e9 0%, #959595 100%); 
+				background:				-webkit-gradient(linear, left top, left bottom, color-stop(0%,#e9e9e9), color-stop(100%,#959595)); 
+				background:				-webkit-linear-gradient(top, #e9e9e9 0%,#959595 100%); 
+				background:				-o-linear-gradient(top, #e9e9e9 0%,#959595 100%); 
+				background:				-ms-linear-gradient(top, #e9e9e9 0%,#959595 100%); 
+				background:				linear-gradient(to bottom, #e9e9e9 0%,#959595 100%); 
+				border-radius:			5px;
+				filter:					progid:DXImageTransform.Microsoft.gradient(startColorstr='#e9e9e9', endColorstr='#959595',GradientType=0); 
+				height:					248px;
+				width:					248px;
+			}
+			.receiver_image_bg img {
+				border-radius:			5px;
+			}
+			.mCustomScrollBox>.mCSB_scrollTools {
+				height:					320px !important;
+			}
+		</style>
+	
+</head>
+	
+<body>
+		
+<main>
+			
+<div id="Page_Name_Tag">Receiver_Config_Label</div>
+			
+<header>
+				
+<div class="header_group_icon">
+					
+<div class="group_icon_wrench"></div>
+				
+</div>
+				
+<div class="header_center">
+					
+<div class="header_1st_div" id="Receiver_Config_Label">Empf&auml;nger Konfiguration</div>
+					
+<div class="header_sub_spacer"></div>
+					
+<div class="header_sub_div" id="Model_Name"></div>
+				
+</div>
+				
+<div class="header_battery_value" id="Battery_Value">-- V</div>
+				
+<div class="header_battery">          
+					
+<div class="header_battery_image">
+						
+<div class="battery_spacer"></div>
+						
+<div class="battery_segment" id="Battery_80"></div>
+						
+<div class="battery_segment" id="Battery_60"></div>
+						
+<div class="battery_segment" id="Battery_40"></div>
+						
+<div class="battery_segment" id="Battery_20"></div>
+						
+<div class="battery_segment" id="Battery_0"></div>
+					
+</div>
+				
+</div>
+			
+</header>
+			
+<article>
+				
+<div class="content_width_blocklist_left" style="height: 68px; width: 502px;">
+					
+<div class="button_white round_left" id="Receiver_0" style="height: 60px; width: 164px;">
+<a draggable="false" href="#" id="Main_Label">Haupt</a>
+</div>
+					
+<div class="button_blue" id="Receiver_1" style="height: 60px; width: 164px;">
+<a draggable="false" href="#" id="Sub_1_Label">Sub 1</a>
+</div>
+					
+<div class="button_blue round_right" id="Receiver_2" style="height: 60px; width: 164px;">
+<a draggable="false" href="#" id="Sub_2_Label">Sub 2</a>
+</div>
+				
+</div>
+				
+<div class="content_width_blocklist_left scrollContainerOuterVertical" id="List_Container" style="height: 321px; overflow-x: hidden; overflow-y: auto; width: 502px;">
+					
+<div class="content_blocklist" id="scrollContainerInnerVertical" style="margin-top: 0px; width: 498px;">
+						
+						
+<div class="content_blocklist_row">
+							
+<div class="blocklist_cell" id="Receiver_Type_Label">Empf&auml;ngertyp</div>
+							
+<div class="blocklist_cell" id="Receiver_Type" style="width: 251px;">--</div>
+						
+</div>
+						
+<div class="content_blocklist_row">
+							
+<div class="blocklist_cell" id="Receiver_Firmware_Label">Firmware</div>
+							
+<div class="blocklist_cell no_edit" id="Receiver_Firmware" style="width: 251px;">V--</div>
+						
+</div>
+						
+<div class="content_blocklist_row">
+							
+<div class="blocklist_cell" id="Receiver_Battery0_Warning_Label">Akku 1 Warnung</div>
+							
+<div class="blocklist_cell" id="Receiver_Battery0_Warning" style="width: 251px;">--V</div>
+						
+</div>
+						
+<div class="content_blocklist_row">
+							
+<div class="blocklist_cell" id="Receiver_Battery0_Live_Label">Akku 1 Spannung</div>
+							
+<div class="blocklist_cell no_edit" id="Receiver_Battery0_Live" style="width: 251px;">--V</div>
+						
+</div>
+						
+<div class="content_blocklist_row" id="Receiver_Battery0_Test_Warning_Row" style="display:none">
+							
+<div class="blocklist_cell" id="Receiver_Battery0_Test_Warning_Label">Akkutest 1 Grenzwert</div>
+							
+<div class="blocklist_cell" id="Receiver_Battery0_Test_Warning" style="width: 120px;">--V</div>
+							
+<div class="button_blue round_all inactive" id="Receiver_Battery0_Test_Warning_Button_Label" style="width: 128px; height:61px; text-align: center;">Test</div>
+						
+</div>
+						
+<div class="content_blocklist_row" id="Receiver_Battery1_Live_Row" style="display:none;">
+							
+<div class="blocklist_cell" id="Receiver_Battery1_Live_Label">Akku 2 Spannung</div>
+							
+<div class="blocklist_cell no_edit" id="Receiver_Battery1_Live" style="width: 251px;">--V</div>
+						
+</div>
+
+						
+<div class="content_blocklist_row" id="Receiver_Battery1_Test_Warning_Row" style="display:none">
+							
+<div class="blocklist_cell" id="Receiver_Battery1_Test_Warning_Label">Akkutest 2 Grenzwert</div>
+							
+<div class="blocklist_cell" id="Receiver_Battery1_Test_Warning" style="width: 120px;">--V</div>
+							
+<div class="button_blue round_all inactive" id="Receiver_Battery1_Test_Warning_Button_Label" style="width: 128px; height:61px; text-align: center;">Test</div>
+						
+</div>
+						
+<div class="content_blocklist_row">
+							
+<div class="blocklist_cell" id="Receiver_Range_Warning_Label">Reichweiten Warnung</div>
+							
+<div class="blocklist_cell" id="Receiver_Range_Warning" style="width: 251px;">--%</div>
+						
+</div>
+						
+<div class="content_blocklist_row">
+							
+<div class="blocklist_cell" id="Receiver_Back_Channel_Warning_Label">R&uuml;ckkanal Warnung</div>
+							
+<div class="blocklist_cell" id="Receiver_Back_Channel_Warning" style="width: 251px;">--%</div>
+						
+</div>
+						
+<div class="content_blocklist_row">
+							
+<div class="blocklist_cell" id="Receiver_Fail_Safe_Timeout_Label">Fail Safe Verz&ouml;gerung</div>
+							
+<div class="blocklist_cell" id="Receiver_Fail_Safe_Timeout" style="width: 251px;">--s</div>
+						
+</div>
+						
+<div class="content_blocklist_row" id="Receiver_Sum_Signal_Output_Row" style="display: none;">
+							
+<div class="blocklist_cell" id="Receiver_Sum_Signal_Output_Label">Summensignal</div>
+							
+<div class="blocklist_cell" id="Receiver_Sum_Signal_Output" style="width: 251px;">--</div>
+						
+</div>
+						
+<div class="content_blocklist_row" id="Receiver_Sum_Signal_Off_Row" style="display: none;">
+							
+<div class="blocklist_cell double_row" id="Receiver_Sum_Signal_Off_Label" style="line-height: 31px;">Summensignal aus bei Fail Safe</div>
+							
+<div class="blocklist_cell" id="Receiver_Sum_Signal_Off" style="width: 251px;">--</div>
+						
+</div>
+						
+<div class="content_blocklist_row">
+							
+<div class="blocklist_cell double_row" id="Receiver_Servo_Pulse_Synchronization_Label">Servoansteuerung synchron</div>
+							
+<div class="blocklist_cell" id="Receiver_Servo_Pulse_Synchronization" style="width: 251px;">--</div>
+						
+</div>
+						
+<div class="content_blocklist_row" id="Receiver_Temperature_Warning_Row" style="display: none;">
+							
+<div class="blocklist_cell" id="Receiver_Temperature_Warning_Label">Temperatur Warnung</div>
+							
+<div class="blocklist_cell" id="Receiver_Temperature_Warning" style="width: 251px;">--&deg;C</div>
+						
+</div>
+						
+<div class="content_blocklist_row" id="Receiver_AutoPowerOff_Row" style="display: none;">
+							
+<div class="blocklist_cell" id="Receiver_AutoPowerOff_Label">Auto Power Off</div>
+							
+<div class="blocklist_cell" id="Receiver_AutoPowerOff" style="width: 251px;">--</div>
+						
+</div>
+					
+</div>
+				
+</div>
+				
+<div class="content_width_canvas_right" style="background: transparent; margin-top: -68px; width: 248px;">
+					
+<div class="receiver_image_bg">
+						
+<img alt="" draggable="false" height="248" id="Receiver_IMG" src="" width="248">
+					</div>
+					
+<div style="width: 248px;">
+						
+<div class="button_blue round_all" style="height: 60px; margin-top: 20px; width: 246px;">
+<a draggable="false" id="Binding_Label">Binding</a>
+</div>
+					
+</div>
+				
+</div>
+			
+</article>
+			
+<footer>
+				
+<div class="black_bar"></div>
+				
+<div class="right_button_box">
+					
+<div class="button_blue round_all" id="Option_Box" style="width: 60px; height: 60px; margin-right: 4px;">
+<a class="option_button" draggable="false" href="1.2__ReceiverConfiguration.html" id="Option_Button"></a>
+</div>
+					
+<div id="Navi_Box">
+						
+<div class="button_blue round_all" style="width: 180px; height: 60px;">
+<a class="back_button" draggable="false" href="1.0.0__ModelSettings.html" id="Navi_Button"></a>
+</div>
+					
+</div>
+					
+<div id="Safe_Cancel_Box" style="display: none;">
+						
+<div class="button_blue round_left" style="width: 89px; height: 60px;">
+<a class="check_button" draggable="false" href="1.2__ReceiverConfiguration.html" id="Safe_Button"></a>
+</div>
+						
+<div class="button_blue round_right" style="width: 89px; height: 60px;">
+<a class="delete_button" draggable="false" href="1.2__ReceiverConfiguration.html" id="Cancel_Button"></a>
+</div>
+					
+</div>
+					
+<div id="Wizard_Box" style="display: none;">
+						
+<div class="button_blue round_all" style="width: 246px; height: 60px;">
+<a class="forward_button" draggable="false" href="1.3.1__ServoConfigurationGraphicView.html?Wizard=true" id="Forward_Button"></a>
+</div>
+					
+</div>
+				
+</div>
+			
+</footer>
+			
+<div id="Pop_Up_Blocker"></div>
+			
+<div id="Pop_Up" style="position: absolute; z-index: 100000;"></div>
+		
+</main>
+	
+</body>
+
+</html>

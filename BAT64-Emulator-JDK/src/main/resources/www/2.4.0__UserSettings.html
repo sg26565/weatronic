@@ -1,0 +1,233 @@
+<!DOCTYPE html SYSTEM "html">
+<html>
+	
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		
+<title>2.4.0__UserSettings</title>
+		
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+		
+<link href="css/bat60.css" rel="Stylesheet" type="text/css">
+		
+		
+<script src="js/jquery-1.11.0.min.js" type="text/javascript"></script>
+		<script src="js/common.js" type="text/javascript"></script>
+		<script defer src="2.4.0__UserSettings.js" type="text/javascript"></script>	
+		
+		
+<style type="text/css">
+			
+			.time, .date, .today_spacer {
+				letter-spacing:			1px;
+				background:				none !important;
+				border:					none !important;
+			}
+			.today_spacer {
+				border-color:			#aaa !important;
+				border-style:			solid !important;
+				border-width:			0px 3px 0px 0px !important;
+				display:				block;
+				height:					31px !important;
+				margin:					19px 10px 0px 0px;
+				width:					5px;
+			}
+			.user_image {
+				background:				none !important;
+				border:					none !important;
+			}
+			.label {
+				width:					230px;
+			}
+			.list_block, .list_content_row {
+				width:					760px;
+			}
+			.content {
+				border-width:			1px 1px 1px 0px;
+				width:					510px;
+			}
+			.checkbox {
+				border:					2px solid #fff !important;
+				border-radius:			4px;
+				height:					40px !important;
+				margin:					12px 0px 0px 13px;
+				padding:				0px;
+				width:					32px !important;
+			}
+			.checkbox img {
+				margin-bottom:			3px;
+				margin-left:			-5px;
+			}
+			.mCustomScrollBox>.mCSB_scrollTools {
+				height:					349px !important;
+			}
+		</style>
+	
+</head>
+	
+<body>
+		
+<main>
+			
+<div id="Page_Name_Tag">User_Settings_Label</div>
+			
+<header>
+				
+<div class="header_group_icon">
+					
+<div class="group_icon_settings"></div>
+				
+</div>
+				
+<div class="header_center">
+					
+<div class="header_1st_div" id="User_Settings_Label">Benutzereinstellung</div>
+				
+</div>
+				
+<div class="header_battery_value" id="Battery_Value">-- V</div>
+				
+<div class="header_battery">          
+					
+<div class="header_battery_image">
+						
+<div class="battery_spacer"></div>
+						
+<div class="battery_segment" id="Battery_80"></div>
+						
+<div class="battery_segment" id="Battery_60"></div>
+						
+<div class="battery_segment" id="Battery_40"></div>
+						
+<div class="battery_segment" id="Battery_20"></div>
+						
+<div class="battery_segment" id="Battery_0"></div>
+					
+</div>
+				
+</div>
+			
+</header>
+			
+<article>
+				
+<div class="list_block">
+					
+<div class="list_content scrollContainerOuterVertical" id="List_Container" style="width: 760px; max-height: 350px;">
+						
+<div class="inner_list_content" id="scrollContainerInnerVertical">
+							
+<div class="list_content_row" style="border-width: 1px 0px 1px 0px;">
+								
+<div class="label no_edit" id="User_Name_Label">Benutzername</div>
+								
+<div class="content" id="User_Name"></div>
+							
+</div>
+							
+<div class="list_content_row">
+								
+<div class="label no_edit" id="User_Image_Label">Bild</div>
+								
+<div class="content" id="User_IMG">
+									
+<div class="user_image" id="User_Image"></div>
+									
+<div class="user_image" id="User_Image_URL"></div>
+								
+</div>
+							
+</div>
+							
+<div class="list_content_row">
+								
+<div class="label no_edit" id="User_Language_Label">Sprache</div>
+								
+<div class="content" id="User_Language"></div>
+							
+</div>
+							
+<div class="list_content_row">
+								
+<div class="label no_edit" id="User_Time_Label">Uhrzeit | Datum</div>
+								
+<div class="content" id="Date_Time">
+									
+<div class="time" id="Today_Time"></div>
+									
+<div class="today_spacer"></div>
+									
+<div class="date" id="Today_Date"></div>
+								
+</div>
+							
+</div>
+							
+<div class="list_content_row">
+								
+<div class="label no_edit" id="User_Timezone_Label">Zeitzone</div>
+								
+<div class="content" id="User_Timezone"></div>
+							
+</div>
+							
+<div class="list_content_row">
+								
+<div class="label no_edit" id="User_Password_Label" style="width: 230px;">Passwort</div>
+								
+<div class="content no_edit" id="User_Password" style="width: 210px;"></div>
+								
+<div class="label no_edit" id="User_Password_Active_Label" style="width: 210px;">Activ</div>
+								
+<div id="User_Password_Active" style="width: 70px;">
+									
+<div class="checkbox">
+									
+<img alt="" draggable="false" height="35" id="User_Password_Active_IMG" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACoAAAAjCAYAAADizJiTAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2RpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo4QUU1Nzg4RUM3NDRFMjExQTNCREVFNkMxQjk4MkM0NiIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpCQUIxRDZCQTlCMEExMUUyQTcxMEEzNzJDMzE5ODFDMyIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpCQUIxRDZCOTlCMEExMUUyQTcxMEEzNzJDMzE5ODFDMyIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IFdpbmRvd3MiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDpBQkE3RDFEQUYyOUFFMjExQkY4NkRDQzBDNkQwODQ3QiIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo4QUU1Nzg4RUM3NDRFMjExQTNCREVFNkMxQjk4MkM0NiIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/Psw8DHIAAADdSURBVHja7NjrCoMwDAXg6fbcGWcv3lHYj9GbaTpPMvBAQaHgh61NcEsp3f4heyCLfEYzj0BIfN2/qhl56Z2HpDpSzouIbGKjIivsHmRP9nL33KOaN5kDz6U3IdlQM5IJXUKyoMtIBvQnyCOotCqEB3IElVE5YyN7UFXtZSJbUHXtZSJL6FTtZSJLKJQPEjaytfQW7OnI3sc0g6UgR8eTFktBHh34iILUlFBEQGprPbyRM00JPJGz3RO8kJY2Dx5Iaz8KNnKlcQYTmYf139Ozc31atuu34wUNnrcAAwCJ1ARaCuqr5QAAAABJRU5ErkJggg==" style="display: none;" width="42">
+									</div>
+								
+</div>
+							
+</div>
+							
+							
+						
+</div>
+					
+</div>
+				
+</div>
+			
+</article>
+			
+<footer>
+				
+<div class="black_bar"></div>
+				
+<div class="right_button_box">
+					
+<div class="button_blue round_all" style="width: 60px; height: 60px; margin-right: 4px;">
+<a class="option_button" draggable="false" href="2.9__Firmware.html" id="Option_Button"></a>
+</div>
+					
+<div id="Navi_Box">
+						
+<div class="button_blue round_all" style="width: 180px; height: 60px;">
+<a class="back_button" draggable="false" href="2.0__GeneralSettings.html" id="Navi_Button"></a>
+</div>
+					
+</div>
+				
+</div>
+			
+</footer>
+			
+<div id="Pop_Up_Blocker"></div>
+			
+<div id="Pop_Up" style="position: absolute; z-index: 100000;"></div>
+		
+</main>
+	
+</body>
+
+</html>

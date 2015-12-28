@@ -1,0 +1,244 @@
+<!DOCTYPE html SYSTEM "html">
+<html>
+	
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		
+<title>1.5.0__Sequencers</title>
+		
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+		
+<link href="css/bat60.css" rel="Stylesheet" type="text/css">
+		
+		
+<script src="js/jquery-1.11.0.min.js" type="text/javascript"></script>
+		<script src="js/common.js" type="text/javascript"></script>
+		<script defer src="1.5.0__Sequencers.js" type="text/javascript"></script>	
+		
+		
+<style type="text/css">
+			
+			.list_sequencer_name {
+				overflow:				hidden;
+				text-align:				left;
+				text-overflow:			ellipsis;
+				white-space:			nowrap;
+				width:					210px;
+				word-break:				break-all;
+			}
+			.list_sequencer_setup {
+				text-align:				center;
+				width:					64px;
+			}
+			.list_sequencer_switch {
+				background-position:	center;
+				background-repeat:		no-repeat;
+				width:					110px;
+			}
+			.list_sequencer_max, .list_sequencer_min, .list_sequencer_failsafe {
+				overflow:				hidden;
+				text-align:				center;
+				text-overflow:			ellipsis;
+				white-space:			nowrap;
+				width:					70px;
+			}
+			.list_header .list_sequencer_max, .list_header .list_sequencer_min {
+				padding-right:			0px;
+				width:					48px;
+			}
+			.list_sequencer_runtime {
+				margin-left:			1px;
+				width:					151px;
+			}
+			.list_sequencer_runtime div {
+				padding:				0px 0px 0px 0px !important;
+			}
+			.list_sequencer_runtime div.list_sequencer_rarrow1, .list_sequencer_runtime div.list_sequencer_rarrow2 {
+				background-image:		url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA0AAAANCAYAAABy6+R8AAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAACwSURBVHjaYjl79iwDDmAOxLeA+D26BBMDbuABxHnYJPBpYgHiBiBuwaYJhJmx4H9QNdVAPBuIWZFNmwjEnlhsEkJipwCxKBDHAfEnkCZZIFZmIAz8gXgbSCPIab8ZiAfWQNzNhOxWIsBRIC4FOe8xEN/F4SdBJP4mII4F+QlkUz4Qq2PBk5E0zAXiEJAGWJCDgvYvFgyLwzZo6P0mJnL/QCO3Glus4wI7oWkPAwAEGADTlCK4cVlycQAAAABJRU5ErkJggg==);
+				background-position:	center;
+				background-repeat:		no-repeat;
+				background-size:		13px 13px;
+				height:					26px;
+				width:					13px;
+			}
+			.list_sequencer_runtime div.list_sequencer_rarrow1 {
+				margin:					0px 0px 0px 4px !important;
+			}
+			.list_sequencer_runtime div.list_sequencer_rarrow2 {
+				margin:					0px 2px 0px 2px !important;
+			}
+			.list_content_row .list_sequencer_setup img {
+				border:					0;
+				margin-top:				10px;
+				padding:				0;
+			}
+			.list_content_row .list_sequencer_switch img {
+				margin-top:				4px;
+			}
+			.list_sequencer_failsafe {
+				width:					90px;
+			}
+			.list_sequencer_name:hover, .list_sequencer_setup:hover, .list_sequencer_switch:hover, .list_sequencer_max:hover, .list_sequencer_min:hover, .list_sequencer_failsafe:hover {
+				cursor:					pointer;
+			}
+			.list_sequencer_setup a, .list_sequencer_switch a {
+				color:					#fff;
+				display:				block;
+				height:					inherit;
+				text-decoration:		none;
+				width:					inherit;
+			}
+		</style>
+	
+</head>
+	
+<body>
+		
+<main>
+			
+<div id="Page_Name_Tag">Sequencers_Label</div>
+			
+<header>
+				
+<div class="header_group_icon">
+					
+<div class="group_icon_wrench"></div>
+				
+</div>
+				
+<div class="header_center">
+					
+<div class="header_1st_div" id="Sequencers_Label">Sequenzer</div>
+					
+<div class="header_sub_spacer"></div>
+					
+<div class="header_sub_div" id="Model_Name"></div>
+				
+</div>
+				
+<div class="header_battery_value" id="Battery_Value">-- V</div>
+				
+<div class="header_battery">          
+					
+<div class="header_battery_image">
+						
+<div class="battery_spacer"></div>
+						
+<div class="battery_segment" id="Battery_80"></div>
+						
+<div class="battery_segment" id="Battery_60"></div>
+						
+<div class="battery_segment" id="Battery_40"></div>
+						
+<div class="battery_segment" id="Battery_20"></div>
+						
+<div class="battery_segment" id="Battery_0"></div>
+					
+</div>
+				
+</div>
+			
+</header>
+			
+<article>
+				
+<div class="content_width_list">
+					
+<div class="list_header">
+						
+<div class="list_sequencer_name" id="Sequencer_Label">Sequenzer</div>
+						
+<div class="list_sequencer_switch" id="Sequencer_Switch_Label">Schalter</div>
+						
+						 
+<div class="list_sequencer_runtime">
+						 	
+<div>0%</div>
+						 	
+<div class="list_sequencer_rarrow1"></div>
+						 	
+<div>100%</div>
+						 	
+<div class="list_sequencer_rarrow2"></div>
+							
+<div>0%</div>
+						 
+</div>
+						
+<div class="list_sequencer_failsafe" id="Sequencer_FailSafe_Label">Fail Safe</div>
+						
+<div class="list_sequencer_setup" id="Sequencer_Setup_Label">Setup</div>
+					
+</div>
+					
+<div class="list_content scrollContainerOuterVertical" id="List_Container" style="max-height: 315px;">
+						
+<div class="inner_list_content" id="scrollContainerInnerVertical">
+						
+</div>
+					
+</div>
+				
+</div>
+				
+<aside class="ard_buttons" id="ARD_Buttons">
+					
+<div class="button_blue round_top" style="width: 60px; height: 60px;">
+<a class="add_button" draggable="false" id="Add_Button"></a>
+</div>
+					
+<div class="button_blue round_bottom" style="width: 60px; height: 60px;">
+<a class="trash_button" draggable="false" id="Delete_Button"></a>
+</div>
+					
+<div class="button_blue round_all" style="margin-top: 4px; width: 60px; height: 60px;">
+<a class="reorder_button" draggable="false" id="Reorder_Button"></a>
+</div>
+				
+</aside>
+			
+</article>
+			
+<footer>
+				
+<div class="black_bar"></div>
+				
+<div class="right_button_box">
+					
+<div class="button_blue round_all" style="width: 60px; height: 60px; margin-right: 4px;">
+<a class="option_button" draggable="false" href="1.5.0__Sequencers.html" id="Option_Button"></a>
+</div>
+					
+<div id="Navi_Box">
+						
+<div class="button_blue round_all" style="width: 180px; height: 60px;">
+<a class="back_button" draggable="false" href="1.0.0__ModelSettings.html" id="Navi_Button"></a>
+</div>
+					
+</div>
+					
+<div id="Safe_Cancel_Box" style="display: none;">
+						
+<div class="button_blue round_left" style="width: 89px; height: 60px;">
+<a class="check_button" draggable="false" href="1.5.0__Sequencers.html" id="Safe_Button"></a>
+</div>
+						
+<div class="button_blue round_right" style="width: 89px; height: 60px;">
+<a class="delete_button" draggable="false" href="1.5.0__Sequencers.html" id="Cancel_Button"></a>
+</div>
+					
+</div>
+				
+</div>
+			
+</footer>
+			
+<div id="Pop_Up_Blocker"></div>
+			
+<div id="Pop_Up" style="position: absolute; z-index: 100000;"></div>
+		
+</main>
+	
+</body>
+
+</html>

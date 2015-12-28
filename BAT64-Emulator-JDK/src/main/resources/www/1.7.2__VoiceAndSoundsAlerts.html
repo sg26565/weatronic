@@ -1,0 +1,205 @@
+<!DOCTYPE html SYSTEM "html">
+<html>
+	
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		
+<title>1.7.2__VoiceAndSoundsAlerts</title>
+		
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+		
+<link href="css/bat60.css" rel="Stylesheet" type="text/css">
+		
+		
+<script src="js/jquery-1.11.0.min.js" type="text/javascript"></script>
+		<script src="js/common.js" type="text/javascript"></script>
+		<script defer src="1.7.2__VoiceAndSoundsAlerts.js" type="text/javascript"></script>	
+		
+		
+<style type="text/css">
+			
+			.list_voicesoundsalert_item {
+				overflow:				hidden;
+				text-align:				left;
+				text-overflow:			ellipsis;
+				white-space:			nowrap;
+				width:					380px;
+				word-break:				break-all;
+			}
+
+			.list_voicesoundsalert_live {
+				overflow:				hidden;
+				text-align:				center;
+				text-overflow:			ellipsis;
+				white-space:			nowrap;
+				width:					200px;
+				word-break:				break-all;
+			}
+			.list_voicesoundsalert_setup {
+				width:					64px;
+			}
+			.list_content_row .list_voicesoundsalert_setup img {
+				border:					0;
+				margin:					10px 0px 0px 4px;
+				padding:				0;
+			}
+			.list_voicesoundsalert_setup:hover {
+				cursor:					pointer;
+			}
+			.list_voicesoundsalert_setup a {
+				color:					#fff;
+				height:					inherit;
+				text-decoration:		none;
+				width:					inherit;
+			}
+		</style>
+	
+</head>
+	
+<body>
+		
+<main>
+			
+<div id="Page_Name_Tag">VoiceAndSounds_Label</div>
+			
+<header>
+				
+<div class="header_group_icon">
+					
+<div class="group_icon_wrench"></div>
+				
+</div>
+				
+<div class="header_center">
+					
+<div class="header_1st_div" id="HeaderSpecial">
+						
+<div id="VoiceAndSounds_Label">Sprache &amp; T&ouml;ne</div>
+						
+<div style="height: inherit; margin-left: 10px;">
+							
+<img alt="" draggable="false" height="37" src="data:image/png;base64,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" style="margin-top: 6px;" width="37">
+						</div>
+					
+</div>
+					
+<div class="header_sub_spacer"></div>
+					
+<div class="header_sub_div" id="Sound_Mode_Name"></div>
+					
+<div class="header_sub_spacer"></div>
+					
+<div class="header_sub_div" id="Model_Name"></div>
+				
+</div>
+				
+<div class="header_battery_value" id="Battery_Value">-- V</div>
+				
+<div class="header_battery">          
+					
+<div class="header_battery_image">
+						
+<div class="battery_spacer"></div>
+						
+<div class="battery_segment" id="Battery_80"></div>
+						
+<div class="battery_segment" id="Battery_60"></div>
+						
+<div class="battery_segment" id="Battery_40"></div>
+						
+<div class="battery_segment" id="Battery_20"></div>
+						
+<div class="battery_segment" id="Battery_0"></div>
+					
+</div>
+				
+</div>
+			
+</header>
+			
+<article>
+				
+<div class="content_width_list">
+					
+<div class="list_header">
+						
+<div class="list_voicesoundsalert_item" id="VoiceSoundsAlert_Item_Label">Sensoren</div>
+						
+<div class="list_voicesoundsalert_live" id="VoiceSoundsAlert_Live_Label">Live Daten</div>
+						
+<div class="list_voicesoundsalert_setup" id="VoiceSoundsAlert_Label">Setup</div>
+
+					
+</div>
+					
+<div class="list_content scrollContainerOuterVertical" id="List_Container" style="max-height: 315px;">
+						
+<div class="inner_list_content" id="scrollContainerInnerVertical">
+						
+</div>
+					
+</div>
+				
+</div>
+				
+<aside class="ard_buttons" id="ARD_Buttons">
+					
+<div class="button_blue round_top" style="width: 60px; height: 60px;">
+<a class="add_button" draggable="false" id="Add_Button"></a>
+</div>
+					
+<div class="button_blue round_bottom" style="width: 60px; height: 60px;">
+<a class="trash_button" draggable="false" id="Delete_Button"></a>
+</div>
+					
+<div class="button_blue round_all" style="margin-top: 4px; width: 60px; height: 60px; display: none;">
+<a class="reorder_button" draggable="false" id="Reorder_Button"></a>
+</div>
+				
+</aside>
+			
+</article>
+			
+<footer>
+				
+<div class="black_bar"></div>
+				
+<div class="right_button_box">
+					
+<div class="button_blue round_all" style="width: 60px; height: 60px; margin-right: 4px;">
+<a class="option_button" draggable="false" href="1.7.2__VoiceAndSoundsAlerts.html" id="Option_Button"></a>
+</div>
+					
+<div id="Navi_Box">
+						
+<div class="button_blue round_all" style="width: 180px; height: 60px;">
+<a class="back_button" draggable="false" href="1.7.0__VoiceAndSounds.html" id="Navi_Button"></a>
+</div>
+					
+</div>
+					
+<div id="Safe_Cancel_Box" style="display: none;">
+						
+<div class="button_blue round_left" style="width: 89px; height: 60px;">
+<a class="check_button" draggable="false" href="1.7.2__VoiceAndSoundsAlerts.html" id="Safe_Button"></a>
+</div>
+						
+<div class="button_blue round_right" style="width: 89px; height: 60px;">
+<a class="delete_button" draggable="false" href="1.7.2__VoiceAndSoundsAlerts.html" id="Cancel_Button"></a>
+</div>
+					
+</div>
+				
+</div>
+			
+</footer>
+			
+<div id="Pop_Up_Blocker"></div>
+			
+<div id="Pop_Up" style="position: absolute; z-index: 100000;"></div>
+		
+</main>
+	
+</body>
+
+</html>

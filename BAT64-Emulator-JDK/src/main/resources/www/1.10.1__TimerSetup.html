@@ -1,0 +1,287 @@
+<!DOCTYPE html SYSTEM "html">
+<html>
+	
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		
+<title>1.10.1__TimerSetup</title>
+		
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+		
+<link href="css/bat60.css" rel="Stylesheet" type="text/css">
+		
+		
+<script src="js/jquery-1.11.0.min.js" type="text/javascript"></script>
+		<script src="js/common.js" type="text/javascript"></script>
+		<script defer src="1.10.1__TimerSetup.js" type="text/javascript"></script>	
+		
+		
+<style type="text/css">
+			
+			.list_timer_label {
+				overflow:				hidden;
+				text-align:				left;
+				text-overflow:			ellipsis;
+				white-space:			nowrap;
+				width:					242px;
+				word-break:				break-all;
+			}
+			.list_timer_Control {
+				text-align:				left;
+				width:					110px;
+			}
+			.list_timer_state_long {
+				text-align:				left;
+				width:					378px;
+			}
+			.list_timer_state_short {
+				text-align:				left;
+				width:					184px;
+			}
+			.list_timer_action_short {
+				overflow:				hidden;
+				text-align:				left;
+				text-overflow:			ellipsis;
+				white-space:			nowrap;
+				width:					184px;
+				word-break:				break-all;
+			}
+			.list_timer_value {
+				overflow:				hidden;
+				text-align:				left;
+				text-overflow:			ellipsis;
+				white-space:			nowrap;
+				width:					498px;
+				word-break:				break-all;
+			}
+			.list_content_row .list_timer_setup img {
+				border:					0;
+				margin-top:				8px;
+				padding:				0;
+			}
+			.list_timer_name:hover, .list_timer_setup:hover {
+				cursor:					pointer;
+			}
+
+			.mCSB_scrollTools .mCSB_draggerContainer {
+				height:					350px !important;
+			}
+			#graybtn li.no_edit{
+				background:				rgba(255, 255, 255, .08) !important;
+				cursor:					default !important;
+				pointer-events:			none !important;
+			}
+		</style>
+	
+</head>
+	
+<body>
+		
+<main>
+			
+<div id="Page_Name_Tag">TimerSetup_Label</div>
+			
+<header>
+				
+<div class="header_group_icon">
+					
+<div class="group_icon_wrench"></div>
+				
+</div>
+				
+<div class="header_center">
+					
+<div class="header_1st_div" id="TimerSetup_Label">Timer Setup</div>
+					
+<div class="header_sub_spacer"></div>
+					
+<div class="header_sub_div" id="Timer_Name"></div>
+					
+<div class="header_sub_spacer"></div>
+					
+<div class="header_sub_div" id="Model_Name"></div>
+				
+</div>
+				
+<div class="header_battery_value" id="Battery_Value">-- V</div>
+				
+<div class="header_battery">          
+					
+<div class="header_battery_image">
+						
+<div class="battery_spacer"></div>
+						
+<div class="battery_segment" id="Battery_80"></div>
+						
+<div class="battery_segment" id="Battery_60"></div>
+						
+<div class="battery_segment" id="Battery_40"></div>
+						
+<div class="battery_segment" id="Battery_20"></div>
+						
+<div class="battery_segment" id="Battery_0"></div>
+					
+</div>
+				
+</div>
+			
+</header>
+			
+<article>
+				
+<div class="content_width_list" style=" width: 760px;">
+					
+<div class="list_content scrollContainerOuterVertical" id="List_Container" style="max-height: 408px; width: 760px;">
+						
+<div class="inner_list_content" id="scrollContainerInnerVertical" style="border-top-width: 1px; border-top-style: solid; border-top-color: #000;">
+							
+<div class="list_content_row">
+								
+<div class="list_timer_label no_edit" id="Current_Value_Label">Anzeige</div>
+								
+<div class="list_timer_value no_edit" id="Current_Value_Value"></div>
+							
+</div>
+							
+<div class="list_content_row">
+								
+<div class="list_timer_label no_edit" id="Start_Control_Label">Start</div>
+								
+<div class="list_timer_Control list_timer_setup" id="Start_Control_Value">
+									
+<div class="" id="Start_Control_Trigger" style="margin-top: 8px;"></div>
+									
+<img draggable="false" id="Start_Control_Control" src="" style="margin-top: 4px;">									
+								</div>
+								
+<div class="list_timer_state_long no_edit">
+									
+<img alt="" draggable="false" height="55" id="Start_Control_State" src="" style="margin-top: 8px;" width="71">
+								</div>
+							
+</div>
+							
+<div class="list_content_row">
+								
+<div class="list_timer_label no_edit" id="Stop_Control_Label">Stop</div>
+								
+<div class="list_timer_Control list_timer_setup" id="Stop_Control_Value">
+									
+<div class="" id="Stop_Control_Trigger" style="margin-top: 8px;"></div>
+									
+<img draggable="false" id="Stop_Control_Control" src="" style="margin-top: 4px;">
+								</div>
+								
+<div class="list_timer_state_long no_edit">
+									
+<img alt="" draggable="false" height="55" id="Stop_Control_State" src="" style="margin-top: 8px;" width="71">
+								</div>
+							
+</div>
+							
+<div class="list_content_row">
+								
+<div class="list_timer_label no_edit" id="Reset_Control_Label">Reset</div>
+								
+<div class="list_timer_Control list_timer_setup" id="Reset_Control_Value">
+									
+<div class="" id="Reset_Control_Trigger" style="margin-top: 8px;"></div>
+									
+<img draggable="false" id="Reset_Control_Control" src="" style="margin-top: 4px;">
+								</div>
+								
+<div class="list_timer_state_short no_edit">
+									
+<img alt="" draggable="false" height="55" id="Reset_Control_State" src="" style="margin-top: 8px;" width="71">
+								</div>
+								
+<div class="list_timer_action_short list_timer_setup" id="Reset_Control_Action" style="text-align: center;">
+									
+<img draggable="false" height="35" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACoAAAAjCAYAAADizJiTAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoV2luZG93cykiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6MkY3MDBGNzlBODg5MTFFMkI1OUY5N0Y1NTA0NzE2RjIiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6MkY3MDBGN0FBODg5MTFFMkI1OUY5N0Y1NTA0NzE2RjIiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDoyRjcwMEY3N0E4ODkxMUUyQjU5Rjk3RjU1MDQ3MTZGMiIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDoyRjcwMEY3OEE4ODkxMUUyQjU5Rjk3RjU1MDQ3MTZGMiIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/Pvtlo2sAAAMnSURBVHja1JhbiE1RGMfPGRpmojFJhJqETEKTjBehTLwwmnGn0fAg5fJCMQ9uD3KL8UJJ8yC3QW5DGIR0cikJocTEpKEkxqAwOPw//U/tduuy11l71Pzr10x7r33O/6z1re/71k7eSaUSnUE5iU6irp7PF4ByUAZGgSLQm/fawCvwEFwDF0Dr/zZaDGrAHJBn+BElZBH4Bo6DreB5Ry99PtgNHoNqg0mV8mj4Kdjp+KzTjA4DJ8GIGMJtNegGVsZtdAxoDMSfr5rBpriXfgi4GKPJ72AW+BDn0ktMNoA+lnGvwTkgSfkt+AMGgFIwEwwKjJXlvh96vhCkmSmyMroZDDfcfwnWgNM0F9YJZgcxuwtcAXWhMV3AMdAOpms+x2i02BLsZ7jzv1h+7G8avkwzYW0HU/i/xO1G1xitMfwQWebZEUwG1cZcGtRCZoCM1oMKF6OSrOcadmwVZ8pHkkn2ha4lwQGuZiSjUha7a+6tc5xJlfoydPI1k3SWf61GJxl2d72nyVxwCgy0FJdDnGGj0RLN9QamER/tAeMijCsPbiyd0SLN9VueJpeBJQ7jNzBlaY0Waq6/8TA5kQ2Ni2TpD8rmymGJbGWizZDUPJgKjPkFJjt86U02IklSahgbHNcLPBOjTWB+FulGKtJVjxnur7nerioMmaVvZLKNKtmRtZ7xOlZzvcmW8Lex37TpHljqaVKWtFJz75HNqMTdYvDE8AXvwAxFKXRVpaHZuRGlhH7lh3zSxI6YbPE02ZONiEo/WZUi1XqJkQWKzbUc3I7heH6YmUYlaRffuzQll0Lt1l5FH5kbrscRmvD6TAJXKM0TqvNRZAtrsuS/VYr7tTyNzrP0tbJxpoEHPF7rtF+3kf59iOWVTg8ea8PLUcUUFWxWzrMgtNBcP7ZyFWwyTHrBsZ+zNarSSHBX06JlI2mox3N1YnsBUcBwiMuklO6pNpPZGJXqNTQmk7LcE6J2ZK5GpbvfoTmkRVWaWWS0pbh4GZWXB2tZVeocK9QPcIRN+QoWl+g11/NFbgFjrIwzNJiVJ8Hq1sz4u86T60efF1a+O/Yo6VD9FWAAAqKrsPXRF50AAAAASUVORK5CYII=" style="margin-top: 17px;" width="42">
+								</div>
+							
+</div>
+							
+<div class="list_content_row">
+								
+<div class="list_timer_label no_edit" id="Start_Time_Label">Startzeit</div>
+								
+<div class="list_timer_value list_timer_setup" id="Start_Time_Value"></div>
+							
+</div>
+							
+<div class="list_content_row">
+								
+<div class="list_timer_label no_edit" id="Alarm_End_Label">Alarmende</div>
+								
+<div class="list_timer_value list_timer_setup" id="Alarm_End_Value"></div>
+							
+</div>
+							
+<div class="list_content_row">
+								
+<div class="list_timer_label no_edit" id="Alarm_Duration_Label">Alarmdauer</div>
+								
+<div class="list_timer_value list_timer_setup" id="Alarm_Duration_Value"></div>
+							
+</div>
+							
+<div class="list_content_row">
+								
+<div class="list_timer_label no_edit" id="Alarm_Type_Label">Alarmtyp</div>
+								
+<div class="list_timer_value list_timer_setup" id="Alarm_Type_Value"></div>
+							
+</div>
+						
+</div>
+					
+</div>
+				
+</div>
+			
+</article>
+			
+<footer>
+				
+<div class="black_bar"></div>
+				
+<div class="right_button_box">
+					
+<div class="button_blue round_all" style="width: 60px; height: 60px; margin-right: 4px;">
+<a class="option_button" draggable="false" href="1.10.1__TimerSetup.html" id="Option_Button"></a>
+</div>
+					
+<div id="Navi_Box">
+						
+<div class="button_blue round_all" style="width: 180px; height: 60px;">
+<a class="back_button" draggable="false" href="1.10.0__Timers.html" id="Navi_Button"></a>
+</div>
+					
+</div>
+					
+<div id="Safe_Cancel_Box" style="display: none;">
+						
+<div class="button_blue round_left" style="width: 89px; height: 60px;">
+<a class="check_button" draggable="false" href="1.10.1__TimerSetup.html" id="Safe_Button"></a>
+</div>
+						
+<div class="button_blue round_right" style="width: 89px; height: 60px;">
+<a class="delete_button" draggable="false" href="1.10.1__TimerSetup.html" id="Cancel_Button"></a>
+</div>
+					
+</div>
+				
+</div>
+			
+</footer>
+			
+<div id="Pop_Up_Blocker"></div>
+			
+<div id="Pop_Up" style="position: absolute; z-index: 100000;"></div>
+		
+</main>
+	
+</body>
+
+</html>

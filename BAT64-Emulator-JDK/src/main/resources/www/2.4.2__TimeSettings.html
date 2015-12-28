@@ -1,0 +1,437 @@
+<!DOCTYPE html SYSTEM "html">
+<html>
+	
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		
+<title>2.4.0__UserSettings</title>
+		
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+		
+<link href="css/bat60.css" rel="Stylesheet" type="text/css">
+		
+		
+<script src="js/jquery-1.11.0.min.js" type="text/javascript"></script>
+		<script src="js/common.js" type="text/javascript"></script>
+		<script defer src="2.4.2__TimeSettings.js" type="text/javascript"></script>
+		
+		
+<style type="text/css">
+			
+			.background {
+				background:				rgba(255, 255, 255, .2);
+				background: 			-moz-linear-gradient(top, rgba(255, 255, 255, .2) 0%, rgba(255, 255, 255, .2) 100%); 
+				background:				-webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(255, 255, 255, .2)), color-stop(100%, rgba(255, 255, 255, .2))); 
+				background:				-webkit-linear-gradient(top, rgba(255, 255, 255, .2) 0%, rgba(255, 255, 255, .2) 100%); 
+				background:				-o-linear-gradient(top, rgba(255, 255, 255, .2) 0%, rgba(255, 255, 255, .2) 100%); 
+				background:				-ms-linear-gradient(top, rgba(255, 255, 255, .2) 0%, rgba(255, 255, 255, .2) 100%); 
+				background:				linear-gradient(to bottom, rgba(255, 255, 255, .27) 0%, rgba(255, 255, 255, .1) 100%); 
+			}
+			.option_header {
+				background:				rgba(255, 255, 255, .08);
+				border-color:			#000;
+				border-left-color:		#999;
+				border-style:			solid;
+				border-width:			1px 1px 1px 1px;
+				color:					#fff;
+				font-size:				19px;
+				height:					108px !important;
+				line-height: 			54px;
+				width:					378px;
+				
+			}
+			.option_label {
+				height:					54px;
+				padding:				0px 6px 0px 6px;
+			}
+			.drop_down_menu {
+				background:				rgba(255, 255, 255, .2);
+				background: 			-moz-linear-gradient(top, rgba(255, 255, 255, .2) 0%, rgba(255, 255, 255, .2) 100%); 
+				background:				-webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(255, 255, 255, .2)), color-stop(100%, rgba(255, 255, 255, .2))); 
+				background:				-webkit-linear-gradient(top, rgba(255, 255, 255, .2) 0%, rgba(255, 255, 255, .2) 100%); 
+				background:				-o-linear-gradient(top, rgba(255, 255, 255, .2) 0%, rgba(255, 255, 255, .2) 100%); 
+				background:				-ms-linear-gradient(top, rgba(255, 255, 255, .2) 0%, rgba(255, 255, 255, .2) 100%); 
+				background:				linear-gradient(to bottom, rgba(255, 255, 255, .27) 0%, rgba(255, 255, 255, .1) 100%); 
+ 				border-color:			#000;
+				border-style:			solid;
+				border-width:			1px 0px 0px 0px;
+				height:					54px;
+				padding:				0px 6px 0px 6px;
+				width:					366px;
+			}
+			.drop_down_content, .drop_down_arrow {
+				background:				transparent;
+				height:					42px;
+				line-height:			42px;
+				margin:					6px 0px 6px 0px;
+				padding:				0;
+			}
+			.drop_down_content {
+				border-color:			#000;
+				border-style:			solid;
+				border-width:			0px 1px 0px 0px;
+				cursor:					pointer;
+				width:					310px;
+			}
+			.drop_down_arrow {
+				border-color:			#999;
+				border-style:			solid;
+				border-width:			0px 0px 0px 1px;
+				cursor:					pointer;
+				width:					53px;
+			}
+			.icon_drop_down_arrow_down {
+				background-image:		url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAANCAYAAABGkiVgAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAEmSURBVHjarJIxi4QwEIXD4i9dsLGxcBHBxkbLrQTBzsJSK0VLC7GyUxZEwUbYQhuxEsU5s+JxeurK3g08EpKZLy+TIFVV4T9DURS4ZFmGHMdBfd+jT2Nkoa7rkK7rKM/zaYHjOAiC4E8OTdMElmXxdIJi8TwPURQtEodh2IXgvXnf8zxgGAZm1jcUSxRFKMvylLMZGMcx3G43+MlZQLFkWYamaQ6BY/9eY1EUgI2sGZd10x+PB7IsC41OplM3giAIVNc1MgwDPZ/P7Zdbi6IocF338OqapgFJkrBVvwmdwWEY/gK2bQu2bcP1eoW92l0oliAIkKbpAoq/Hk3TcFR3CMWSJAmqqnoBkyQB/Kff1byFYt3vd/B9H7DzM/mnoHOPz+Z+CTAAATYk4AHtLQkAAAAASUVORK5CYII=);
+				background-position:	center;
+				background-repeat:		no-repeat;
+				height:					42px;
+				width:					53px;
+			}
+
+			.drop_down_options {
+				background:				#525252;
+				border-color:			#000;
+				border-left-color:		#999;
+				border-style:			solid;
+				border-width:			0px 1px 1px 1px;
+				margin:					108px 0px 0px -1px;
+				position:				absolute;
+				width:					378px;
+				z-index:				10000;
+			}
+			.drop_down_option {
+				background:				rgba(255, 255, 255, .2);
+				background: 			-moz-linear-gradient(top, rgba(255, 255, 255, .2) 0%, rgba(255, 255, 255, .2) 100%); 
+				background:				-webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(255, 255, 255, .2)), color-stop(100%, rgba(255, 255, 255, .2))); 
+				background:				-webkit-linear-gradient(top, rgba(255, 255, 255, .2) 0%, rgba(255, 255, 255, .2) 100%); 
+				background:				-o-linear-gradient(top, rgba(255, 255, 255, .2) 0%, rgba(255, 255, 255, .2) 100%); 
+				background:				-ms-linear-gradient(top, rgba(255, 255, 255, .2) 0%, rgba(255, 255, 255, .2) 100%); 
+				background:				linear-gradient(to bottom, rgba(255, 255, 255, .27) 0%, rgba(255, 255, 255, .1) 100%); 
+				border-color:			#000 #000 #000 #999;
+				border-style:			solid;
+				border-width:			1px 0px 0px 0px;
+				cursor:					pointer;
+				padding:				0px 6px 0px 6px;
+				width:					366px;
+			}
+			.drop_down_option div {
+				background-position:	center;
+				background-repeat:		no-repeat;
+				height:					54px;
+				margin-right:			6px;
+				width:					75px;
+			}
+
+			.list_block {
+				width:					760px;
+			}
+			.time, .seperater {
+				background:				none !important;
+				border:					none !important;
+				font-size:				50px;
+				letter-spacing:			1px;
+				margin:					0px 10px 0px 0px;
+			}
+			.time_block {
+				text-align: 			center;
+				width: 					60px;
+			}
+			.arrow_box {
+				height:					60px;
+				text-align: 			center;
+				width:					60px;
+			}
+			.arrow_box:hover {
+				cursor:					pointer;
+			}
+			.time_format {
+				text-align:				center;
+				width:					80px;
+			}
+			.year {
+				width:					120px;
+			}
+			.seperater {
+				margin:					60px 5px 0px 5px;
+			}
+		</style>
+	
+</head>
+	
+<body>
+		
+<main>
+			
+<div id="Page_Name_Tag">Time_Settings_Label</div>
+			
+<header>
+				
+<div class="header_group_icon">
+					
+<div class="group_icon_settings"></div>
+				
+</div>
+				
+<div class="header_center">
+					
+<div class="header_1st_div" id="Time_Settings_Label">Uhrzeit Einstellung</div>
+				
+</div>
+				
+<div class="header_battery_value" id="Battery_Value">-- V</div>
+				
+<div class="header_battery">          
+					
+<div class="header_battery_image">
+						
+<div class="battery_spacer"></div>
+						
+<div class="battery_segment" id="Battery_80"></div>
+						
+<div class="battery_segment" id="Battery_60"></div>
+						
+<div class="battery_segment" id="Battery_40"></div>
+						
+<div class="battery_segment" id="Battery_20"></div>
+						
+<div class="battery_segment" id="Battery_0"></div>
+					
+</div>
+				
+</div>
+			
+</header>
+			
+<article>
+				
+<div class="list_block">
+					
+<div class="list_content scrollContainerOuterVertical" style="width: 760px; max-height: 410px;">
+						
+<div class="inner_list_content" id="scrollContainerInnerVertical_1">
+							
+<div class="option_header">
+								
+<div class="option_label" id="Time_Format_Label">Zeitformat</div>	
+								
+<div class="drop_down_menu">
+									
+<div class="drop_down_content" id="Drop_Down_Content_Left">
+										24h
+									</div>
+									
+<div class="drop_down_arrow" id="Drop_Down_Arrow_Left">
+										
+<div class="icon_drop_down_arrow_down"></div>
+									
+</div>
+								
+</div>
+								
+<div class="drop_down_options" id="Drop_Down_Options_Left" style="display: none;">
+									
+<div class="drop_down_option" id="Option_0_Left" style="display: none;">24h</div>
+									
+<div class="drop_down_option" id="Option_1_Left">12h</div>
+								
+</div>
+							
+</div>
+							
+<div class="option_header">
+								
+<div class="option_label" id="Date_Format_Label">Datumsformat</div>
+								
+<div class="drop_down_menu">
+									
+<div class="drop_down_content" id="Drop_Down_Content_Right">
+										DD.MM.YYYY
+									</div>
+									
+<div class="drop_down_arrow" id="Drop_Down_Arrow_Right">
+										
+<div class="icon_drop_down_arrow_down"></div>
+									
+</div>
+								
+</div>
+								
+<div class="drop_down_options" id="Drop_Down_Options_Right" style="display: none;">
+									
+<div class="drop_down_option" id="Option_0_Right" style="display: none;">DD.MM.YYYY</div>
+									
+<div class="drop_down_option" id="Option_1_Right">YYYY.MM.DD</div>
+									
+<div class="drop_down_option" id="Option_2_Right">MM.DD.YYYY</div>
+								
+</div>
+							
+</div>
+							
+<div class="list_block" id="Date_Time" style="margin-top: 35px;">
+								
+<div id="Time" style="margin-left: 30px;">
+									
+<div class="time_block">
+										
+<div class="arrow_box">
+<img alt="" draggable="false" height="55" id="Time_Hour_Up" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAA3CAYAAABO8hkCAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAIeSURBVHja7Nm/TsJAHAfwK6JGDYlOakwMPgOJ/17CN/AV4AUc3IyTg0EYGVyNf0ajLoRAYGCBQBhYXWhSVDSN5fyduZKjoRTaKxX8XfINpTTHfXqQ8PuhUErJLIwQmZGBEIQgBCEIQQhCEIIQhDiOsPhEURSZc7PJ5njYMHik1g1mGRL26QYxxCJkBbLMF/8JeYfosjFSPlrsjogREGuQnUqlclUsFs/heJufW2DXCNfL2xovk9ogNiGHhULhmfKRyWTu4NweZINfo8iA9N5bFsSKyOfzL1QYjUaDptPpByvmT0EsiINcLvckIgzDoK1Wi9brdekYaRAnBBvdbpfquu4LRhbEEeE3RgZkZISfGK+QsRFDMPdeMF4grhF2mFQqdesW4xbiGSEb4wbSh8hms4/U45CBGRciHSELMw7EN4QMzKgQ3xFeMaNAJobwgnGCTBzhFjMMEhjCAbMLWbdi7CAiYj8IxCBMrVajyWTyZhDGXHtfcQM1e4iXp1ulUuksFosdsfPtdpuoqkrg5/jEmwoAIp1Oh2iaRsrl8nU8Hj+F06+QD/ayuX4rhNXwkWazeRGNRo+r1SphYZMEgRAxsDu/j7DGy0QiccLr/287CNuRJcgqr68jZo0dcLeny5sWbxAVokG+hu2IwjsrbPHz/DhoRO97zXaAg3SztWQHmbrG3MC+1jT/5469X4QgBCEIQQhCEIIQhPwfyI8AAwDpecKKsnOsxgAAAABJRU5ErkJggg==" width="50"></div>
+										
+<div class="time" id="Today_Time_Hour">10</div>
+										
+<div class="arrow_box">
+<img alt="" draggable="false" height="55" id="Time_Hour_Down" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAA3CAYAAABO8hkCAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAIHSURBVHja7NpLTsJgEAdwCsRHovGxUQ9g4tbE+DoOEG7AGjgBC7eExMS4YGFQTHhqN5yABQu4ASyUGE3UwjjVr6a0FWiZlqozyT/0ow2ZH20IHZAAIPAXKhj4I8UQhjCEIQxhCEMYwhCG/B9IWL+QsPAhhFkQUfdLPulVvXFSMO+YN7EN2v1U2HCwJABrmE3MqlgHfYBQm3/CPGAeMQPxvDgCRVoEbL3T6ZyBD6vVakE+nz/HHje0k/DduwESFGdht9FoXPgF0G63IZvNQjweL2Bve6LH4DiIemktYrYwh+Vy+WpezSuKAt1uF6rVKiSTSYhEIjXs6RizI3qUxkFMGHyhgk8QJ0bEJIges4058hJjBzENxISpVCoFvyGmhXiKcYKwA/EE4xRhF+IqZhaEE4grGD0ilUrZRjiFkH6aaYharfaJiEajd3YRs0BIMFSIWSEmTL1ev5kHggJiwmBjRa8RVBCry6zoJYISMhVGRfR6PXIEKcTwrdkS4xaCHPITZjgcQr/fB1mWIZ1OQywWk3HfKRXCFYgVplQqXTebTchkMiri3oig+P3SFYgFZj+Xy10mEolb3D4QiCUNQQkZeVe+higkpQ0xVjDLYv2Ceca8jgwNCCAB4+klhGiYkEhATD0GlAg9JOzBHErxfED3m/88wLNfhjCEIQxhCEMYwhCGTKwPAQYA6cyodLbMj7sAAAAASUVORK5CYII=" width="50"></div>
+									
+</div>
+									
+<div class="seperater">:</div>
+									
+<div class="time_block">
+										
+<div class="arrow_box">
+<img alt="" draggable="false" height="55" id="Time_Minute_Up" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAA3CAYAAABO8hkCAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAIeSURBVHja7Nm/TsJAHAfwK6JGDYlOakwMPgOJ/17CN/AV4AUc3IyTg0EYGVyNf0ajLoRAYGCBQBhYXWhSVDSN5fyduZKjoRTaKxX8XfINpTTHfXqQ8PuhUErJLIwQmZGBEIQgBCEIQQhCEIIQhDiOsPhEURSZc7PJ5njYMHik1g1mGRL26QYxxCJkBbLMF/8JeYfosjFSPlrsjogREGuQnUqlclUsFs/heJufW2DXCNfL2xovk9ogNiGHhULhmfKRyWTu4NweZINfo8iA9N5bFsSKyOfzL1QYjUaDptPpByvmT0EsiINcLvckIgzDoK1Wi9brdekYaRAnBBvdbpfquu4LRhbEEeE3RgZkZISfGK+QsRFDMPdeMF4grhF2mFQqdesW4xbiGSEb4wbSh8hms4/U45CBGRciHSELMw7EN4QMzKgQ3xFeMaNAJobwgnGCTBzhFjMMEhjCAbMLWbdi7CAiYj8IxCBMrVajyWTyZhDGXHtfcQM1e4iXp1ulUuksFosdsfPtdpuoqkrg5/jEmwoAIp1Oh2iaRsrl8nU8Hj+F06+QD/ayuX4rhNXwkWazeRGNRo+r1SphYZMEgRAxsDu/j7DGy0QiccLr/287CNuRJcgqr68jZo0dcLeny5sWbxAVokG+hu2IwjsrbPHz/DhoRO97zXaAg3SztWQHmbrG3MC+1jT/5469X4QgBCEIQQhCEIIQhPwfyI8AAwDpecKKsnOsxgAAAABJRU5ErkJggg==" width="50"></div>
+										
+<div class="time" id="Today_Time_Minute">00</div>
+										
+<div class="arrow_box">
+<img alt="" draggable="false" height="55" id="Time_Minute_Down" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAA3CAYAAABO8hkCAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAIHSURBVHja7NpLTsJgEAdwCsRHovGxUQ9g4tbE+DoOEG7AGjgBC7eExMS4YGFQTHhqN5yABQu4ASyUGE3UwjjVr6a0FWiZlqozyT/0ow2ZH20IHZAAIPAXKhj4I8UQhjCEIQxhCEMYwhCG/B9IWL+QsPAhhFkQUfdLPulVvXFSMO+YN7EN2v1U2HCwJABrmE3MqlgHfYBQm3/CPGAeMQPxvDgCRVoEbL3T6ZyBD6vVakE+nz/HHje0k/DduwESFGdht9FoXPgF0G63IZvNQjweL2Bve6LH4DiIemktYrYwh+Vy+WpezSuKAt1uF6rVKiSTSYhEIjXs6RizI3qUxkFMGHyhgk8QJ0bEJIges4058hJjBzENxISpVCoFvyGmhXiKcYKwA/EE4xRhF+IqZhaEE4grGD0ilUrZRjiFkH6aaYharfaJiEajd3YRs0BIMFSIWSEmTL1ev5kHggJiwmBjRa8RVBCry6zoJYISMhVGRfR6PXIEKcTwrdkS4xaCHPITZjgcQr/fB1mWIZ1OQywWk3HfKRXCFYgVplQqXTebTchkMiri3oig+P3SFYgFZj+Xy10mEolb3D4QiCUNQQkZeVe+higkpQ0xVjDLYv2Ceca8jgwNCCAB4+klhGiYkEhATD0GlAg9JOzBHErxfED3m/88wLNfhjCEIQxhCEMYwhCGTKwPAQYA6cyodLbMj7sAAAAASUVORK5CYII=" width="50"></div>
+									
+</div>	
+									
+<div class="seperater">:</div>
+									
+<div class="time_block">
+										
+<div class="arrow_box">
+<img alt="" draggable="false" height="55" id="Time_Second_Up" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAA3CAYAAABO8hkCAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAIeSURBVHja7Nm/TsJAHAfwK6JGDYlOakwMPgOJ/17CN/AV4AUc3IyTg0EYGVyNf0ajLoRAYGCBQBhYXWhSVDSN5fyduZKjoRTaKxX8XfINpTTHfXqQ8PuhUErJLIwQmZGBEIQgBCEIQQhCEIIQhDiOsPhEURSZc7PJ5njYMHik1g1mGRL26QYxxCJkBbLMF/8JeYfosjFSPlrsjogREGuQnUqlclUsFs/heJufW2DXCNfL2xovk9ogNiGHhULhmfKRyWTu4NweZINfo8iA9N5bFsSKyOfzL1QYjUaDptPpByvmT0EsiINcLvckIgzDoK1Wi9brdekYaRAnBBvdbpfquu4LRhbEEeE3RgZkZISfGK+QsRFDMPdeMF4grhF2mFQqdesW4xbiGSEb4wbSh8hms4/U45CBGRciHSELMw7EN4QMzKgQ3xFeMaNAJobwgnGCTBzhFjMMEhjCAbMLWbdi7CAiYj8IxCBMrVajyWTyZhDGXHtfcQM1e4iXp1ulUuksFosdsfPtdpuoqkrg5/jEmwoAIp1Oh2iaRsrl8nU8Hj+F06+QD/ayuX4rhNXwkWazeRGNRo+r1SphYZMEgRAxsDu/j7DGy0QiccLr/287CNuRJcgqr68jZo0dcLeny5sWbxAVokG+hu2IwjsrbPHz/DhoRO97zXaAg3SztWQHmbrG3MC+1jT/5469X4QgBCEIQQhCEIIQhPwfyI8AAwDpecKKsnOsxgAAAABJRU5ErkJggg==" width="50"></div>
+										
+<div class="time" id="Today_Time_Second">00</div>
+										
+<div class="arrow_box">
+<img alt="" draggable="false" height="55" id="Time_Second_Down" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAA3CAYAAABO8hkCAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAIHSURBVHja7NpLTsJgEAdwCsRHovGxUQ9g4tbE+DoOEG7AGjgBC7eExMS4YGFQTHhqN5yABQu4ASyUGE3UwjjVr6a0FWiZlqozyT/0ow2ZH20IHZAAIPAXKhj4I8UQhjCEIQxhCEMYwhCG/B9IWL+QsPAhhFkQUfdLPulVvXFSMO+YN7EN2v1U2HCwJABrmE3MqlgHfYBQm3/CPGAeMQPxvDgCRVoEbL3T6ZyBD6vVakE+nz/HHje0k/DduwESFGdht9FoXPgF0G63IZvNQjweL2Bve6LH4DiIemktYrYwh+Vy+WpezSuKAt1uF6rVKiSTSYhEIjXs6RizI3qUxkFMGHyhgk8QJ0bEJIges4058hJjBzENxISpVCoFvyGmhXiKcYKwA/EE4xRhF+IqZhaEE4grGD0ilUrZRjiFkH6aaYharfaJiEajd3YRs0BIMFSIWSEmTL1ev5kHggJiwmBjRa8RVBCry6zoJYISMhVGRfR6PXIEKcTwrdkS4xaCHPITZjgcQr/fB1mWIZ1OQywWk3HfKRXCFYgVplQqXTebTchkMiri3oig+P3SFYgFZj+Xy10mEolb3D4QiCUNQQkZeVe+higkpQ0xVjDLYv2Ceca8jgwNCCAB4+klhGiYkEhATD0GlAg9JOzBHErxfED3m/88wLNfhjCEIQxhCEMYwhCGTKwPAQYA6cyodLbMj7sAAAAASUVORK5CYII=" width="50"></div>
+									
+</div>
+									
+<div Style="margin-left: 30px; display: none;" class="time_block" id="Time_Format">
+										
+<div class="arrow_box time_format">
+<img alt="" draggable="false" height="55" id="Time_Format_Up" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAA3CAYAAABO8hkCAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAIeSURBVHja7Nm/TsJAHAfwK6JGDYlOakwMPgOJ/17CN/AV4AUc3IyTg0EYGVyNf0ajLoRAYGCBQBhYXWhSVDSN5fyduZKjoRTaKxX8XfINpTTHfXqQ8PuhUErJLIwQmZGBEIQgBCEIQQhCEIIQhDiOsPhEURSZc7PJ5njYMHik1g1mGRL26QYxxCJkBbLMF/8JeYfosjFSPlrsjogREGuQnUqlclUsFs/heJufW2DXCNfL2xovk9ogNiGHhULhmfKRyWTu4NweZINfo8iA9N5bFsSKyOfzL1QYjUaDptPpByvmT0EsiINcLvckIgzDoK1Wi9brdekYaRAnBBvdbpfquu4LRhbEEeE3RgZkZISfGK+QsRFDMPdeMF4grhF2mFQqdesW4xbiGSEb4wbSh8hms4/U45CBGRciHSELMw7EN4QMzKgQ3xFeMaNAJobwgnGCTBzhFjMMEhjCAbMLWbdi7CAiYj8IxCBMrVajyWTyZhDGXHtfcQM1e4iXp1ulUuksFosdsfPtdpuoqkrg5/jEmwoAIp1Oh2iaRsrl8nU8Hj+F06+QD/ayuX4rhNXwkWazeRGNRo+r1SphYZMEgRAxsDu/j7DGy0QiccLr/287CNuRJcgqr68jZo0dcLeny5sWbxAVokG+hu2IwjsrbPHz/DhoRO97zXaAg3SztWQHmbrG3MC+1jT/5469X4QgBCEIQQhCEIIQhPwfyI8AAwDpecKKsnOsxgAAAABJRU5ErkJggg==" width="50"></div>
+										
+<div class="time" id="Today_Time_Format">AM</div>
+										
+<div class="arrow_box time_format">
+<img alt="" draggable="false" height="55" id="Time_Format_Down" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAA3CAYAAABO8hkCAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAIHSURBVHja7NpLTsJgEAdwCsRHovGxUQ9g4tbE+DoOEG7AGjgBC7eExMS4YGFQTHhqN5yABQu4ASyUGE3UwjjVr6a0FWiZlqozyT/0ow2ZH20IHZAAIPAXKhj4I8UQhjCEIQxhCEMYwhCG/B9IWL+QsPAhhFkQUfdLPulVvXFSMO+YN7EN2v1U2HCwJABrmE3MqlgHfYBQm3/CPGAeMQPxvDgCRVoEbL3T6ZyBD6vVakE+nz/HHje0k/DduwESFGdht9FoXPgF0G63IZvNQjweL2Bve6LH4DiIemktYrYwh+Vy+WpezSuKAt1uF6rVKiSTSYhEIjXs6RizI3qUxkFMGHyhgk8QJ0bEJIges4058hJjBzENxISpVCoFvyGmhXiKcYKwA/EE4xRhF+IqZhaEE4grGD0ilUrZRjiFkH6aaYharfaJiEajd3YRs0BIMFSIWSEmTL1ev5kHggJiwmBjRa8RVBCry6zoJYISMhVGRfR6PXIEKcTwrdkS4xaCHPITZjgcQr/fB1mWIZ1OQywWk3HfKRXCFYgVplQqXTebTchkMiri3oig+P3SFYgFZj+Xy10mEolb3D4QiCUNQQkZeVe+higkpQ0xVjDLYv2Ceca8jgwNCCAB4+klhGiYkEhATD0GlAg9JOzBHErxfED3m/88wLNfhjCEIQxhCEMYwhCGTKwPAQYA6cyodLbMj7sAAAAASUVORK5CYII=" width="50"></div>
+									
+</div>	
+			
+								
+</div>
+								
+<div id="Date" style="margin-right: 30px; float: right;">
+									
+<div class="time_block">
+										
+<div class="arrow_box">
+<img alt="" draggable="false" height="55" id="Date_Day_Up" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAA3CAYAAABO8hkCAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAIeSURBVHja7Nm/TsJAHAfwK6JGDYlOakwMPgOJ/17CN/AV4AUc3IyTg0EYGVyNf0ajLoRAYGCBQBhYXWhSVDSN5fyduZKjoRTaKxX8XfINpTTHfXqQ8PuhUErJLIwQmZGBEIQgBCEIQQhCEIIQhDiOsPhEURSZc7PJ5njYMHik1g1mGRL26QYxxCJkBbLMF/8JeYfosjFSPlrsjogREGuQnUqlclUsFs/heJufW2DXCNfL2xovk9ogNiGHhULhmfKRyWTu4NweZINfo8iA9N5bFsSKyOfzL1QYjUaDptPpByvmT0EsiINcLvckIgzDoK1Wi9brdekYaRAnBBvdbpfquu4LRhbEEeE3RgZkZISfGK+QsRFDMPdeMF4grhF2mFQqdesW4xbiGSEb4wbSh8hms4/U45CBGRciHSELMw7EN4QMzKgQ3xFeMaNAJobwgnGCTBzhFjMMEhjCAbMLWbdi7CAiYj8IxCBMrVajyWTyZhDGXHtfcQM1e4iXp1ulUuksFosdsfPtdpuoqkrg5/jEmwoAIp1Oh2iaRsrl8nU8Hj+F06+QD/ayuX4rhNXwkWazeRGNRo+r1SphYZMEgRAxsDu/j7DGy0QiccLr/287CNuRJcgqr68jZo0dcLeny5sWbxAVokG+hu2IwjsrbPHz/DhoRO97zXaAg3SztWQHmbrG3MC+1jT/5469X4QgBCEIQQhCEIIQhPwfyI8AAwDpecKKsnOsxgAAAABJRU5ErkJggg==" width="50"></div>
+										
+<div class="time" id="Today_Date_Day">01</div>
+										
+<div class="arrow_box">
+<img alt="" draggable="false" height="55" id="Date_Day_Down" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAA3CAYAAABO8hkCAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAIHSURBVHja7NpLTsJgEAdwCsRHovGxUQ9g4tbE+DoOEG7AGjgBC7eExMS4YGFQTHhqN5yABQu4ASyUGE3UwjjVr6a0FWiZlqozyT/0ow2ZH20IHZAAIPAXKhj4I8UQhjCEIQxhCEMYwhCG/B9IWL+QsPAhhFkQUfdLPulVvXFSMO+YN7EN2v1U2HCwJABrmE3MqlgHfYBQm3/CPGAeMQPxvDgCRVoEbL3T6ZyBD6vVakE+nz/HHje0k/DduwESFGdht9FoXPgF0G63IZvNQjweL2Bve6LH4DiIemktYrYwh+Vy+WpezSuKAt1uF6rVKiSTSYhEIjXs6RizI3qUxkFMGHyhgk8QJ0bEJIges4058hJjBzENxISpVCoFvyGmhXiKcYKwA/EE4xRhF+IqZhaEE4grGD0ilUrZRjiFkH6aaYharfaJiEajd3YRs0BIMFSIWSEmTL1ev5kHggJiwmBjRa8RVBCry6zoJYISMhVGRfR6PXIEKcTwrdkS4xaCHPITZjgcQr/fB1mWIZ1OQywWk3HfKRXCFYgVplQqXTebTchkMiri3oig+P3SFYgFZj+Xy10mEolb3D4QiCUNQQkZeVe+higkpQ0xVjDLYv2Ceca8jgwNCCAB4+klhGiYkEhATD0GlAg9JOzBHErxfED3m/88wLNfhjCEIQxhCEMYwhCGTKwPAQYA6cyodLbMj7sAAAAASUVORK5CYII=" width="50"></div>
+									
+</div>	
+									
+<div class="seperater">.</div>
+									
+<div class="time_block">
+										
+<div class="arrow_box">
+<img alt="" draggable="false" height="55" id="Date_Month_Up" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAA3CAYAAABO8hkCAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAIeSURBVHja7Nm/TsJAHAfwK6JGDYlOakwMPgOJ/17CN/AV4AUc3IyTg0EYGVyNf0ajLoRAYGCBQBhYXWhSVDSN5fyduZKjoRTaKxX8XfINpTTHfXqQ8PuhUErJLIwQmZGBEIQgBCEIQQhCEIIQhDiOsPhEURSZc7PJ5njYMHik1g1mGRL26QYxxCJkBbLMF/8JeYfosjFSPlrsjogREGuQnUqlclUsFs/heJufW2DXCNfL2xovk9ogNiGHhULhmfKRyWTu4NweZINfo8iA9N5bFsSKyOfzL1QYjUaDptPpByvmT0EsiINcLvckIgzDoK1Wi9brdekYaRAnBBvdbpfquu4LRhbEEeE3RgZkZISfGK+QsRFDMPdeMF4grhF2mFQqdesW4xbiGSEb4wbSh8hms4/U45CBGRciHSELMw7EN4QMzKgQ3xFeMaNAJobwgnGCTBzhFjMMEhjCAbMLWbdi7CAiYj8IxCBMrVajyWTyZhDGXHtfcQM1e4iXp1ulUuksFosdsfPtdpuoqkrg5/jEmwoAIp1Oh2iaRsrl8nU8Hj+F06+QD/ayuX4rhNXwkWazeRGNRo+r1SphYZMEgRAxsDu/j7DGy0QiccLr/287CNuRJcgqr68jZo0dcLeny5sWbxAVokG+hu2IwjsrbPHz/DhoRO97zXaAg3SztWQHmbrG3MC+1jT/5469X4QgBCEIQQhCEIIQhPwfyI8AAwDpecKKsnOsxgAAAABJRU5ErkJggg==" width="50"></div>
+										
+<div class="time" id="Today_Date_Month">01</div>
+										
+<div class="arrow_box">
+<img alt="" draggable="false" height="55" id="Date_Month_Down" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAA3CAYAAABO8hkCAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAIHSURBVHja7NpLTsJgEAdwCsRHovGxUQ9g4tbE+DoOEG7AGjgBC7eExMS4YGFQTHhqN5yABQu4ASyUGE3UwjjVr6a0FWiZlqozyT/0ow2ZH20IHZAAIPAXKhj4I8UQhjCEIQxhCEMYwhCG/B9IWL+QsPAhhFkQUfdLPulVvXFSMO+YN7EN2v1U2HCwJABrmE3MqlgHfYBQm3/CPGAeMQPxvDgCRVoEbL3T6ZyBD6vVakE+nz/HHje0k/DduwESFGdht9FoXPgF0G63IZvNQjweL2Bve6LH4DiIemktYrYwh+Vy+WpezSuKAt1uF6rVKiSTSYhEIjXs6RizI3qUxkFMGHyhgk8QJ0bEJIges4058hJjBzENxISpVCoFvyGmhXiKcYKwA/EE4xRhF+IqZhaEE4grGD0ilUrZRjiFkH6aaYharfaJiEajd3YRs0BIMFSIWSEmTL1ev5kHggJiwmBjRa8RVBCry6zoJYISMhVGRfR6PXIEKcTwrdkS4xaCHPITZjgcQr/fB1mWIZ1OQywWk3HfKRXCFYgVplQqXTebTchkMiri3oig+P3SFYgFZj+Xy10mEolb3D4QiCUNQQkZeVe+higkpQ0xVjDLYv2Ceca8jgwNCCAB4+klhGiYkEhATD0GlAg9JOzBHErxfED3m/88wLNfhjCEIQxhCEMYwhCGTKwPAQYA6cyodLbMj7sAAAAASUVORK5CYII=" width="50"></div>
+									
+</div>	
+									
+<div class="seperater">.</div>
+									
+<div class="year">
+										
+<div class="arrow_box year">
+<img alt="" draggable="false" height="55" id="Date_Year_Up" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAA3CAYAAABO8hkCAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAIeSURBVHja7Nm/TsJAHAfwK6JGDYlOakwMPgOJ/17CN/AV4AUc3IyTg0EYGVyNf0ajLoRAYGCBQBhYXWhSVDSN5fyduZKjoRTaKxX8XfINpTTHfXqQ8PuhUErJLIwQmZGBEIQgBCEIQQhCEIIQhDiOsPhEURSZc7PJ5njYMHik1g1mGRL26QYxxCJkBbLMF/8JeYfosjFSPlrsjogREGuQnUqlclUsFs/heJufW2DXCNfL2xovk9ogNiGHhULhmfKRyWTu4NweZINfo8iA9N5bFsSKyOfzL1QYjUaDptPpByvmT0EsiINcLvckIgzDoK1Wi9brdekYaRAnBBvdbpfquu4LRhbEEeE3RgZkZISfGK+QsRFDMPdeMF4grhF2mFQqdesW4xbiGSEb4wbSh8hms4/U45CBGRciHSELMw7EN4QMzKgQ3xFeMaNAJobwgnGCTBzhFjMMEhjCAbMLWbdi7CAiYj8IxCBMrVajyWTyZhDGXHtfcQM1e4iXp1ulUuksFosdsfPtdpuoqkrg5/jEmwoAIp1Oh2iaRsrl8nU8Hj+F06+QD/ayuX4rhNXwkWazeRGNRo+r1SphYZMEgRAxsDu/j7DGy0QiccLr/287CNuRJcgqr68jZo0dcLeny5sWbxAVokG+hu2IwjsrbPHz/DhoRO97zXaAg3SztWQHmbrG3MC+1jT/5469X4QgBCEIQQhCEIIQhPwfyI8AAwDpecKKsnOsxgAAAABJRU5ErkJggg==" width="50"></div>
+										
+<div class="time" id="Today_Date_Year">2000</div>
+										
+<div class="arrow_box year">
+<img alt="" draggable="false" height="55" id="Date_Year_Down" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAA3CAYAAABO8hkCAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAIHSURBVHja7NpLTsJgEAdwCsRHovGxUQ9g4tbE+DoOEG7AGjgBC7eExMS4YGFQTHhqN5yABQu4ASyUGE3UwjjVr6a0FWiZlqozyT/0ow2ZH20IHZAAIPAXKhj4I8UQhjCEIQxhCEMYwhCG/B9IWL+QsPAhhFkQUfdLPulVvXFSMO+YN7EN2v1U2HCwJABrmE3MqlgHfYBQm3/CPGAeMQPxvDgCRVoEbL3T6ZyBD6vVakE+nz/HHje0k/DduwESFGdht9FoXPgF0G63IZvNQjweL2Bve6LH4DiIemktYrYwh+Vy+WpezSuKAt1uF6rVKiSTSYhEIjXs6RizI3qUxkFMGHyhgk8QJ0bEJIges4058hJjBzENxISpVCoFvyGmhXiKcYKwA/EE4xRhF+IqZhaEE4grGD0ilUrZRjiFkH6aaYharfaJiEajd3YRs0BIMFSIWSEmTL1ev5kHggJiwmBjRa8RVBCry6zoJYISMhVGRfR6PXIEKcTwrdkS4xaCHPITZjgcQr/fB1mWIZ1OQywWk3HfKRXCFYgVplQqXTebTchkMiri3oig+P3SFYgFZj+Xy10mEolb3D4QiCUNQQkZeVe+higkpQ0xVjDLYv2Ceca8jgwNCCAB4+klhGiYkEhATD0GlAg9JOzBHErxfED3m/88wLNfhjCEIQxhCEMYwhCGTKwPAQYA6cyodLbMj7sAAAAASUVORK5CYII=" width="50"></div>
+									
+</div>	
+								
+</div>	
+							
+</div>
+							
+<div style="width: 760px; height: 60px; margin-top: 35px;">
+								
+<div class="background" id="Time_Sync" style="width: 40px; height: 40px; border: 2px solid #fff; border-radius: 4px;">
+									
+<img draggable="false" height="35" id="Time_Sync_Img" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACoAAAAjCAYAAADizJiTAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2RpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo4QUU1Nzg4RUM3NDRFMjExQTNCREVFNkMxQjk4MkM0NiIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpCQUIxRDZCQTlCMEExMUUyQTcxMEEzNzJDMzE5ODFDMyIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpCQUIxRDZCOTlCMEExMUUyQTcxMEEzNzJDMzE5ODFDMyIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IFdpbmRvd3MiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDpBQkE3RDFEQUYyOUFFMjExQkY4NkRDQzBDNkQwODQ3QiIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo4QUU1Nzg4RUM3NDRFMjExQTNCREVFNkMxQjk4MkM0NiIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/Psw8DHIAAADdSURBVHja7NjrCoMwDAXg6fbcGWcv3lHYj9GbaTpPMvBAQaHgh61NcEsp3f4heyCLfEYzj0BIfN2/qhl56Z2HpDpSzouIbGKjIivsHmRP9nL33KOaN5kDz6U3IdlQM5IJXUKyoMtIBvQnyCOotCqEB3IElVE5YyN7UFXtZSJbUHXtZSJL6FTtZSJLKJQPEjaytfQW7OnI3sc0g6UgR8eTFktBHh34iILUlFBEQGprPbyRM00JPJGz3RO8kJY2Dx5Iaz8KNnKlcQYTmYf139Ozc31atuu34wUNnrcAAwCJ1ARaCuqr5QAAAABJRU5ErkJggg==" style="margin: 4px 0px 0px -1px; display: none;" width="42">
+								</div>	
+								
+<div id="Sync_Time_Auto_Label" style="width: 300px; height: 60px; line-height: 40px; margin-left: 20px;">Automatische Zeitsynchronisation</div>
+							
+</div>
+						
+</div>
+					
+</div>
+				
+</div>
+			
+</article>
+			
+<footer>
+				
+<div class="black_bar"></div>
+				
+<div class="right_button_box">
+					
+<div class="button_blue round_all" style="width: 60px; height: 60px; margin-right: 4px;">
+<a class="option_button" draggable="false" href="2.4.2__TimeSettings.html" id="Option_Button"></a>
+</div>
+					
+<div id="Navi_Box">
+						
+<div class="button_blue round_all" style="width: 180px; height: 60px;">
+<a class="back_button" draggable="false" href="2.4.0__UserSettings.html" id="Navi_Button"></a>
+</div>
+					
+</div>
+					
+<div id="Save_Cancel_Box" style="display: none;">
+						
+<div class="button_blue round_left" style="width: 89px; height: 60px;">
+<a class="check_button" draggable="false" href="#" id="Save_Button"></a>
+</div>
+						
+<div class="button_blue round_right" style="width: 89px; height: 60px;">
+<a class="delete_button" draggable="false" href="#" id="Cancel_Button"></a>
+</div>
+					
+</div>
+				
+</div>
+			
+</footer>
+			
+<div id="Pop_Up_Blocker"></div>
+			
+<div id="Pop_Up" style="position: absolute; z-index: 100000;"></div>
+		
+</main>
+	
+</body>
+
+</html>

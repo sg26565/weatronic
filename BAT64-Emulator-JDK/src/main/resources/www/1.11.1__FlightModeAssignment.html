@@ -1,0 +1,431 @@
+<!DOCTYPE html SYSTEM "html">
+<html>
+	
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		
+<title>1.11.1__FlightModeAssignment</title>
+		
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+		
+<link href="css/bat60.css" rel="Stylesheet" type="text/css">
+		
+		
+<script src="js/jquery-1.11.0.min.js" type="text/javascript"></script>
+		<script src="js/raphael.js" type="text/javascript"></script>
+		<script src="js/common.js" type="text/javascript"></script>
+		<script defer src="1.11.1__FlightModeAssignment.js" type="text/javascript"></script>	
+		
+		
+<style type="text/css">
+			
+			.active_fm div:not(.icon_trigger_empty):not(.icon_trigger_m75_white):not(.icon_trigger_m25_white):not(.icon_trigger_p25_white):not(.icon_trigger_p75_white):not(.icon_trigger_m75_blue):not(.icon_trigger_m25_blue):not(.icon_trigger_p25_blue):not(.icon_trigger_p75_blue):not(.icon_trigger_center) {
+				background:				-moz-linear-gradient(top, rgba(69, 91, 130, .8) 0%, rgba(42, 64, 76, .8) 100%) !important; 
+				background:				-webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(69, 91, 130, .8)), color-stop(100%, rgba(42, 64, 76, .8))) !important; 
+				background:				-webkit-linear-gradient(top, rgba(69, 91, 130, .8) 0%, rgba(42, 64, 76, .8) 100%) !important; 
+				background:				-o-linear-gradient(top, rgba(69, 91, 130, .8) 0%, rgba(42, 64, 76, .8) 100%) !important; 
+				background:				-ms-linear-gradient(top, rgba(69, 91, 130, .8) 0%, rgba(42, 64, 76, .8) 100%) !important; 
+				background:				linear-gradient(to bottom, rgba(69, 91, 130, .8) 0%, rgba(42, 64, 76, .8) 100%) !important; 
+			}
+			.content_width_list, .list_content{
+				width:					760px;
+			}
+			.list_header {
+				width:					758px;
+			}
+			.list_content_row, .list_content_row div {
+				height:					61px;
+				line-height:			61px;
+			}
+			.list_switch {
+				text-align:				center;
+				width:					90px;
+			}
+			.list_control {
+				width:					110px;
+			}
+			.list_control img {
+				cursor:					pointer;
+			}
+			.list_control img:first-child {
+				cursor:					default;
+				margin-top:				0px;
+			}
+			.list_state {
+				width:					71px;
+			}
+			.list_state img {
+				margin-top:				3px;
+			}
+			.list_combination, .list_flight_mode {
+				width:					232px;
+			}
+			.list_flight_mode {
+				cursor:					pointer !important;
+				overflow:				hidden;
+				text-overflow:			ellipsis;
+				white-space:			nowrap;
+				width:					207px;
+				word-break:				break-all;
+			}
+			.list_content .list_switch, .list_content .list_state, .list_content .list_combination {
+				background:				rgba(255, 255, 255, .08);
+				cursor:					default;
+				pointer-events:			none;
+			}
+			.list_switch_combi {
+				background:				transparent !important;
+				height:					185px !important;
+				padding:				0 !important;
+				width:					98px !important;
+			}
+			.list_switch_combi div {
+				background:				rgba(255, 255, 255, .08);
+				border-width:			0px 0px 1px 0px;
+				cursor:					default;
+				margin-left:			-1px;
+				pointer-events:			none;
+				text-align:				center;
+				width:					91px;
+			}
+			.list_control_combi {
+				background:				transparent !important;
+				height:					185px !important;
+				padding:				0 !important;
+				width:					118px !important;
+			}
+			.list_control_combi div {
+				border-width:			0px 0px 1px 0px;
+				cursor:					default;
+				text-align:				center;
+				width:					110px;
+			}
+			.list_state_combi {
+				background:				transparent !important;
+				height:					185px !important;
+				padding:				0 !important;
+				width:					79px !important;
+			}
+			.list_state_combi div {
+				background:				rgba(255, 255, 255, .08);
+				border-width:			0px 0px 1px 0px;
+				cursor:					default;
+				margin-left:			-1px;
+				pointer-events:			none;
+				text-align:				center;
+				width:					72px;
+			}
+			.list_switch_combi div:last-child, .list_control_combi div:last-child, .list_state_combi div:last-child {
+				border-width:			0px;
+			}
+			.blank_row {
+				border:					0;
+				height:					55px !important;
+				line-height:			55px !important;
+			}
+			#Combination_Canvas {
+				height:					309px;
+				margin:					34px 0px 0px 302px;
+				position:				absolute;
+				width:					240px;
+				z-index:				60;
+			}
+		</style>
+	
+</head>
+	
+<body>
+		
+<main>
+			
+<div id="Page_Name_Tag">FlightModeAssignment_Label</div>
+			
+<header>
+				
+<div class="header_group_icon">
+					
+<div class="group_icon_wrench"></div>
+				
+</div>
+				
+<div class="header_center">
+					
+<div class="header_1st_div" id="FlightModeAssignment_Label">Schalterzuweisung</div>
+					
+<div class="header_sub_spacer"></div>
+					
+<div class="header_sub_div" id="Model_Name"></div>
+				
+</div>
+				
+<div class="header_battery_value" id="Battery_Value">-- V</div>
+				
+<div class="header_battery">          
+					
+<div class="header_battery_image">
+						
+<div class="battery_spacer"></div>
+						
+<div class="battery_segment" id="Battery_80"></div>
+						
+<div class="battery_segment" id="Battery_60"></div>
+						
+<div class="battery_segment" id="Battery_40"></div>
+						
+<div class="battery_segment" id="Battery_20"></div>
+						
+<div class="battery_segment" id="Battery_0"></div>
+					
+</div>
+				
+</div>
+			
+</header>
+			
+<article>
+				
+<div class="content_width_list">
+					
+<div class="list_header">
+						
+<div class="list_switch" style="height: 1px;"></div>
+						
+<div class="list_control" id="FMA_Switch_Label">Schalter</div>
+						
+<div class="list_state" id="FMA_State_Label">Status</div>
+						
+<div class="list_combination" id="FMA_Combination_Label">Diagramm</div>
+						
+<div class="list_flight_mode" id="FMA_Flight_Mode_Label">Flugphase</div>
+					
+</div>
+					
+<div class="list_content scrollContainerOuterVertical" id="List_Container" style="max-height: 372px;">
+						
+<div class="inner_list_content" id="scrollContainerInnerVertical">
+							
+<div class="list_content_row" id="Master_A_Row">
+								
+<div class="list_switch" id="FMA_Master_A_Label">Master A</div>
+								
+<div class="list_control">
+									
+<div class="" id="Master_A_Trigger"></div>
+									
+<img alt="" draggable="false" height="61" id="Master_A_Control" src="" width="85">
+								</div>
+								
+<div class="list_state">
+									
+<img alt="" draggable="false" height="55" id="Master_A_State" src="" width="71">
+								</div>
+								
+<div class="list_combination" id="Canvas_A"></div>
+								
+<div class="list_flight_mode" id="Master_A_Name">Normal</div>
+							
+</div>
+							
+<div class="list_content_row" id="Master_B_Row">
+								
+<div class="list_switch" id="FMA_Master_B_Label">Master B</div>
+								
+<div class="list_control">
+									
+<div class="" id="Master_B_Trigger"></div>
+									
+<img alt="" draggable="false" height="61" id="Master_B_Control" src="" width="85">
+								</div>
+								
+<div class="list_state">
+									
+<img alt="" draggable="false" height="55" id="Master_B_State" src="" width="71">
+								</div>
+								
+<div class="list_combination" id="Canvas_B"></div>
+								
+<div class="list_flight_mode" id="Master_B_Name"></div>
+							
+</div>
+							
+<div class="list_content_row" id="Master_C_Row">
+								
+<div class="list_switch" id="FMA_Master_C_Label">Master C</div>
+								
+<div class="list_control">
+									
+<div class="" id="Master_C_Trigger"></div>
+									
+<img alt="" draggable="false" height="61" id="Master_C_Control" src="" width="85">
+								</div>
+								
+<div class="list_state">
+									
+<img alt="" draggable="false" height="55" id="Master_C_State" src="" width="71">
+								</div>
+								
+<div class="list_combination" id="Canvas_C"></div>
+								
+<div class="list_flight_mode" id="Master_C_Name"></div>
+							
+</div>
+							
+<div class="list_content_row" id="Master_D_Row">
+								
+<div class="list_switch" id="FMA_Master_D_Label">Master D</div>
+								
+<div class="list_control">
+									
+<div class="" id="Master_D_Trigger"></div>
+									
+<img alt="" draggable="false" height="61" id="Master_D_Control" src="" width="85">
+								</div>
+								
+<div class="list_state">
+									
+<img alt="" draggable="false" height="55" id="Master_D_State" src="" width="71">
+								</div>
+								
+<div class="list_combination" id="Canvas_D"></div>
+								
+<div class="list_flight_mode" id="Master_D_Name"></div>
+							
+</div>
+							
+<div class="list_content_row" id="Master_E_Row">
+								
+<div class="list_switch" id="FMA_Master_E_Label">Master E</div>
+								
+<div class="list_control">
+									
+<div class="" id="Master_E_Trigger"></div>
+									
+<img alt="" draggable="false" height="61" id="Master_E_Control" src="" width="85">
+								</div>
+								
+<div class="list_state">
+									
+<img alt="" draggable="false" height="55" id="Master_E_State" src="" width="71">
+								</div>
+								
+<div class="list_combination" id="Canvas_E"></div>
+								
+<div class="list_flight_mode" id="Master_E_Name"></div>
+							
+</div>
+							
+<div class="list_content_row" id="Combi_Row" style="height: 185px;">
+								
+<div class="list_switch_combi">
+									
+<div id="FMA_Combi_1_Label">Kombi 1</div>
+									
+<div id="FMA_Combi_2_Label">Kombi 2</div>
+									
+<div id="FMA_Combi_3_Label">Kombi 3</div>
+								
+</div>
+								
+<div class="list_control_combi">
+									
+<div class="list_control">
+										
+<div class="" id="Combi_1_Trigger"></div>
+										
+<img alt="" draggable="false" height="61" id="Combi_1_Control" src="" width="85">
+									</div>
+									
+<div class="list_control">
+										
+<div class="" id="Combi_2_Trigger"></div>
+										
+<img alt="" draggable="false" height="61" id="Combi_2_Control" src="" width="85">
+									</div>
+									
+<div class="list_control">
+										
+<div class="" id="Combi_3_Trigger"></div>
+										
+<img alt="" draggable="false" height="61" id="Combi_3_Control" src="" width="85">
+									</div>
+								
+</div>
+								
+<div class="list_state_combi">
+									
+<div class="list_state">
+										
+<img alt="" draggable="false" height="55" id="Combi_1_State" src="" width="71">
+									</div>
+									
+<div class="list_state">
+										
+<img alt="" draggable="false" height="55" id="Combi_2_State" src="" width="71">
+									</div>
+									
+<div class="list_state">
+										
+<img alt="" draggable="false" height="55" id="Combi_3_State" src="" width="71">
+									</div>
+								
+</div>
+								
+<div class="list_combination" id="Canvas_Combi" style="height: 185px;"></div>
+								
+<div class="list_flight_mode" id="Combination_Name" style="height: 185px; line-height: 185px;"></div>
+							
+</div>
+							
+<div class="list_content_row blank_row"></div>
+						
+</div>
+					
+</div>
+				
+</div>
+			
+</article>
+			
+<footer>
+				
+<div class="black_bar"></div>
+				
+<div class="right_button_box">
+					
+<div class="button_blue round_all" style="width: 60px; height: 60px; margin-right: 4px;">
+<a class="option_button" draggable="false" href="1.11.1__FlightModeAssignment.html" id="Option_Button"></a>
+</div>
+					
+<div id="Navi_Box">
+						
+<div class="button_blue round_all" style="width: 180px; height: 60px;">
+<a class="back_button" draggable="false" href="1.11.0__FlightModes.html" id="Navi_Button"></a>
+</div>
+					
+</div>
+					
+<div id="Safe_Cancel_Box" style="display: none;">
+						
+<div class="button_blue round_left" style="width: 89px; height: 60px;">
+<a class="check_button" draggable="false" href="1.11.1__FlightModeAssignment.html" id="Safe_Button"></a>
+</div>
+						
+<div class="button_blue round_right" style="width: 89px; height: 60px;">
+<a class="delete_button" draggable="false" href="1.11.1__FlightModeAssignment.html" id="Cancel_Button"></a>
+</div>
+					
+</div>
+				
+</div>
+			
+</footer>
+			
+<div id="Pop_Up_Blocker"></div>
+			
+<div id="Pop_Up" style="position: absolute; z-index: 100000;"></div>
+		
+</main>
+	
+</body>
+
+</html>

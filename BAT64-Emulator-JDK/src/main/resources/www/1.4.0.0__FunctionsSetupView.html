@@ -1,0 +1,236 @@
+<!DOCTYPE html SYSTEM "html">
+<html>
+	
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		
+<title>1.4.0.0__Functions Setup View</title>
+		
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+		
+<link href="css/bat60.css" rel="Stylesheet" type="text/css">
+		
+		
+<script src="js/jquery-1.11.0.min.js" type="text/javascript"></script>
+		<script src="js/common.js" type="text/javascript"></script>
+		<script defer src="1.4.0.0__FunctionsSetupView.js" type="text/javascript"></script>	
+		
+		
+<style type="text/css">
+			
+			.list_function_name {
+				overflow:				hidden;
+				text-align:				left;
+				text-overflow:			ellipsis;
+				white-space:			nowrap;
+				width:					181px;
+				word-break:				break-all;
+			}
+			.list_function_setup {
+				width:					55px;
+			}
+			.list_function_rate, .list_function_expo, .list_function_diff {
+				overflow:				hidden;
+				text-align:				center;
+				text-overflow:			ellipsis;
+				white-space:			nowrap;
+				width:					101px;
+			}
+			.list_function_fmo {
+				overflow:				hidden;
+				text-align:				center;
+				text-overflow:			ellipsis;
+				white-space:			nowrap;
+				width:					78px;
+			}
+			.list_function_setup img {
+				border:					0;
+				margin-top:				8px;
+				padding:				0;
+			}
+			.list_function_rate_content, .list_function_expo_content, .list_function_diff_content {
+				border-right:			none !important;
+				display:				none;
+				text-align:				center;
+				width:					75px;
+			}
+			.list_function_name:hover, .list_function_setup:hover, .list_function_control:hover, .list_function_trim:hover, .list_function_fmo:hover, .list_function_servos:hover {
+				cursor:					pointer;
+			}
+			.list_function_setup a, .list_function_control a, .list_function_trim a, .list_function_servos a, .list_function_gyro a {
+				color:					#fff;
+				display:				block;
+				height:					inherit;
+				text-decoration:		none;
+				width:					inherit;
+			}
+		</style>
+	
+</head>
+	
+<body>
+		
+<main>
+			
+<div id="Page_Name_Tag">Functions_Setup_View_Label</div>
+			
+<header>
+				
+<div class="header_group_icon">
+					
+<div class="group_icon_wrench"></div>
+				
+</div>
+				
+<div class="header_center">
+					
+<div class="header_1st_div" id="Functions_Setup_View_Label">Setup Ansicht</div>
+					
+<div class="header_sub_spacer"></div>
+					
+<div class="header_sub_div" id="Model_Name"></div>
+					
+<div class="header_sub_spacer"></div>
+					
+<div class="header_sub_div" id="Flight_Mode"></div>
+				
+</div>
+				
+<div class="header_battery_value" id="Battery_Value">-- V</div>
+				
+<div class="header_battery">          
+					
+<div class="header_battery_image">
+						
+<div class="battery_spacer"></div>
+						
+<div class="battery_segment" id="Battery_80"></div>
+						
+<div class="battery_segment" id="Battery_60"></div>
+						
+<div class="battery_segment" id="Battery_40"></div>
+						
+<div class="battery_segment" id="Battery_20"></div>
+						
+<div class="battery_segment" id="Battery_0"></div>
+					
+</div>
+				
+</div>
+			
+</header>
+			
+<article>
+				
+<div class="content_width_list">
+					
+<div class="list_header">
+						
+<div class="list_function_name" id="Function_Name_Label">Funktion</div>
+						
+<div class="list_function_setup" id="Function_Setup_Label" style="margin: 0px 3px 0px -3px;">Setup</div>
+						
+<div class="list_function_rate" id="Flex_Rate_Label">Flex Rate</div>
+						
+<div class="list_function_expo" id="Flex_Expo_Label">Flex Expo</div>
+						
+<div class="list_function_diff" id="Flex_Diff_Label">Differenzierung</div>
+						
+<div class="list_function_fmo" id="Function_FMO_Label">FPO</div>
+					
+</div>
+					
+<div class="list_content scrollContainerOuterVertical" id="List_Container" style="max-height: 350px;">
+						
+<div class="inner_list_content" id="scrollContainerInnerVertical">
+						
+</div>
+					
+</div>
+				
+</div>
+				
+<aside id="ARD_Buttons">
+					
+<div class="ard_buttons">
+						
+<div class="button_white round_top inactive" style="width: 60px; height: 60px;">
+							
+<a class="icon_control_map_blue" draggable="false" href="" id="Control_Map_Button"></a>
+						
+</div>
+						
+<div class="button_blue round_bottom" style="width: 60px; height: 60px;">
+							
+<a class="icon_servo_monitor_white" draggable="false" href="1.4.0__Functions.html" id="Servo_Monitor_Button"></a>
+						
+</div>
+					
+</div>
+					
+<div style="width: 62px; height: 10px;"></div>
+					
+<div class="ard_buttons">
+						
+<div class="button_blue round_top" style="width: 60px; height: 60px;">
+<a class="add_button" draggable="false" id="Add_Button"></a>
+</div>
+						
+<div class="button_blue round_bottom" style="width: 60px; height: 60px;">
+<a class="trash_button" draggable="false" id="Delete_Button"></a>
+</div>
+						
+<div class="button_blue round_all" style="margin-top: 4px; width: 60px; height: 60px;">
+<a class="reorder_button" draggable="false" id="Reorder_Button"></a>
+</div>
+					
+</div>	
+				
+</aside>
+			
+</article>
+			
+<footer>
+				
+<div class="black_bar"></div>
+				
+				
+<div class="right_button_box">
+					
+<div class="button_blue round_all" style="width: 60px; height: 60px; margin-right: 4px;">
+<a class="option_button" draggable="false" href="1.4.0.0__FunctionsSetupView.html" id="Option_Button"></a>
+</div>
+					
+<div id="Navi_Box">
+						
+<div class="button_blue round_all" style="width: 180px; height: 60px;">
+<a class="back_button" draggable="false" href="1.0.0__ModelSettings.html" id="Navi_Button"></a>
+</div>
+					
+</div>
+					
+<div id="Safe_Cancel_Box" style="display: none;">
+						
+<div class="button_blue round_left" style="width: 89px; height: 60px;">
+<a class="check_button" draggable="false" href="1.4.0.0__FunctionsSetupView.html" id="Safe_Button"></a>
+</div>
+						
+<div class="button_blue round_right" style="width: 89px; height: 60px;">
+<a class="delete_button" draggable="false" href="1.4.0.0__FunctionsSetupView.html" id="Cancel_Button"></a>
+</div>
+					
+</div>
+				
+</div>
+			
+</footer>
+			
+<div id="Pop_Up_Blocker"></div>
+			
+<div id="Pop_Up" style="position: absolute; z-index: 100000;"></div>
+		
+</main>
+	
+</body>
+
+</html>

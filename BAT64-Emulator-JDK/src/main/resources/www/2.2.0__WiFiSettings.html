@@ -1,0 +1,229 @@
+<!DOCTYPE html SYSTEM "html">
+<html>
+	
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		
+<title>2.2.0__WiFi Settings</title>
+		
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+		
+<link href="css/bat60.css" rel="Stylesheet" type="text/css">
+		
+		
+<script src="js/jquery-1.11.0.min.js" type="text/javascript"></script>
+		<script src="js/raphael.js" type="text/javascript"></script>
+		<script src="js/common.js" type="text/javascript"></script>
+		<script defer src="2.2.0__WiFiSettings.js" type="text/javascript"></script>	
+		
+		
+<style type="text/css">
+			
+			.background {
+				background:				rgba(255, 255, 255, .2);
+				background: 			-moz-linear-gradient(top, rgba(255, 255, 255, .2) 0%, rgba(255, 255, 255, .2) 100%); 
+				background:				-webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(255, 255, 255, .2)), color-stop(100%, rgba(255, 255, 255, .2))); 
+				background:				-webkit-linear-gradient(top, rgba(255, 255, 255, .2) 0%, rgba(255, 255, 255, .2) 100%); 
+				background:				-o-linear-gradient(top, rgba(255, 255, 255, .2) 0%, rgba(255, 255, 255, .2) 100%); 
+				background:				-ms-linear-gradient(top, rgba(255, 255, 255, .2) 0%, rgba(255, 255, 255, .2) 100%); 
+				background:				linear-gradient(to bottom, rgba(255, 255, 255, .27) 0%, rgba(255, 255, 255, .1) 100%); 
+			}
+			.list_header .list_wifi_level, .list_content .list_wifi_level {
+				border-left-style:		none !important;
+				width:					38px;
+			}
+			.list_content .list_wifi_level {
+				padding-top:			10px !important;
+				height:					59px !important;
+			}
+			.list_wifi_ssid {
+				border-right-style:		none !important;
+				overflow:				hidden;
+				text-align:				left;
+				text-overflow:			ellipsis;
+				white-space:			nowrap;
+				width:					543px;
+				word-break:				break-all;
+			}
+			.list_content .list_wifi_ssid {
+				width:					544px;
+			}
+			.list_wifi_setup {
+				width:					64px;
+			}
+			.list_wifi_setup img {
+				border:					0;
+				margin:					10px 0px 0px 4px;
+				padding:				0;
+			}
+			.list_content_row {
+				cursor:					pointer;
+			}
+			.list_content_row.selected div {
+				background:				#f2f2f2 -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(0, 0, 0, 0)), color-stop(100%, rgba(0, 0, 0, .35))) !important;
+				background:				#f2f2f2 -moz-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, .35) 100%) !important;
+				background:				#f2f2f2 -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, .35) 100%) !important;
+				background:				#f2f2f2 -o-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, .35) 100%) !important;
+				background:				#f2f2f2 -ms-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, .35) 100%) !important;
+				color:					#25527f;
+			}
+			.list_content_row.active div {
+				background:				-moz-linear-gradient(top, rgba(69, 91, 130, .8) 0%, rgba(42, 64, 76, .8) 100%) !important; 
+				background:				-webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(69, 91, 130, .8)), color-stop(100%, rgba(42, 64, 76, .8))) !important; 
+				background:				-webkit-linear-gradient(top, rgba(69, 91, 130, .8) 0%, rgba(42, 64, 76, .8) 100%) !important; 
+				background:				-o-linear-gradient(top, rgba(69, 91, 130, .8) 0%, rgba(42, 64, 76, .8) 100%) !important; 
+				background:				-ms-linear-gradient(top, rgba(69, 91, 130, .8) 0%, rgba(42, 64, 76, .8) 100%) !important; 
+				background:				linear-gradient(to bottom, rgba(69, 91, 130, .8) 0%, rgba(42, 64, 76, .8) 100%) !important; 
+				color:					#fff;
+			}
+			.mCSB_scrollTools {
+				height:					209px !important;
+			}
+		</style>
+	
+</head>
+	
+<body>
+		
+<main>
+			
+<div id="Page_Name_Tag">WiFi_Settings_Label</div>
+			
+<header>
+				
+<div class="header_group_icon">
+					
+<div class="group_icon_settings"></div>
+				
+</div>
+				
+<div class="header_center">
+					
+<div class="header_1st_div" id="WiFi_Settings_Label">WiFi Einstellungen</div>
+				
+</div>
+				
+<div class="header_battery_value" id="Battery_Value">-- V</div>
+				
+<div class="header_battery">          
+					
+<div class="header_battery_image">
+						
+<div class="battery_spacer"></div>
+						
+<div class="battery_segment" id="Battery_80"></div>
+						
+<div class="battery_segment" id="Battery_60"></div>
+						
+<div class="battery_segment" id="Battery_40"></div>
+						
+<div class="battery_segment" id="Battery_20"></div>
+						
+<div class="battery_segment" id="Battery_0"></div>
+					
+</div>
+				
+</div>
+			
+</header>
+			
+<article>
+				
+<div style="width: 689px; height: 60px; margin-top: 16px;">
+					
+<div class="background" id="WiFi_Status" style="width: 40px; height: 40px; border: 2px solid #fff; border-radius: 4px;">
+						
+<img draggable="false" height="35" id="WiFi_Status_Img" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACoAAAAjCAYAAADizJiTAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2RpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo4QUU1Nzg4RUM3NDRFMjExQTNCREVFNkMxQjk4MkM0NiIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpCQUIxRDZCQTlCMEExMUUyQTcxMEEzNzJDMzE5ODFDMyIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpCQUIxRDZCOTlCMEExMUUyQTcxMEEzNzJDMzE5ODFDMyIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IFdpbmRvd3MiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDpBQkE3RDFEQUYyOUFFMjExQkY4NkRDQzBDNkQwODQ3QiIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo4QUU1Nzg4RUM3NDRFMjExQTNCREVFNkMxQjk4MkM0NiIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/Psw8DHIAAADdSURBVHja7NjrCoMwDAXg6fbcGWcv3lHYj9GbaTpPMvBAQaHgh61NcEsp3f4heyCLfEYzj0BIfN2/qhl56Z2HpDpSzouIbGKjIivsHmRP9nL33KOaN5kDz6U3IdlQM5IJXUKyoMtIBvQnyCOotCqEB3IElVE5YyN7UFXtZSJbUHXtZSJL6FTtZSJLKJQPEjaytfQW7OnI3sc0g6UgR8eTFktBHh34iILUlFBEQGprPbyRM00JPJGz3RO8kJY2Dx5Iaz8KNnKlcQYTmYf139Ozc31atuu34wUNnrcAAwCJ1ARaCuqr5QAAAABJRU5ErkJggg==" style="margin: 4px 0px 0px -1px; display: none;" width="42">
+					</div>	
+					
+<div id="WiFi_Status_Label" style="width: 300px; height: 60px; line-height: 40px; margin-left: 20px; color: #fff; font-size: 20px;">WiFi aktiviert</div>
+					
+<div class="button_blue round_right" style="height: 60px; float: right; margin:-10px 15px 0px 0px;">
+<a class="" draggable="false" id="Connect_Button_Label">Verbinden</a>
+</div>
+					
+<div class="button_blue round_left" id="Scan_Div" style="height: 60px; float: right; margin:-10px 0px 0px;">
+<a class="" draggable="false" id="Scan_Button_Label">Scannen</a>
+</div>
+				
+</div>
+				
+<div class="content_width_list" style="height: 240px;">
+					
+<div class="list_header">
+						
+<div class="list_wifi_ssid" id="WiFi_SSID_Label">Netzwerk-SSID</div>
+						
+<div class="list_wifi_level" id="" style="height: 1px;"></div>
+						
+<div class="list_wifi_setup" id="WiFi_Settings_Setup_Label" style="margin: 0px 3px 0px -3px;">Setup</div>
+					
+</div>
+					
+<div class="list_content scrollContainerOuterVertical" id="List_Container" style="max-height: 210px;">
+						
+<div class="inner_list_content" id="scrollContainerInnerVertical"></div>
+					
+</div>
+				
+</div>
+				
+<aside class="ard_buttons" id="ARD_Buttons">
+					
+<div class="button_blue round_top" style="width: 60px; height: 60px;">
+<a class="add_button" draggable="false" id="Add_Button"></a>
+</div>
+					
+<div class="button_blue round_bottom" style="width: 60px; height: 60px;">
+<a class="trash_button" draggable="false" id="Delete_Button"></a>
+</div>
+					
+<div class="button_blue round_all" style="margin-top: 4px; width: 60px; height: 60px; display: none;">
+<a class="reorder_button" draggable="false" id="Reorder_Button"></a>
+</div>
+				
+</aside>
+			
+</article>
+			
+<footer>
+				
+<div class="black_bar"></div>
+				
+				
+<div style="position: absolute; margin-top: -55px;">
+					
+<div class="" id="WiFi_IP_Label" style="width: auto; height: 60px; line-height: 40px; margin-left: 20px; color: #fff; font-size: 20px;">BAT IP-Adresse:</div>
+					
+<div class="" id="WiFi_IP" style="width: auto; height: 60px; line-height: 40px; margin-left: 20px; color: #fff; font-size: 20px;">xxx.xxx.xxx.xxx</div>
+				
+</div>
+				
+				
+<div class="right_button_box">
+					
+<div class="button_blue round_all" style="width: 60px; height: 60px; margin-right: 4px;">
+<a class="option_button" draggable="false" href="2.2.0__WiFiSettings.html" id="Option_Button"></a>
+</div>
+					
+<div id="Navi_Box">
+						
+<div class="button_blue round_all" style="width: 180px; height: 60px;">
+<a class="back_button" draggable="false" href="2.0__GeneralSettings.html" id="Navi_Button"></a>
+</div>
+					
+</div>
+				
+</div>
+			
+</footer>
+			
+<div id="Pop_Up_Blocker"></div>
+			
+<div id="Pop_Up" style="position: absolute; z-index: 100000;"></div>
+		
+</main>
+	
+</body>
+
+</html>

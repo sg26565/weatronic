@@ -1,0 +1,279 @@
+<!DOCTYPE html SYSTEM "html">
+<html>
+	
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		
+<title>1.18.0__Startup_Warnings</title>
+		
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+		
+<link href="css/bat60.css" rel="Stylesheet" type="text/css">
+		
+		
+<script src="js/jquery-1.11.0.min.js" type="text/javascript"></script>
+		<script src="js/common.js" type="text/javascript"></script>
+		<script defer src="1.18.0__StartupWarnings.js" type="text/javascript"></script>	
+		
+		
+<style type="text/css">
+			
+			.preflight_file {
+				background:				rgba(255, 255, 255, .08) !important;
+				color: 					#fff;
+				cursor:					default !important;
+				font-size:				20px;
+				padding-right:			2px;
+				pointer-events:			none !important;
+				width: 					752px;			
+			}
+			.preflight_file_button {
+				float:					right;
+			 	height: 				63px !important;
+			 	line-height:			63px !important;
+			 	margin:					2px 0 0 5px;
+			}
+			.list_warning_name {
+				overflow:				hidden;
+				text-align:				left;
+				text-overflow:			ellipsis;
+				white-space:			nowrap;
+				
+				width:					334px;
+				word-break:				break-all;
+			}
+			.list_warning_operator, .list_warning_value {
+				text-align:				center;
+				width:					100px;
+			}
+			.list_warning_preflight {
+				overflow:				hidden;
+				text-align:				center;
+				text-overflow:			ellipsis;
+				white-space:			nowrap;
+				width:					100px;
+				word-break:				break-all;
+			}
+			.list_warning_active {
+				text-align:				center;
+				width:					70px;
+			}
+			.list_warning_active div {
+				background:				transparent;
+				border:					0;
+				padding:				0;
+			}
+			.checkbox {
+				border:					2px solid #fff !important;
+				border-radius:			4px;
+				height:					40px !important;
+				margin:					12px 0px 0px 13px;
+				padding:				0px;
+				width:					40px !important;
+			}
+			.checkbox img {
+				margin-bottom:			3px;
+				margin-left:			-1px;
+			}
+			.preflight_url {
+				color:					#fff;
+				font-size:				19px;
+				overflow:				hidden;
+			 	width:					496px;
+			}
+			.remove_checklist_button, .new_checklist_button, .browse_checklist_button, .edit_checklist_button {
+				background-position:	center;
+				background-repeat:		no-repeat;
+			}
+			.remove_checklist_button {
+				background-image:		url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADcAAAA3CAYAAACo29JGAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAARZSURBVHja7JrLTxNRFIenZdpKBUVipFZAMSIbE3wH40ITjcb/QMPGGBcuDT52RBN3utONCyLGsHGFCcbHwoSNojuXCCIolPIQWpNaoGjHc5Mz4eTk3mk7nekgmZN84fbO6/7u49xzZggYhqFtVAtqG9h8cb44X5wvzjHTFfVXgXPACsD3iiVgC/AO6PkfxZ0FbgALrH4VOAMkgdvrXZxqWuaAWSDLOAy8AE4DqTKfXQV043NkdOM5FVlzMeA5MAG8AjaVKa4e6AR2KOjEcxwXJ9baEeAu/g4AT4BdwEVgFIiUKW4v0GZxvA3PcXzNreAUvIPraztwAbgCfAaiEkfD7aBFz4vpdquI9t0DHgB/FccXsT1yE4GzhKdANdBnrNlDcjwKPFNca5I13LesVRt0i54VLv8acAhIAzfJ8T9F9Lq4vtplh7hkZ1qGgN04JS+jpwzgdNRwmoYLPPgosNVlcb/siHsL3MctYRmFhYlzEeU3BR48jWvCTVu2OhhwMVn9BBx3WZx4RocX4sQmX+eyuJTVXuhm4Py9AhHWpFdZQZKU+4ETyIAk1Osix7uwjtoAOd7P1nXJDsUJm2E9/BHLfRiYV5PzXmLUo2Gwfh1oJu6+j1w/qXhGRVOeaRZK0agiR8QFWCgXwTo6souKe9kaOSdSngR2jGhoE/41MOLPMTEhtsdGJBmKuYzMETXwGZ6kPGL6ZLBcCzRieY6J01lqE2S/c3iNhveoxXLGSYdSasozRaZTDdCK5XkmLsTE6GwkV/EaYfuAzWQbmPIq5flBxEUxnBOWB36zOLaK/abLJYPXaHiPaLHi3Ex5Fog40REtzBEcwHJYIi6scBotpFN/khEtSVwNjpTYVx5j3SOgt8TtgDZsDynPWYxUkM2oOcU9pu0mq06kPMLGiMeMMY+pkSkfZG2iv2fJeTHiKcfsinMi5RE2js4jgtc04MY7a9EO3ibz3Aa8h+lBx+2KcyLlEfYNO8YU14TikmREuWOjZYOEcU1EXBbvbUtcr431pZqWy+Rt106yjqg41cgZ6Dg0vLae5HEFp6Xbr9OTZCMX+1OcTLW8oh20nCcjFyd7XIYF5p6I46lPXOHpIoqyQc6Nl5pOVULcMCk34lRMs/cfOnNmdANPk2tNG10v4r6QcjNm56ssKI8qRm4ez91GAmbeYZ6kPKaNEOfRiE4hhWtmv6STdUnCW09GzihXnJNfebi4GhJY06BBVk6QiImKGylnWjr5lWeGrBvh7dpJI2Vh1R7JPdqJp0wXysDX3JH8VbR4VR5mdTFgAhgGWoGeAq/TTULAEHkFngAGgUVSt4B1g1g2LYV1CVI3hPcs+Gy9QMpzHtMemvIc00r7ypPHUKmDuPQ4O0esqVOSa+sk9eNsj/Qk5TFNfKF5D1xyyPsOaeqvPhVNeUwTcegHzKTLsa/A62JPdjvloTHmSa3C5nbK46m5nfJ4agH/XxJ9cb44X5wvzhe3ge2fAAMApJm2S/YgGHsAAAAASUVORK5CYII=);
+			}
+			.new_checklist_button {
+				background-image:		url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADcAAAA3CAYAAACo29JGAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAHPSURBVHja7JrNK0RRGMbv9XFJKEWRhT9BWMhOkYxirWwQZU8sWdvaWIi1HcrHFP+DvY2dFLHwMTN3uJ5br0y3uZfjft95Tv1q5szUzG/mPe85z9zRLcvSsjrqtAwPylGOcpQLbDS4zC+BCVAEzr3iHbSDK7CXRrlxsAoeHfMmGAN3YD3pcm5lWQL34M3BIDgCo+ApS2uuGxyCW3AGmtMqZ6+1IbAl93WwD3rBLLgBTWltKEUpwU1ZX50gBxbBNWip0mj+M06kcTnHq1SKGYZcq3xTI2BX5nbAQcAfruFSAR9hfnP10vJXwAB4BmsVj5cDkrMU5wORawR9UpLz0il1KUdNytRI65rLg23ZEgoiZlQ0F/v2RdLl9JjD6jmYdGkoHX4bCg/OlKNcbUWessc+Z4Yl5yfyTCm8fo/H+5pROCzYW9blX+W+I0/JMT8skWfDI/KcBlBRduI4Vnj+p5yqMhl5Hhh5Io48schFFXlikYsq8gQ1uqKKPHMKb8reTvpdlsWyQmgtqKSCBTmt/xZ5/Jap/TPDdJX5F9DGyMODM+Uox8gTpxyv8mRpzfEqDyPPz8gx8tR45FGS41WepMvp/Esi5ShHOcpRLsPjS4ABAHq9pynqty53AAAAAElFTkSuQmCC);
+			}
+			.browse_checklist_button {
+				background-image:		url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADcAAAA3CAYAAACo29JGAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAOuSURBVHja7JpbSFRBGMc9qVsum1sgEW1lZCRFahY9lEFBFzSKiI3oJdCQSot6UHrpISEiqpfQsKIoswsFBRIoZfjQ/aGHatNKe6geul8sb+Vabf+BLxiGc5ndPUdnl/PBD8dzZubM58x8lxm1SCSSkqwyKiWJxVXOVc5VzlXONkkzeF4OVoJBIPqKnyATtIFTiajcclAFvgrPh8Ay8B7sVl05o2UZBh/BgMA80ASWgu5k2nMTwWXwGrSAMYmqHNtr80EN/a6B0yAANoKXYHSiGpRBWoJ7aX9lgRKwGTwGXh1DkzDK+WimFoLj9KwOnInjW4vBGjAbTKdvMIP1FNwCzbTP7ROWFehwjn76QAe4Bzzce1ZuNGgrkgeugnDEXN6AXSBVsl9LjGYuHWTTkiwlS6nRckyhZeqR+NttoJkfL1F3KjhCM7xNxw3ZtixvgEPkEn6RYh7OuLDydYu+g+CsYFXfkfMPgR9gBigCi6hfJuuBH6wD/U4sy3jJAR+EZVcHAjp108Bq0CnUPxjvOJxSroEb5F9QJdEmGzzh2g2AfNWUywU93CAbomi7QGhbH89YnMgKWMA9lsq94EAUbR+Ci0KMm6FSypPPlR+Arijbt3IBQoD8ojIpTxZXfhVDJNNB3/DSrPlVTXliCdF+2xXaOZHyfOfKk2MY0xxun7Fx9KmU8rQL8eS0KMe0ghsXc/rPVUp52qg9k3FgZxTjyaX+/8ttsri2RihHwXbyNVvBHiqX0XuvSeCsgSbOVw2BoIRf8oO7ghMvcsKJM8ebAc5zH6vl3nstsoJC0CcMtBpkmjjv+0L41exU+GVHylOpk9aEwD5aAZvADnAF9OvU7QalqqY89eQPa7j9mUfICNuvJ8gtNMbiHjSDK6wyUCyR8shk5qvAfjDXol4v9bcEFAh+r52s5jFwJ17l7BYfHTEEaeZY8poKesiftpKbYdHJTPKls3T6YX/oStnjDm0ELh+Zf5xE0dEX8E2nTg64ZhBXspmskDoQdiifs4Nak/OWMLmoYU957JK3Ju/SyWCVq7YsZWUCuCmkUKL8AVsoepJWTpVbHjPjwmcqJTQeqT13CUyhSIQnHRSDAnBhmPYeO7Z4ZnHm2RLNnlPplqeTXEiXRcCdsLc8zIGvNVHwUaLf8rygQCAkPP8MDifDLU8XGboKWoqfwEkhQbY0KPGmPEpgNHOpZPLZhUQhnYtUCyGQ8uL0LY+SytlxyzPiorn/kugq5yrnKucq5yqXxPJPgAEAS92lqDMNAVMAAAAASUVORK5CYII=);
+			}
+			.edit_checklist_button {
+				background-image:		url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADcAAAA3CAYAAACo29JGAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAMxSURBVHja7JpNaNRAGIY3trtqLXoRqkgRPBUvolK0XrqoVOvFi6AoSBWxHmyVtljqRc8qCFXBg391/UfEk7YH/6lH8aKXgkg9FA/VqkVtuzS+A19wGjLZSTKZTZb54CFpJsnum/3mm3kztWzbzlRqzMtUcBhxRpwRZ8Qpi2rB8UOgBUwB91jxBywGz8CVNIrbCrrBuOv4DNgCxsCJpIsTpeU0+Ap+u1gHHoM8+F5JfW4ZuA8+gydgQVrFsb62Hpymvy1wDawAe8AImJ9mcSwFT4F2cBK0gsPgPajxKDSq4wj4BkbpgQYPNnH24AZYCG7Z/6Ofa68BNwXXqqDbnhtFsD/ofUQNBdrWgg9gGOS49lyM4tzCQgsUDQVZsJJKfhtVSovSkcVSkIshFdnwc07QVkX9nn2PgSjj3BA4Q0PCX7phjisubH9QozBe4FXaHwjb53QjSkXbJ0Xbwva5JAuTFphWYbzAA0kUF1VYSYFpF+Yr0BK8/YrT8shUxTAxC/bS/Ne3Wt4D9TQT4cmC7WANuB3iF+ux441R/vN0Wp4ucFbnXFmX5dkRUyrOGbJBn27Lwx7CZbpHnMI6QEFm+sVbnjGaSzLLczCE5dkH6jUIu1QOy/MUTICRGArILDhaLsvDquskVdY6upcWYTosTyNYBF5S9d0MnoPVClKxE1wsp+Vppu0L2qoQyIQdKyVMh+UZBF88jodNUZaKHVFfM6jA6W8FQXtQgYGE+c1QVITT314L2p0U/SiZisfBhaQshORd/S2sQEdYv6pXeyoYAuOS54pSlKViZ9jvEJflydLEmg0du8AjiedcB96CVZyFkauKAX+5qJZnE/f0p8BOn3MbQDu4A37QNZ9AS9TsqS5heaZdxzeQ5ektYXny3D4bEx+A3XRtA41/zXTecjrvF3gFHoK7Hp+tbH1OxvL0SopzBLLU/AmWcGLegPMk6h0o6lh8dCzPNrI9vOVplLA8Gz2OTYJhmorFIiaIuCiWh4lo0i1GVlwt/VJNZDQzNIBel7xva5LXxKuo5LM1srVgAvRw7cVMCiJpqzxaxJVjlUd5WOZfEo04I86IM+KMuAqOfwIMACwfmKbnGde8AAAAAElFTkSuQmCC);
+			}
+			.preview_button {
+				background-image:		url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAAZCAYAAABKM8wfAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAPmSURBVHjarJhLSFVBGMfvPfcqpb2I0DSxoshFSeqiRUUPelhR9qIXFClKSVC0iISIgpQyqEUUrYQgqWWtLAp6LLyY2MOiRbbJFHtoD9NKu6/T/4tv6us4c+7D+8GPM/c7M9/8z5yZ881cbzAY9Pj9fo/X6/VIs217hE/5FT6fT7kzQQ5883CdgXY5uFrgHeiG/2U0Gu2Bf9DR7o/hnseyrBG/VT9UJh+Z3zM6KwZbQCnIh6BsXSX4+9BpF4p3wA3wjHQl1SONMKmXI0fofOzPAJWg1U7eHoNqMI5iRiKR//pQv0mDKtOVSESwD1SCN3bqjGIdhBBfqgUvBG3cyTfQkwKxn8EAl5+A5akQbIFa0ckVUAY+xhDznXGzfgjYhesl4TsL0pMVnIfrAw70FqzhewGXETsGitA2m0B5PjgBeg1tAhyzFHSwrxXCZiYqeDF4zwGug8ns3+gyYp/ADtWRjIlyPmjWNYK/IhQKUb1M0MhuesDV8QqmToe5YY3jXiDGa/4BJummFxiPcrtG8ItwOOwX9ar/3YrujCV4N1cOgs2OxTcN/HL0F+R5bYsFOVH3OWRWaR4yDCEFShD3t16tAfzebxK8Vy0GsEzT2VpNZ+0IMhbtz6D8EGx1Eato0cTZo5lKC8AXvl8pBVuotIGeFHwFiwwdnda8zgYVKA6higsawUcMdUvAB65DX5Q0bCP8ZUidV5H0KMFXg4AhKU7Q+HqTSK5DGl+Goe5TUA5ug0bSaEHsPRTquMJJ2hPIpxQ2rAk4UVPv70IzWLrTgTc0TFOTwAKU8WhvUssx60CTHP56HvpX6Gy6/KQw2zSvskX3KqkddWzYj9zVxKmSC5yvubTL4/vn6NNHD+QMVi8SRaFYtcRsEHGucKoXj2AuF4OQcymgfhHVV23AHPhf833KhB6TYA9nJrIBNCxTrwj4xRNLa0YdS74NnWBODrrR7QJjqA63WaG+DiifUjHcBBMVVJ8bHRf+KkO2ugaR6S6C0xzfa2k1YiocVU7EOCQ/c66Cef4u4alh856igBt3GjqmLLYJZAnBU/B7ndjpOa0TdenNzQK32Ecbq5ViesQtmMpZ4CYHonR9mPcTgy7pmbaMbYjxiJOQyYZQZzuu+zilkzWBPDE9EhasyuWcVMieg+4U7If7xJqg2AekhlEJ5oVHW8bLam6nyOir04C4U50aUiFYNZ4LzvNGJ1mjthfplG06P5oEe51ZSh7l1VGbGtHR3HH0p6P8Uk6dhSA3RkqmIz9NgUbEuM+/jX8p0ICpoz/dU4M2GsHKfJzOS3CvgNI1/09B9hP0gw7eF3QjVlj+B5Go4N8CDACLDuqUWvCMDQAAAABJRU5ErkJggg==);
+				background-position:	center;
+				background-repeat:		no-repeat;
+				height:					25px;
+				width:					44px;
+			}
+			.mCustomScrollBox>.mCSB_scrollTools {
+				height:					240px !important;
+			}
+		</style>
+	
+</head>
+	
+<body>
+		
+<main>
+			
+<div id="Page_Name_Tag">Startup_Warnings_Label</div>
+			
+<header>
+				
+<div class="header_group_icon">
+					
+<div class="group_icon_wrench"></div>
+				
+</div>
+				
+<div class="header_center">
+					
+<div class="header_1st_div" id="Startup_Warnings_Label">Startup Warnings</div>
+					
+<div class="header_sub_spacer"></div>
+					
+<div class="header_sub_div" id="Model_Name"></div>
+				
+</div>
+				
+<div class="header_battery_value" id="Battery_Value">-- V</div>
+				
+<div class="header_battery">          
+					
+<div class="header_battery_image">
+						
+<div class="battery_spacer"></div>
+						
+<div class="battery_segment" id="Battery_80"></div>
+						
+<div class="battery_segment" id="Battery_60"></div>
+						
+<div class="battery_segment" id="Battery_40"></div>
+						
+<div class="battery_segment" id="Battery_20"></div>
+						
+<div class="battery_segment" id="Battery_0"></div>
+					
+</div>
+				
+</div>
+			
+</header>
+			
+<article>
+				
+<div class="control_header_1row" style="height: 64px; line-height: 64px; margin-bottom: 6px; width: 760px;">
+					
+<div class="preflight_url">
+						
+<div id="PreFlight_Checklist_Label" style="margin-left: 4px;">PreFlight Checklist:</div>
+						
+<div id="PreFlight_Checklist_FileName" style="margin: 0px 4px 0px 6px;"></div>
+					
+</div>
+					
+<div class="button_blue round_all" style="width: 60px; height: 60px; margin: 1px 2px 0px 2px;">
+<a class="browse_checklist_button" draggable="false" id="Browse_Checklist"></a>
+</div>
+ 					
+<div class="button_blue round_all" style="width: 60px; height: 60px; margin: 1px 2px 0px 2px;">
+<a class="new_checklist_button" draggable="false" id="New_Checklist"></a>
+</div>
+					
+<div class="button_blue round_all inactive" id="Edit_Checklist_Outer" style="width: 60px; height: 60px; margin: 1px 2px 0px 2px;">
+<a class="edit_checklist_button" draggable="false" id="Edit_Checklist"></a>
+</div>
+					
+<div class="button_blue round_all inactive" id="Remove_Checklist_Outer" style="width: 60px; height: 60px; margin: 1px 2px 0px 2px;">
+<a class="remove_checklist_button" draggable="false" id="Remove_Checklist"></a>
+</div>
+				
+</div>
+				
+<div class="content_width_list">
+					
+<div class="list_header">
+						
+<div class="list_warning_name" id="Startup_Name_Label">Name</div>
+						
+<div class="list_warning_operator" id="Startup_Operator_Label">Operator</div>
+						
+<div class="list_warning_value" id="Startup_Value_Label">Wert</div>
+						
+<div class="list_warning_preflight" id="Startup_PreFlight_Label">Checklist</div>
+						
+					
+</div>
+					
+<div class="list_content scrollContainerOuterVertical" id="List_Container" style="max-height: 240px;">
+						
+<div class="inner_list_content" id="scrollContainerInnerVertical"></div>
+					
+</div>
+				
+</div>
+				
+<aside class="ard_buttons" id="ARD_Buttons">
+					
+<div class="button_blue round_top" style="width: 60px; height: 60px;">
+<a class="add_button" draggable="false" id="Add_Button"></a>
+</div>
+					
+<div class="button_blue round_bottom" style="width: 60px; height: 60px;">
+<a class="trash_button" draggable="false" id="Delete_Button"></a>
+</div>
+					
+<div class="button_blue round_all" style="margin-top: 4px; width: 60px; height: 60px; display: none;">
+<a class="reorder_button" draggable="false" id="Reorder_Button"></a>
+</div>
+					
+<div class="button_blue round_all" style="margin-top: 4px; width: 60px; height: 60px;">
+<a class="preview_button" draggable="false" id="Preview_Button"></a>
+</div>
+				
+</aside>
+			
+</article>
+			
+<footer>
+				
+<div class="black_bar"></div>
+				
+<div class="right_button_box">
+					
+<div class="button_blue round_all" style="width: 60px; height: 60px; margin-right: 4px;">
+<a class="option_button" draggable="false" href="1.18.0__StartupWarnings.html" id="Option_Button"></a>
+</div>
+					
+<div id="Navi_Box">
+						
+<div class="button_blue round_all" style="width: 180px; height: 60px;">
+<a class="back_button" draggable="false" href="1.0.0__ModelSettings.html" id="Navi_Button"></a>
+</div>
+					
+</div>
+					
+<div id="Safe_Cancel_Box" style="display: none;">
+						
+<div class="button_blue round_left" style="width: 89px; height: 60px;">
+<a class="check_button" draggable="false" href="1.18.0__StartupWarnings.html" id="Safe_Button"></a>
+</div>
+						
+<div class="button_blue round_right" style="width: 89px; height: 60px;">
+<a class="delete_button" draggable="false" href="1.18.0__StartupWarnings.html" id="Cancel_Button"></a>
+</div>
+					
+</div>
+				
+</div>
+			
+</footer>
+			
+<div id="Pop_Up_Blocker" style="margin-left: -692px;"></div>
+			
+<div id="Pop_Up" style="position: absolute; z-index: 100000;"></div>
+		
+</main>
+	
+</body>
+
+</html>

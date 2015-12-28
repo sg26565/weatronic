@@ -1,0 +1,217 @@
+<!DOCTYPE html SYSTEM "html">
+<html>
+	
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		
+<title>1.5.0__Sequencers_Help</title>
+		
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+		
+<link href="/css/bat60.css" rel="Stylesheet" type="text/css">
+		
+		
+<script src="/js/jquery-1.11.0.min.js" type="text/javascript"></script>
+		<script src="/js/common.js" type="text/javascript"></script>
+		<script defer src="HelpContent.js" type="text/javascript"></script>	
+		
+		
+<style type="text/css">
+			
+		.content_full_block {
+			background:	rgba(255, 255, 255, .9) !important;
+			border-style: solid;
+			border-width: 4px 4px 4px 4px;
+			border-radius: 6px 6px 0px  6px;
+			background-color: #fff;
+			color: #000;
+			font-size: 20px;
+			height: 385px;
+			overflow: hidden;
+			text-align:	justify;
+			width: 752px;
+		}
+		.content_full_block_list{
+
+			margin-top: 0px;
+			position: relative;
+			width: 720px;
+			padding: 0 15px 0 15px;
+		}
+		ul{
+			margin-left: -20px;
+		}
+		li{
+			
+		}
+		</style>
+	
+</head>
+	
+<body>
+		
+<main>
+			
+<header>
+				
+<div class="header_group_icon">
+					
+<div class="group_icon_help"></div>
+				
+</div>
+				
+<div class="header_center">
+					
+<div class="header_1st_div" id="Help_Page_Label">Hilfe</div>
+					
+<div class="header_sub_spacer"></div>
+					
+<div class="header_sub_div" id="Help_Page"></div>
+				
+</div>
+				
+<div class="header_battery_value" id="Battery_Value">-- V</div>
+				
+<div class="header_battery">          
+					
+<div class="header_battery_image">
+						
+<div class="battery_spacer"></div>
+						
+<div class="battery_segment" id="Battery_80"></div>
+						
+<div class="battery_segment" id="Battery_60"></div>
+						
+<div class="battery_segment" id="Battery_40"></div>
+						
+<div class="battery_segment" id="Battery_20"></div>
+						
+<div class="battery_segment" id="Battery_0"></div>
+					
+</div>
+				
+</div>
+			
+</header>
+			
+<article>
+				
+<div class="content_full_block scrollContainerOuterVertical" id="List_Container">
+					
+<div class="content_full_block_list" id="scrollContainerInnerVertical">
+						
+<br>
+						
+<span id="Help_Sequencers_1_Label">Sequenzer steuern automatisch den Ablauf einer Funktion mit nur einem Geber. Die bekanntesten Beispiele sind Fahrwerke, Klapptriebwerke, Fahrwerksklappen und all das, was sich ein Modellbauer vorstellen kann. Ohne Zusatzprodukte k&ouml;nnen nun Abl&auml;ufe von Funktionen mit bis zu 5 Servos direkt im Sender programmiert werden. 10 Wege pro Servo stehen zur Verf&uuml;gung &ndash; insgesamt also 100 Wegpunkte. Dazu kommen Verz&ouml;gerungen von bis zu 60 Sekunden f&uuml;r beide Richtungen und Kontrolle der Endstellungen. Bis zu 12 Sequenzer k&ouml;nnen programmiert werden.</span>
+						
+<table>
+							
+<tr>
+								
+<td align="center" valign="top">
+<div class="icon_info"></div>
+</td>
+								<td>
+									<span id="Help_Sequencers_2_Label">ANMERKUNG: Bitte beachten Sie, dass alle Servos, die einem Sequenzer zugeordnet werden, keiner anderen Funktion mehr zur Verf&uuml;gung stehen.</span>
+<br>
+									
+<span id="Help_Sequencers_3_Label">Umgekehrt stehen alle Servos, die bereits einer Funktion zugeordnet wurden, nicht f&uuml;r einen Sequenzer zur Auswahl.</span>
+								</td>
+							
+</tr>
+						
+</table>
+						
+<ul>
+							
+<li>
+								
+<p id="Help_Sequencers_4a_Label">Ber&uuml;hren Sie "+", um einen neuen Sequenzer hinzuzuf&uuml;gen. Mit dem "Eimer" Symbol k&ouml;nnen Sie Sequenzer l&ouml;schen und mit dem unterstem Symbol k&ouml;nnen sie die Liste neu anordnen.</p>
+							
+</li>
+							
+<li>
+								
+<p id="Help_Sequencers_4b_Label">Sequenzer, ber&uuml;hren Sie die Schaltfl&auml;che und vergeben Sie einen Namen.</p>
+							
+</li>
+							
+<li>
+								
+<p id="Help_Sequencers_4c_Label">Schalter, hier werden die Geber f&uuml;r die Sequenzer festgelegt.</p>
+							
+</li>
+							
+<li>
+								
+<p id="Help_Sequencers_4d_Label">0% -&gt; 100%, hier k&ouml;nnen Sie bestimmen, wie viel Zeit diese Sequenz brauchen soll vom Start (0%) bis zum Ende (100%) (in Sekunden). 100% -&gt; 0%, hier bestimmen Sie die Zeit, die die Sequenz vom Ende (100%) brauchen soll, um wieder zur Startposition zu gelangen (0%).</p>
+							
+</li>
+							
+<li>
+								
+<span id="Help_Sequencers_5a_Label">Fail Safe, w&auml;hlen Sie zwischen "Aus", "Halten" und "Wert", wie sich der Sequenzer verhalten soll, falls die Daten&uuml;bertragung zwischen dem Modell und dem Sender unterbrochen wird.</span>
+								
+<ul>
+									
+<li id="Help_Sequencers_5b_Label">AUS - sollte der Sequenzer gerade eine Sequenz ausf&uuml;hren und die Datenverbindung wird unterbrochen, f&uuml;hrt das Modell die Sequenz komplett weiter.</li>
+									
+<li id="Help_Sequencers_5c_Label">HALTEN, sollte der Sequenzer gerade eine Sequenz ausf&uuml;hren und die Datenverbindung wird unterbrochen, wird die Position der Servos in dieser Sequenz beibehalten (eingefroren).</li>
+									
+<li id="Help_Sequencers_5d_Label">WERT, sollte der Sequenzer gerade eine Sequenz ausf&uuml;hren und die Datenverbindung wird unterbrochen, wird sich der Sequenzer zu dem gew&auml;hlten Wert bewegen (0% - 100%).</li>
+								
+</ul>
+								
+<p></p>
+							
+</li>
+							
+<li>
+								
+<p id="Help_Sequencers_6_Label">Setup, hier kommen Sie zum eigentlich Einstellmen&uuml; des jeweiligen Sequenzer.</p>
+							
+</li>
+						
+</ul>
+						
+<br>
+					
+</div>
+				
+</div>
+			
+</article>
+			
+<footer>
+				
+<div class="black_bar"></div>
+				
+<div class="right_button_box">
+					
+<div class="button_blue round_all" id="Option_Box" style="width: 60px; height: 60px; margin-right: 4px;">
+<a class="option_button" draggable="false" href="1.1.0__ModelConfiguration.html" id="Option_Button"></a>
+</div>
+					
+<div id="Navi_Box">
+						
+<div class="button_blue round_all" style="width: 180px; height: 60px;">
+<a class="back_button" draggable="false" href="/0.1__HomeScreen.html" id="Navi_Button"></a>
+</div>
+					
+</div>					
+				
+</div>
+			
+</footer>
+			
+<div id="Pop_Up_Blocker"></div>
+			
+<div id="Pop_Up" style="position: absolute; z-index: 1000;"></div>
+		
+</main>
+		
+		
+	
+</body>
+
+</html>

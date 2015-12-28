@@ -1,0 +1,242 @@
+<!DOCTYPE html SYSTEM "html">
+<html>
+	
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		
+<title>2.13.1__ChecklistText</title>
+		
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+		
+<link href="css/bat60.css" rel="Stylesheet" type="text/css">
+		
+		
+<script src="js/jquery-1.11.0.min.js" type="text/javascript"></script>
+		<script src="js/common.js" type="text/javascript"></script>
+		<script defer src="2.13.1__ChecklistText.js" type="text/javascript"></script>	
+		
+		
+<style type="text/css">
+			
+			.enter_button {
+				background-image:		url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAYAAAA6/NlyAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAHgSURBVHja7Jq7S8RAEIeT84UPUBQVC1Gw1FZBtLGwExTstLG0sbEQ8ToR0eZAsBPkKgtFFMQ/RLBU1MIHvkB8o178DU4RgmLCJexmdwY+uMsld/dld2dn9871PM+xKTKOZSHCIizCIizCIizC6qI04vkjYAZ0gQ/F370MnIAVkAeFMBe5EUpLkt3RtOGmwGrcXXpS4546EfbEKC18B+o1Fb4HDZK0RFimJS3iFFyCEn5O000N6KScY5rwExgER4Hj1eAAdJjWpZ/BzS/HX/lmWDWGXduEJUuLsAgXJ/xgm/CebcI5XnBbU1qegT4wxKWef4fhEzSBWVBuUi1NNe7aH6+1gukIwh6T0bVLxx1zYNgJuReV9tVSFiyBdvAGqnzlo2ua8AJY5Me083nIqyESvQZfJglnfbIUF6A3cE7BFOGgrD9xGTeGabpatqmWPrZt8ZAHA0W+h5emLk1ZeB+MgV3f8RbQ/09mpiquEbSlLWlVckuPszxFD9g0udKqBdvOz86kk/Scq0tpWcGtOgq6dV88xBV1YCsNq6U4w1XxobKnJcLRuqhrk/ALeFTkca5C+BasKxLeUJWl58E7V1PNCRcW9PvxFd/kXOhxJ/+IF2ERFmERFmERFmERTii+BRgAtzVSx0DTvH0AAAAASUVORK5CYII=);
+			}
+			.up_button {
+				background-image:		url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAApCAYAAABdnotGAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyBpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBXaW5kb3dzIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjE3Q0UwQ0E4QTVGMDExRTJCNDIzQTFGODhEMDI2N0Y2IiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjE3Q0UwQ0E5QTVGMDExRTJCNDIzQTFGODhEMDI2N0Y2Ij4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6MTdDRTBDQTZBNUYwMTFFMkI0MjNBMUY4OEQwMjY3RjYiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6MTdDRTBDQTdBNUYwMTFFMkI0MjNBMUY4OEQwMjY3RjYiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz40I5LzAAABJUlEQVR42uyWvQqCYBSGs0JocgqCVlfXgsYuoAvoDpyCpqAL8A68A9fASQhaA++htanFSQiE0wmOFGah348anBceBH+OD/p5PAYA9LqUvqI6G2SrpNLzCUmyhlfWsvVkZZbI/U3oTvtaEXKQBD6T0DGhuobgop4iMW3LckXmtNW+qMfI8YdMLnyic7Uu6hESQ/XEdI2WNTRAQqifkK5VLuSDeHzVQjuQz16VkAvq4soKrZBMoVBGNYWEZkgK6pNS7VqN0UbOQn2kWm7IArlUaYwTJNIokzfXqKy5FoUs6sJ2A6OPTVLWNyETOSBOg/OYQ/c0y34dAbSXoPiVedB+PJHxQ3QAN5qeqTs35LMQC7EQC7EQC7EQC/2r0FDX5MevTFceAgwAy3bqeEbgMSMAAAAASUVORK5CYII=);
+			}
+			.down_button {
+				background-image:		url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAApCAMAAABqQHt0AAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAABsUExURf///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////zYbQD0AAAAjdFJOUwADBgkPFRgbJC02Qk5aaW9yeHuHlqWxvcnS1djb5Orw9vn8VVQE0gAAAKRJREFUOMvt1McOgzAQBNChxXSS0BP6/v8/5oAQGDcpFy7s+Ule70gDXDbEzY1udC3KyTA5AJR6UwIA7Fpnant90G3VpnW3tVinMt1jX94f5Gbwj18MJ5mZQv5G8SKaJT5fMhVRKt77fTYvWSoFbwppdFZ1NJUlD9hpdtM4qu7xvpv5eOqGYv1qeqbrsWAkIhoDfdtFM9EcmToxIUrMzfnM/mvcH4npTpETaQHZAAAAAElFTkSuQmCC);
+			}
+			.keypad_button {
+				background-image:		url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACkAAAApCAYAAACoYAD2AAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAKLSURBVHja7JhNSBVRFMed15g8jSwjS4QMAiWRwkVQgkZRCoUGGghGG0FQN7mxdmVRBEmQKz/WrUpCxI9QkCCMWhTURqxFhboJPyjQ1Mzpf+I/cBqG98anjxljDvy4d87cue/v3HvOPaNhWVZK0C2Ssg0sFBmKDEX+ryKN/Jo2u78XVIBTIAOs+6EHrIJ3YGSy99aUFnkcPAZFAXqB06ABQp+LyEO4eA1yArjSK+Cs7MkbARUolgZuishzAY+bIhG53+H8yAAqB9XcyE95LdzhuHvKNwSkUqlVvs/gvbpu4nNPlO8RfdeUb9ShJ93k5NoWJLLYNxnln9TDJts3yneJ7SBYZP87mFVjvrLVc9nb7AUC5IN0Ci7frnXosdzypBa97tFnOe7ZvkSf+8dMF5FHQA/7O0EqqOS2kDx2mPdaQBX7pbwnz/2kLw8cUHPtYytzZbN/lO1dvMFv7Je5JfM5tFkBDpz5bXEsmjHuvQJf7DQAjoEB8IO+02AP6Oc+km1RAyYY1WK5HPcSTDnmegaW6atQ22FDIttBH/vXOXEjmKFPfqQY1KliZZkpxk5TZ8AYuA+G6WsFD8AVGY+ologeR78kkSpoh8s40+EzXP7giMsckThzGYku9wkurSxlIX3nVb47CKLgAlgDu/hjBTzFDFZUYid5KOi5LkpOxlu0K7CYpVoY3cmObudRORtv72zQZOkzVWLftMguKZmS8JLqQfdWifzF4EhGUetpub0sYQYT91bbbi/fPSJyKV4KYC14NQl7MuplFUXkWx5fsSyd+PJBJimoI+AZqDvCs7XZp+/sePYQZ3uPHd2drFyqWfSm+ijsN7+5hyFw4G/khP/pDUWGIkOR/tkfAQYAFneX0I5OKEsAAAAASUVORK5CYII=);
+			}
+			.bbcode_button {
+				background-image:		url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA8BAMAAADI0sRBAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAAwUExURf///////////////////////////////////////////////////////////////06vuEAAAAAPdFJOUwARIjNEVWZ3iJmqu8zd7kYq9ZkAAADlSURBVDjLY2AYBSMMMP7//78BQ5T7//+/YAYTIekJDAws54GKliswMHAA6X9lYAVI0pz/QeCXAIM+mPEUQxqos/r/AQb9n0Cj6v8HYJFm6P8GlmZgen8Bm7T8L4g0Q/9nbNK8f6HS+d/IkJb/DTP8C1anfYc57QEWaUuoxxhqMT0GAj9hwXIVa6j9YIBKH2Eg0XBUpz3EJi33B+qx+q/YpHn+Q6Xjv2OT5oZJ+2OV5vmHVzeBGMMf317/F0Ck6/4bYA1UWKhdQQs1lv2glCrAwMAOSqml6CkVC+AmKhsQyESjYAQBAPap9Hzl90K6AAAAAElFTkSuQmCC);
+			}
+			.enter_button, .up_button, .down_button, .keypad_button, .bbcode_button {
+				background-position:	center;
+				background-repeat:		no-repeat;
+			}
+			#Preview_Text {
+				cursor:					pointer;
+			}
+			#Input_Box {
+				background:				#fff;
+				border-color:			#7ea4c9;
+				border-radius:			6px 6px 0px 0px;
+				border-style:			solid;
+				border-width:			7px 7px 0px 7px;
+				margin-left:			-7px;
+				width:					760px;
+			}
+			textarea {
+				border:					0;
+				font-family:			Liberation Mono;
+				font-size:				18px;
+				margin-left:			0px;
+				overflow-y:				scroll;
+			    height:					80px;
+			    padding:				6px 6px 3px 6px;
+			    resize:					none;
+			    white-space:			pre-wrap;
+			    width:					748px;
+			}
+			textarea:focus {
+				outline:				none !important;
+			}
+			
+			.list_header {
+				min-height:				26px;
+			}
+			.inner_list_content {
+				background:				rgba(255, 255, 255, .08);
+				border-color:			#000 #000 #000 #999;
+				border-style:			solid;
+				border-width:			0px 1px 1px 1px;
+				min-height:				315px;
+				padding:				0px 6px 0px 6px;
+				width:					746px;
+			}
+			
+			.color_button {
+				border-radius:			6px;
+				color:					#fff;
+				height:					40px;
+				line-height:			40px;
+				margin:					-6px 0px 0px 17px;
+				width:					40px;
+			}
+			.mCustomScrollBox>.mCSB_scrollTools {
+				height:					315px !important;
+			}
+			#blue li.inactive {
+				background:				#59728a -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(0, 0, 0, 0)), color-stop(100%, rgba(0, 0, 0, .35))) !important;
+				background:				#59728a -moz-linear-gradient(top, rgba(0, 0, 0, .35) 0%, rgba(0, 0, 0, 0) 100%) !important;
+				background:				#59728a -webkit-linear-gradient(top, rgba(0, 0, 0, .35) 0%, rgba(0, 0, 0, 0) 100%) !important;
+				background:				#59728a -o-linear-gradient(top, rgba(0, 0, 0, .35) 0%, rgba(0, 0, 0, 0) 100%) !important;
+				background:				#59728a -ms-linear-gradient(top, rgba(0, 0, 0, .35) 0%, rgba(0, 0, 0, 0) 100%) !important;
+			}
+			
+			.pf_line_through {
+				text-decoration:		line-through;
+			}
+			.pf_shadow {
+				text-shadow:			2px 2px 2px #000000;
+			}
+			.pf_outline {
+				text-shadow:			1px 1px 1px #000000, 1px -1px 1px #000000, -1px 1px 1px #000000, -1px -1px 1px #000000;
+			}
+			
+		</style>
+	
+</head>
+	
+<body>
+		
+<main>
+			
+<div id="Page_Name_Tag">ChecklistText_Label</div>
+			
+<header>
+				
+<div class="header_group_icon">
+					
+<div class="group_icon_wrench"></div>
+				
+</div>
+				
+<div class="header_center">
+					
+<div class="header_1st_div" id="ChecklistText_Label">Checklist Texteditor</div>
+				
+</div>
+				
+<div class="header_battery_value" id="Battery_Value">-- V</div>
+				
+<div class="header_battery">          
+					
+<div class="header_battery_image">
+						
+<div class="battery_spacer"></div>
+						
+<div class="battery_segment" id="Battery_80"></div>
+						
+<div class="battery_segment" id="Battery_60"></div>
+						
+<div class="battery_segment" id="Battery_40"></div>
+						
+<div class="battery_segment" id="Battery_20"></div>
+						
+<div class="battery_segment" id="Battery_0"></div>
+					
+</div>
+				
+</div>
+			
+</header>
+			
+<article>
+				
+<div class="content_width_list" style="height: 408px;">
+					
+<div id="Input_Box" style="display: none;">
+						
+<textarea id="Input_Area"></textarea>
+						
+<div id="Keypad_Box" style="margin: 89px 0px 0px -7px; position: absolute; z-index: 99999;"></div>
+					
+</div>
+					
+<div id="Preview_Text">
+						
+<div class="content_width_list" style="width: 760px;">
+							
+<div class="list_header" style="width: 758px;">
+								
+<div id="CheckList_Titel"></div>
+							
+</div>
+							
+<div class="list_content scrollContainerOuterVertical" id="List_Container" style="max-height: 316px; width: 760px;">
+								
+<div class="inner_list_content" id="scrollContainerInnerVertical">
+									
+<div id="List_Content">
+									
+</div>
+								
+</div>
+							
+</div>
+						
+</div>
+					
+</div>
+				
+</div>
+			
+</article>
+			
+<footer>
+				
+<div class="black_bar"></div>
+				
+<div class="right_button_box">
+					
+<div class="button_blue round_all" style="width: 60px; height: 60px; margin-right: 4px;">
+<a class="option_button" draggable="false" href="2.13.0__PreFlightChecklists.html" id="Option_Button"></a>
+</div>
+					
+<div id="Navi_Box">
+						
+<div class="button_blue round_all" style="width: 180px; height: 60px;">
+<a class="back_button" draggable="false" href="1.0.0__ModelSettings.html" id="Navi_Button"></a>
+</div>
+					
+</div>
+					
+<div id="Safe_Cancel_Box" style="display: none;">
+						
+<div class="button_blue round_left" style="width: 89px; height: 60px;">
+<a class="check_button" draggable="false" href="2.13.0__PreFlightChecklists.html" id="Safe_Button"></a>
+</div>
+						
+<div class="button_blue round_right" style="width: 89px; height: 60px;">
+<a class="delete_button" draggable="false" href="2.13.0__PreFlightChecklists.html" id="Cancel_Button"></a>
+</div>
+					
+</div>
+				
+</div>
+			
+</footer>
+			
+<div id="Pop_Up_Blocker"></div>
+			
+<div id="Pop_Up" style="position: absolute; z-index: 100000;"></div>
+		
+</main>
+	
+</body>
+
+</html>

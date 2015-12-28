@@ -1,0 +1,214 @@
+<!DOCTYPE html SYSTEM "html">
+<html>
+	
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		
+<title>1.13__ControlMap</title>
+		
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+		
+<link href="css/bat60.css" rel="Stylesheet" type="text/css">
+		
+		
+<script src="js/jquery-1.11.0.min.js" type="text/javascript"></script>
+		<script src="js/common.js" type="text/javascript"></script>
+		<script defer src="1.13__ControlMap.js" type="text/javascript"></script>
+		
+		
+<style type="text/css">
+			
+			.list_header .cm_control {
+				padding:				0;
+			}
+			.cm_control {
+				width:					86px;
+			}
+			.list_header .cm_function {
+				width:					202px;
+			}
+			.cm_function {
+				overflow:				hidden;
+				text-overflow:			ellipsis;
+				width:					199px;
+				white-space:			nowrap;
+			}
+			.list_header .cm_servo {
+				width:					38px;
+			}
+			.list_header .cm_servo.thick_border_right {
+				width:					37px;
+			}
+			.cm_servo {
+				width:					37px;
+			}
+			.cm_servo.thick_border_right {
+				width:					36px;
+			}
+			.list_content_row .cm_control {
+				padding:				0;
+			}
+			.list_content_row .cm_control img {
+				margin:					4px 0px 0px 1px;
+			}
+			.thick_border_right {
+				border-right-width:		2px !important;
+			}
+			.thick_border_bottom {
+				border-bottom-width:	2px !important;
+			}
+			.servo_set {
+				background:				rgba(96, 153, 240, .7) !important;
+			}
+			#scrollContainerInnerVertical {
+				position:				relative;
+				top:					0px;
+			}
+			#scrollContainerInnerHorizontal {
+				left:					0px;
+				position:				relative;
+			}
+			.scrollContainerOuterHorizontal {
+				height:					315px;
+				overflow:				hidden;
+			}		
+			.mCustomScrollBox>.mCSB_scrollTools {
+				height:					318px !important;
+			}
+			.mCSB_horizontal.mCustomScrollBox>.mCSB_scrollTools {
+				top:					374px !important;
+				width:					674px !important;
+			}
+			.mCSB_horizontal.mCustomScrollBox>.mCSB_scrollTools .mCSB_draggerContainer, 
+			.mCSB_horizontal.mCustomScrollBox>.mCSB_scrollTools .mCSB_draggerRail {
+				width:					504px !important;
+			}
+		</style>
+	
+</head>
+	
+<body>
+		
+<main>
+			
+<div id="Page_Name_Tag">Control_Map_Label</div>
+			
+<header>
+				
+<div class="header_group_icon">
+					
+<div class="group_icon_wrench"></div>
+				
+</div>
+				
+<div class="header_center">
+					
+<div class="header_1st_div" id="Control_Map_Label">Geber Matrix</div>
+					
+<div class="header_sub_spacer"></div>
+					
+<div class="header_sub_div" id="Model_Name"></div>
+				
+</div>
+				
+<div class="header_battery_value" id="Battery_Value">-- V</div>
+				
+<div class="header_battery">          
+					
+<div class="header_battery_image">
+						
+<div class="battery_spacer"></div>
+						
+<div class="battery_segment" id="Battery_80"></div>
+						
+<div class="battery_segment" id="Battery_60"></div>
+						
+<div class="battery_segment" id="Battery_40"></div>
+						
+<div class="battery_segment" id="Battery_20"></div>
+						
+<div class="battery_segment" id="Battery_0"></div>
+					
+</div>
+				
+</div>
+			
+</header>
+			
+<article>
+				
+<div class="content_width_list" style="height: 383px;">
+					
+<div class="scrollContainerOuterHorizontal" style="height: 383px; max-width: 674px;">
+						
+<div id="scrollContainerInnerHorizontal">
+							
+<div id="List_Header"></div>			
+							
+<div class="scrollContainerOuterVertical" style="float: none; height: 351px; max-width: 100%; min-width: 47px;">
+								
+<div class="list_content" id="scrollContainerInnerVertical">
+								
+</div>
+							
+</div>
+						
+</div>
+					
+</div>
+				
+</div>
+				
+<aside class="ard_buttons" id="Toggle_Buttons">
+					
+<div class="button_white round_top inactive" style="width: 60px; height: 61px;">
+						
+<a class="icon_control_map_blue" draggable="false" href="#" id="Control_Map_Button"></a>
+					
+</div>
+					
+<div class="button_blue round_bottom" style="width: 60px; height: 61px;">
+						
+<a class="icon_servo_monitor_white" draggable="false" href="1.14__ServoMonitor.html" id="Servo_Monitor_Button"></a>
+					
+</div>
+				
+</aside>
+			
+</article>
+			
+<footer>
+				
+<div class="black_bar"></div>
+				
+<div class="right_button_box">
+					
+<div class="button_blue round_all" style="width: 60px; height: 60px; margin-right: 4px;">
+						
+<a class="option_button" draggable="false" href="1.13__ControlMap.html" id="Option_Button"></a>
+					
+</div>
+					
+<div id="Navi_Box">
+						
+<div class="button_blue round_all" style="width: 180px; height: 60px;">
+							
+<a class="back_button" draggable="false" href="1.0.0__ModelSettings.html" id="Navi_Button"></a>
+						
+</div>
+					
+</div>
+				
+</div>
+			
+</footer>
+			
+<div id="Pop_Up_Blocker"></div>
+			
+<div id="Pop_Up" style="position: absolute; z-index: 100000;"></div>
+		
+</main>
+	
+</body>
+
+</html>

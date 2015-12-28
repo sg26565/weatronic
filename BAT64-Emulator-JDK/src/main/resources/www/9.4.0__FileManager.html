@@ -1,0 +1,342 @@
+<!DOCTYPE html SYSTEM "html">
+<html>
+	
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		
+<title>9.4.0__FileManager</title>
+		
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+		
+<link href="css/bat60.css" rel="Stylesheet" type="text/css">
+		
+		
+<script src="js/jquery-1.11.0.min.js" type="text/javascript"></script>
+		<script src="js/common.js" type="text/javascript"></script>
+		<script defer src="9.4.0__FileManager.js" type="text/javascript"></script>
+		
+		
+<style type="text/css">
+			
+			.arrow_left, .arrow_right {
+				background-position:	center;
+				background-repeat:		no-repeat;
+				height:					38px;
+				width:					38px;
+			}
+			.arrow_left {
+				background-image:		url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACYAAAAmCAYAAACoPemuAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyBpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBXaW5kb3dzIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOkVENTUxNTM3OUFFQTExRTI4RjA0QjhBOUMyQkQyODlCIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOkVENTUxNTM4OUFFQTExRTI4RjA0QjhBOUMyQkQyODlCIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6RUQ1NTE1MzU5QUVBMTFFMjhGMDRCOEE5QzJCRDI4OUIiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6RUQ1NTE1MzY5QUVBMTFFMjhGMDRCOEE5QzJCRDI4OUIiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz73/wgbAAABeklEQVR42syYMWsCQRCFd70gCFdZpbISUglWijYJFmkCpkywjVzrP7Cwt7VKsDVlwCAIgaQJJG2qtKlSWQlCQM63MILI6UVdb9/AV97y2JmdeXM6DEPFGClFGjaFdW0K0xZSmQZ90DDn2RJ2cuD3PngCNdupPETYKRiB4jFqbF9hefACckzFXwIfxxS1j7Ar8AqyTO3iTgo9w9TH2uAeeEk12LjiN0J6IEi6828TZlI2APUdzrM1ePUmYaa4h6DialZGCTNtYAzOmIZ4QXqUU1Hrws7Bu4waGttzI+nzmfxYS15fms0oeoowlkaxIWaP5db0qoOtySz02YQpMX0jgpepozx/Tkxg3qWwKHfxA8rgk3F9m4AL8My4V87ANXjYJQWWiDWKc9AEHVd97D8RiGn0Ym7MySZel/GVYROmxDwON2xKToUp8WvjiN1SJ/Eqt8W39Lovpk18Gb+gCt7YhJmYgkvwyPJTZTX+wK3coHJd/DS/CBKPhQADANJhSyNM1paVAAAAAElFTkSuQmCC);
+			}
+			.arrow_right {
+				background-image:		url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACYAAAAmCAYAAACoPemuAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAFeSURBVHja7JgxS8NQFIUT20VwcnLq6uSq4KIgFIoFx7qKTk7+AofuHVyDroWOBrp0KO3S0k4Bp0CnTpk6BQKBEM+DK5QSNWle0jP0wLeUvscHebk5iRnHscGYA4M0usU6ujYyNV9KtVkXPICQTUxlCO6Azyam4oAG8NjEVJbgBizY7soamIFzxnFxDEbglnGOHYJP8Mg4YCvgHbwyHP7fYoFnEP0ntosHpg3uQcAmpjIFTbBiE1NxQV1mHlW7OJVZd8ZYe07ABFwx9rEjMAAtljOWlBfWBlupkgmFUjK7TGK+lEtVMg0WMU9KpfPzA4PYQsok1YCdg4tNqV2L9cF10nNyXczURNp8yEEPmN7E2+Dpry5W9uGPpBxaaf5cllggpdBOu6AMsZWUwWmWRUWLLaUEukzvlV8yo9xtFhclNgaX2363KEqsJ5fPz7OJbrE3ufvCvBuZ+2+wGfMtwACiA2ItCvn/nAAAAABJRU5ErkJggg==);
+			}
+			.arrows {
+				height:					348px;
+				margin-top:				60px;
+				width:					88px;
+			}
+			.arrows div:first-child {
+				background:				#000;
+				border-radius:			10px;
+				cursor:					pointer;
+				height:					170px;
+				margin:					0px 9px 0px 9px;
+				width:					70px;
+			}
+			.arrows div:first-child img {
+				margin:					66px 0px 0px 15px;	
+			}
+			.arrows div:last-child {
+				margin:					20px 9px 0px 9px;
+				width:					62px;
+			}
+			.arrows div:first-child div {
+				margin:					4px;
+			}
+			.arrows div:last-child div {
+				margin:					0px;
+			}
+			.drop_down {
+				background:				#525252;
+				border-color:			#000;
+				border-style:			solid;
+				border-width:			0px 1px 1px 1px;
+				margin-top:				62px;
+				position:				absolute;
+				width:					334px;
+				z-index:				700;
+			}
+			.drop_down:last-child {
+				z-index:				701;
+			}
+			.drop_down div {
+				background:				rgba(255, 255, 255, .2);
+				background: 			-moz-linear-gradient(top, rgba(255, 255, 255, .2) 0%, rgba(255, 255, 255, .2) 100%); 
+				background:				-webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(255, 255, 255, .2)), color-stop(100%, rgba(255, 255, 255, .2))); 
+				background:				-webkit-linear-gradient(top, rgba(255, 255, 255, .2) 0%, rgba(255, 255, 255, .2) 100%); 
+				background:				-o-linear-gradient(top, rgba(255, 255, 255, .2) 0%, rgba(255, 255, 255, .2) 100%); 
+				background:				-ms-linear-gradient(top, rgba(255, 255, 255, .2) 0%, rgba(255, 255, 255, .2) 100%); 
+				background:				linear-gradient(to bottom, rgba(255, 255, 255, .27) 0%, rgba(255, 255, 255, .1) 100%); 
+				border-color:			#000 #000 #000 #999;
+				border-style:			solid;
+				border-width:			1px 0px 0px 1px;
+				color:					#fff;
+				cursor:					pointer;
+				font-size:				20px;
+				height:					62px;
+				line-height:			62px;
+				padding:				0px 6px 0px 6px;
+				width:					321px;
+			}
+			.drop_down div:first-child {
+				border-width:			0px 0px 0px 1px;
+			}
+			.drop_down_arrow {
+				border-color:			#999;
+				border-style:			solid;
+				border-width:			0px 0px 0px 1px;
+				cursor:					pointer;
+				margin-top:				9px;
+				width:					53px;
+			}
+			.icon_drop_down_arrow_down {
+				background-image:		url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAANCAYAAABGkiVgAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAEmSURBVHjarJIxi4QwEIXD4i9dsLGxcBHBxkbLrQTBzsJSK0VLC7GyUxZEwUbYQhuxEsU5s+JxeurK3g08EpKZLy+TIFVV4T9DURS4ZFmGHMdBfd+jT2Nkoa7rkK7rKM/zaYHjOAiC4E8OTdMElmXxdIJi8TwPURQtEodh2IXgvXnf8zxgGAZm1jcUSxRFKMvylLMZGMcx3G43+MlZQLFkWYamaQ6BY/9eY1EUgI2sGZd10x+PB7IsC41OplM3giAIVNc1MgwDPZ/P7Zdbi6IocF338OqapgFJkrBVvwmdwWEY/gK2bQu2bcP1eoW92l0oliAIkKbpAoq/Hk3TcFR3CMWSJAmqqnoBkyQB/Kff1byFYt3vd/B9H7DzM/mnoHOPz+Z+CTAAATYk4AHtLQkAAAAASUVORK5CYII=);
+				background-position:	center;
+				background-repeat:		no-repeat;
+				height:					42px;
+				width:					53px;
+			}
+			.icon_drop_down_arrow_up {
+				background-image:		url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAANCAYAAABGkiVgAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAEpSURBVHjarJI/y4JQFIePvu7NjX6BvofQEo1tgYsEDoYELi41Bu4tTm5tQaODNLnpIq1uKriJYP3e9zbEm39Csgfucs/hOefecwgA9TmKoqBvbq8k0zTheR72+z2+It1sNoiiiMmQpil2ux0GSVVVxeVywX+u1ytY5x9Jl8slTqcTyrJEHd/38e6PWy9lWYZt27jf7+jifD53ihsXq9UKlmUhz/NOISt2u93gOE6rWKAa4/GY5vM5jUYjqqqKBKGRQhzHPc50OqUsyxrxlwrr9RphGD676UOSJNhut2h9vqZpcF33KXwnrceCIIBhGHiR6rqO4/GIIbDVYzvNfD9FUWAymdBsNiOe5x9/9QlsFn/Do8PhYAqiKNJisaChsIFKkkRxHNOvAAMARYrElZREy4sAAAAASUVORK5CYII=);
+				background-position:	center;
+				background-repeat:		no-repeat;
+				height:					42px;
+				width:					53px;
+			}
+			.folder_header_browser {
+				width:					681px !important;
+			}
+			.folder_header {
+				color:					#fff;
+				height:					60px;
+				line-height:			60px;
+				width:					334px;
+			}
+			.folder_header a {
+				border-color:			#000;
+				border-style:			solid;
+				border-width:			0px 1px 0px 0px;
+				float:					left;
+				height:					42px;
+				line-height:			42px;
+				margin-top:				9px;
+				text-align:				left;
+				width:					259px;
+			}
+			.folders, .folder{
+				border-radius:			5px 5px 0px 0px;
+				height:					408px;
+				overflow:				hidden;
+				width:					336px;
+			}
+			.folders:last-child {
+				height:					342px;
+			}
+			.file_icon {
+				border-right-width:		0px !important;
+				text-align:				center;
+				width:					31px;
+			}
+			.file_icon img {
+				margin-top:				20px;
+			}
+			.file_name {
+				border-left-width:		0px !important;
+				overflow:				hidden;
+				text-align:				left;
+				text-overflow:			ellipsis;
+				white-space:			nowrap;
+				width:					287px;
+				word-break:				break-all;
+			}
+			.file_name_browser {
+				width:					709px !important;
+			}
+			.list_content {
+				width:					336px;
+			}
+			#List_Container_Left .mCustomScrollBox .mCSB_scrollTools {
+				height:					346px;
+			}
+			#List_Container_Right .mCustomScrollBox .mCSB_scrollTools {
+				height:					280px;
+			}
+			.selected div {
+				background:				-moz-linear-gradient(top, rgba(50, 98, 147, .8) 0%, rgba(33, 65, 97, .8) 100%) !important; 
+				background:				-webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(50, 98, 147, .8)), color-stop(100%, rgba(33, 65, 97, .8))) !important; 
+				background:				-webkit-linear-gradient(top, rgba(50, 98, 147, .8) 0%, rgba(33, 65, 97, .8) 100%) !important; 
+				background:				-o-linear-gradient(top, rgba(50, 98, 147, .8) 0%, rgba(33, 65, 97, .8) 100%) !important; 
+				background:				-ms-linear-gradient(top, rgba(50, 98, 147, .8) 0%, rgba(33, 65, 97, .8) 100%) !important; 
+				background:				linear-gradient(to bottom, rgba(50, 98, 147, .8) 0%, rgba(33, 65, 97, .8) 100%) !important; 
+			}
+		</style>
+	
+</head>
+	
+<body>
+		
+<main>
+			
+<div id="Page_Name_Tag">File_Manager_Label</div>
+			
+<header>
+				
+<div class="header_group_icon">
+					
+<div class="group_icon_folder"></div>
+				
+</div>
+				
+<div class="header_center">
+					
+<div class="header_1st_div" id="File_Manager_Label">Dateimanager</div>
+					
+<div class="header_1st_div" id="File_Browser_Label" style="display: none;">Datei Auswahl</div>
+				
+</div>
+				
+<div class="header_battery_value" id="Battery_Value">-- V</div>
+				
+<div class="header_battery">          
+					
+<div class="header_battery_image">
+						
+<div class="battery_spacer"></div>
+						
+<div class="battery_segment" id="Battery_80"></div>
+						
+<div class="battery_segment" id="Battery_60"></div>
+						
+<div class="battery_segment" id="Battery_40"></div>
+						
+<div class="battery_segment" id="Battery_20"></div>
+						
+<div class="battery_segment" id="Battery_0"></div>
+					
+</div>
+				
+</div>
+			
+</header>
+			
+<article>
+				
+<div id="File_Manager">
+					
+<div class="folders" id="Left_Folder">
+						
+<div class="button_white round_top folder_header" id="Path_Left"></div>
+						
+<div class="drop_down" id="Path_Left_DropDown" style="display: none;"></div>
+						
+<div class="list_content scrollContainerOuterVertical scrollContainerLeft" id="List_Container_Left" style="max-height: 346px;">
+							
+<div class="inner_list_content" id="scrollContainerInnerVertical_Left"></div>
+						
+</div>
+					
+</div>
+					
+<div class="arrows">
+						
+<div>
+							
+<div class="button_blue round_all" style="width: 60px; height: 160px;">
+<a class="arrow_right" draggable="false" href="#" id="Copy_Button"></a>
+</div>
+						
+</div>
+						
+<div class="ard_buttons" id="ARD_Buttons">
+							
+<div class="button_blue round_top" style="width: 60px; height: 60px;">
+<a class="add_button" draggable="false" href="#" id="Add_Button"></a>
+</div>
+							
+<div class="button_blue round_bottom" style="width: 60px; height: 60px;">
+<a class="trash_button" draggable="false" href="#" id="Delete_Button"></a>
+</div>
+						
+</div>
+					
+</div>
+					
+<div class="folders" id="Right_Folder">
+						
+<div class="button_blue round_top folder_header" id="Path_Right"></div>
+						
+<div class="drop_down" id="Path_Right_DropDown" style="display: none;"></div>
+						
+<div class="list_content scrollContainerOuterVertical scrollContainerRight" id="List_Container_Right" style="max-height: 280px;">
+							
+<div class="inner_list_content" id="scrollContainerInnerVertical_Right"></div>
+						
+</div>
+					
+</div>
+				
+</div>
+				
+<div id="File_Browser">
+					
+<div class="folder" id="Left_Folder" style="width: 760px;">
+						
+<div class="button_white round_top folder_header" id="Path_Left" style="width: 756px"></div>
+						
+<div class="drop_down" id="Path_Left_DropDown" style="width: 756px; display: none;"></div>
+						
+<div class="list_content scrollContainerOuterVertical scrollContainerLeft" id="List_Container_Left" style="width: 758px; max-height: 346px;">
+							
+<div class="inner_list_content" id="scrollContainerInnerVertical_Left"></div>
+						
+</div>
+					
+</div>
+				
+</div>
+			
+</article>
+			
+<footer>
+				
+<div class="black_bar"></div>
+				
+<div class="right_button_box">
+					
+<div class="button_blue round_all" style="width: 60px; height: 60px; margin-right: 4px;">
+<a class="option_button" draggable="false" href="9.4.0__FileManager.html" id="Option_Button"></a>
+</div>
+					
+<div id="Navi_Box">
+						
+<div class="button_blue round_all" style="width: 180px; height: 60px;">
+<a class="back_button" draggable="false" href="2.0__GeneralSettings.html" id="Navi_Button"></a>
+</div>
+					
+</div>
+				
+</div>
+			
+</footer>
+			
+<div id="Pop_Up_Blocker"></div>
+			
+<div id="KeyPad_Temp" style="display: none;"></div>
+			
+<div id="Pop_Up" style="position: absolute; z-index: 100000;"></div>
+		
+</main>
+	
+</body>
+
+</html>

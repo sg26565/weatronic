@@ -1,0 +1,288 @@
+<!DOCTYPE html SYSTEM "html">
+<html>
+	
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		
+<title>1.8.1__FunctionMixerSetup</title>
+		
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+		
+<link href="css/bat60.css" rel="Stylesheet" type="text/css">
+		
+		
+<script src="js/jquery-1.11.0.min.js" type="text/javascript"></script>
+		<script src="js/common.js" type="text/javascript"></script>
+		<script defer src="1.8.1__FunctionMixerSetup.js" type="text/javascript"></script>
+		
+		
+<style type="text/css">
+			
+			.blocklist_cell:not(:first-child) {
+				padding:				0px 10px 0px 10px;
+			}
+			.content_blocklist {
+				margin-top:				0px !important;
+			}
+		</style>
+	
+</head>
+	
+<body>
+		
+<main>
+			
+<div id="Page_Name_Tag">MixerSetup_Label</div>
+			
+<header>
+				
+<div class="header_group_icon">
+					
+<div class="group_icon_wrench"></div>
+				
+</div>
+				
+<div class="header_center">
+					
+<div class="header_1st_div" id="MixerSetup_Label">Mischer Einstellung</div>
+					
+<div class="header_sub_spacer"></div>
+					
+<div class="header_sub_div" id="Mixer_Name"></div>
+					
+<div class="header_sub_spacer"></div>
+					
+<div class="header_sub_div" id="Flight_Mode"></div>
+				
+</div>
+				
+<div class="header_battery_value" id="Battery_Value">-- V</div>
+				
+<div class="header_battery">          
+					
+<div class="header_battery_image">
+						
+<div class="battery_spacer"></div>
+						
+<div class="battery_segment" id="Battery_80"></div>
+						
+<div class="battery_segment" id="Battery_60"></div>
+						
+<div class="battery_segment" id="Battery_40"></div>
+						
+<div class="battery_segment" id="Battery_20"></div>
+						
+<div class="battery_segment" id="Battery_0"></div>
+					
+</div>
+				
+</div>
+			
+</header>
+			
+<article>
+				
+<div class="content_width_blocklist_left">
+					
+<div class="content_blocklist">
+						
+<div class="content_blocklist_row">
+							
+<div class="blocklist_cell" id="Mixer_From_Label">Von</div>
+							
+<div class="blocklist_cell" id="Mixer_From_Name" style="text-align: left; width: 219px;">--</div>
+						
+</div>
+						
+<div class="content_blocklist_row">
+							
+<div class="blocklist_cell" id="Mixer_Trim_Label">Trimm</div>
+							
+<div class="blocklist_cell" id="Mixer_Trim_Value" style="text-align: left; width: 219px;">--</div>
+						
+</div>
+						
+<div class="content_blocklist_row">
+							
+<div class="blocklist_cell" id="Mixer_To_Label">Auf</div>
+							
+<div class="blocklist_cell" id="Mixer_To_Name" style="text-align: left; width: 219px;">--</div>
+						
+</div>
+						
+<div class="content_blocklist_row">
+							
+<div class="blocklist_cell" id="Mixer_Inherit_Label">Vererbung</div>
+							
+<div class="blocklist_cell" id="Mixer_Inherit_Value" style="text-align: left; width: 219px;">Yes</div>
+						
+</div>
+						
+<div class="content_blocklist_row">
+							
+<div class="blocklist_cell underlined" id="Mixer_Delay_Label">Verz&ouml;gerung</div>
+							
+<div class="blocklist_cell" style="width: 98px;">
+								
+<div class="blocklist_sub_cell">
+									
+									
+<img alt="" draggable="false" height="28" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAcCAYAAABlL09dAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoV2luZG93cykiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6MkQ2MjU1NjM2NDk1MTFFMjgzM0RBNzg1NDMyQUI5NEYiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6MkQ2MjU1NjQ2NDk1MTFFMjgzM0RBNzg1NDMyQUI5NEYiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDoyRDYyNTU2MTY0OTUxMUUyODMzREE3ODU0MzJBQjk0RiIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDoyRDYyNTU2MjY0OTUxMUUyODMzREE3ODU0MzJBQjk0RiIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PlTSZb8AAAESSURBVHjaYnz27BkDESAciNuB+C8QZwPxLkIamIgw1AeIFwCxIhCrAPFKILai1GB3IF4NxBxIYgJAvAmILcg12BGIV6EZCgPCUMONSDXYDGooHx6LRYF4LRCrE2uwKdQ1IkSEvwIQb8VmOLrBWtAwFWcgHihDXS6Py2BVqKHyDKQDbSBeAcQS6AbLQw3VYiAfWECToijMYDEgXg7E+gyUAzsgXgTE/IzAnHcAyLBnoC5YD3LxKwbqg9cgF7MCGdJoElOA2JsYA4DYElqGIINHLEDiNxA/QJP4TKTL/gDxXVJyHhORBjMCMQslBpAMRg0eNXjUYDIMZiQhS5Nk8F9aGVwMxJcIGPoFiKOgJRwGAAgwAOHMLUqq+uczAAAAAElFTkSuQmCC" style="margin-top: 17px;" width="22">
+								</div>
+								
+<div class="blocklist_sub_cell underlined" id="Mixer_Delay_Up" style="width: 54px;"></div>
+							
+</div>
+							
+<div class="blocklist_cell" style="width: 99px;">
+								
+<div class="blocklist_sub_cell">
+									
+									
+<img alt="" draggable="false" height="28" src="data:image/png;base64,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" style="margin-top: 17px;" width="22">
+								</div>
+								
+<div class="blocklist_sub_cell underlined" id="Mixer_Delay_Down" style="width: 54px;"></div>
+							
+</div>
+						
+</div>
+						
+<div class="content_blocklist_row">
+							
+<div class="blocklist_cell underlined" id="Mixer_Control_Label">Flex Anteil</div>
+							
+<div class="blocklist_cell underlined no_edit" id="Mixer_Control_Empty_Value" style="width: 98px;">--%</div>
+							
+<div class="blocklist_cell underlined" id="Mixer_Control_High_Value" style="display: none; width: 98px;">--%</div>
+							
+<div class="blocklist_cell underlined" id="Mixer_Control_Center_Value" style="display: none; width: 98px;">--%</div>
+							
+<div class="blocklist_cell underlined" id="Mixer_Control_Low_Value" style="display: none; width: 98px;">--%</div>
+							
+<div class="blocklist_cell" style="padding: 0; width: 119px;">
+								
+<div class="blocklist_sub_cell">
+									
+<div class="icon_fs-img_empty" id="Mixer_Control_Empty_IMG"></div>
+									
+<div class="icon_fs-img_high" id="Mixer_Control_High_IMG" style="display: none;"></div>
+									
+<div class="icon_fs-img_center" id="Mixer_Control_Center_IMG" style="display: none;"></div>
+									
+<div class="icon_fs-img_low" id="Mixer_Control_Low_IMG" style="display: none;"></div>
+								
+</div>
+								
+<div class="blocklist_sub_cell">
+									
+<img alt="" draggable="false" height="61" id="Mixer_Control_IMG" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFUAAAA9CAYAAADcUiVtAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2RpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDpCQkE1RUY5MjkwMDVFMzExQjAwQjk5MjAyMEZBMDRGOSIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpDMjg4QkY3NzA1OUUxMUUzOEUxM0QxNzIxQjJFQTI1RCIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpDMjg4QkY3NjA1OUUxMUUzOEUxM0QxNzIxQjJFQTI1RCIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IFdpbmRvd3MiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo0QTM4NDk5RTlEMDVFMzExQUQ4RUYzQkM4QTg4NjYwNSIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDpCQkE1RUY5MjkwMDVFMzExQjAwQjk5MjAyMEZBMDRGOSIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PipvB1IAAAe6SURBVHja7JvPaxNbFMczP/KrSZr+8Pna7loXIiIoKAqKoijqQhG6KOjGjS7cuXDhX+DCf0C60IUgVinoqoi/UAQXioqgLkSLCq3PZ5ombZKmyaSeb97cOpnMZOZOZtJ5Jgcuk8zMvTn3M+eee+65E2FlZSXgoohUJPWzpH6HyJrPWpFMztu9XqbipAOsnkKlpBbFLQhCE1DR4aCuSIH/r1SoLFMpqKWlUAUqcbUIgT9TYMkZKsVWQMVQ7Fetsh0EFjvP62J4oMoqUCnQXgJfm1Zdg6tQgypQMdCesqJabMEtqCEqfW0MVCvws7lmoYZVoEKH56osqKWhn/xNWPjNjmBH6NDbAVonCZXVgoaVOVTNTVEVKLdcvHjxb/b50qVL//iRigs6JogRcRWylpaqAo3RIellp2ZmZqTJycnE9+/fQwMDA8ujo6MLQ0NDit/atJA4sRIJ7LxR3Km30KTXljIxMdFNEMKVSkXA8caNG0k/tmlDuohZTyOoYiuAQn7+/FmzeEin07If27QLlkrMbPhHGWSv/eK6detKP378CLHvvb29ZT+2yeGP49pQS9SFTy2RsbGx7Pr166srFBxPnjyZ8WObHCJpoyTZKhLwQjCBnD9/Pu33Nh2ALetBurJi8msY1QIdRbOJqiPORdCD7ADtQPU3VJZQQYz3V4dLU7KawepYqhfDX81MdaC6MPuzLJ/s1FILhYJw//796KdPn8JPnz4dLJVKYjAYrOzdu3d2w4YNxUOHDhWi0eiKH3vvke51wT8XVFIk/OjRo2SxWKw2BKXYEUtFlFevXsUPHDiQIUWLfgL64MGDyLNnz7o90L1u9rediJ6cnIxNTU31MKXMBNdx38TERNwvQKHLw4cPkx7p7iykwlN++fIlF6Q3b97EUM8PFgpdPNRd5IYKP/T8+fOEkw6hHuqvpQ/FkPdYd36fCseez+cdRQmoh/rHjx/P66+5kWa0agO/bTXknejeNFTMlEbnI5GIuHHjxkQ8Hg+SAmX6nlpaWqqY1M/zdAhbJHfu3ImnUqlqnrS/v3/5xIkTi7zbJHZ0X1xcLDWpu6iHavkUnzx5MlQul+vu27RpU3cikahm3WOxWDCXy428f/++Lpcpy/IKT2oOQMfHx/u1FkYPLULnwmfPnk3xgLWjOx1DTerOP/srinEfurq6avKwFN9JPPXNBBZqNGRxDtd42mqR7vxQJUky8zll3aSg8NQ3E4oXw06uraHuAvfw37dv34x2D0jjl1Lkj4bVoV8i/zS9ZcuWOr/EtjrsSqOJhXfSaZXu2LKmQ0XEB6yQrCpg+WZ0Ho79w4cPWYpfUzgaOfpG9VshrdBdZbiaSBGw5LQCi/VwOBx2tJZHPdRfK6he686W7TVQ8eHevXvJ169fm77MiwTDnj17sk4UQ721TK54qTuYgZ12jpIZVLzZcffu3d5QKDS3efNmwz3zgwcPLlHMKPMs97Zu3ZpDPbPrbmzC2WnDC93fvXsngxnYBf57h1WogcomgNu3b/fRk5kbGRkxBDs2NrZIQXhZm+kxGzZ4yo2UYkkO1m6zyRKrdtzU/fPnzzJY6dpZhSrqZ9abN2/2nD59Om0WYOPHdu/eXWQ5SQTHCK5xxExpNycJEFrLcQqWpx03dMfCBIwMHky9pTJZWFiQrl+/3nPmzJl0X19fxcxPqevhvJOXGPQg3BLWZiOwzeg+Nzcngg0YmS1VqxPVkSNH5kVRrHky8/Pz8tWrV3u8yC7pgcJ3NTP8URdtaMF6kccFCzABmxqSxA4Ma2b/Xbt2LR87dqwOLDn24JUrV1wFaxdooxDI6JrXYMEALMBEDxTswLBu+OMkSQbhgTqbsSVh6Nq1a93nzp3L6IfB5cuXLbe1tTMzj4WSfyt++/YtYnbNzGK1LsDIFWjThGZy4cKFf/VuDwz0qzIAPXz4cEYFWjv82U3Yk8FNeotF59weTlZDHik+I4vEORpqObuuwK3RpX/ADKjRPlbdRIWbyGKz2MvRnn/79m3Xjh07lsxCLbu+z+5Mj8gDKT5kpFgCBRZqJ5/K8ztWgtAJfdef379/f9YAaJUl3lABvLpZeGpqKkrLr5otiOHh4QJ1NBtoIxkfH++enp6O6gwve/ToUaOlK86lRbMMFSpt37695il/+fIlspZ7Ta0W9BV91p4DExOg5sNfK6OjozkKdIP4YwJbyr548SLkdC8fQXM6nRbUyELK5XINt3FmZ2dlfcYeQfrg4GBDFxQMBmvuIZelOMk9oK/aSZvcThFMrHKqslUu9dSpU1kKJfpYsPv161fMgEV9JEAARLoWzGazUiaTEekoK4oi4LtWMTfk48ePjutioiPASiKRKOMBDQwMlPEQdu7cWdTP+Gpfq0L3K2Bh5zcsoeKHyNwzt27dwt8p8a+PupXE48ePo7zvA6yVYGlJRWYBPPnL6vl8Pr+ot0JtX8HAbHWpt1QxYCPrv23bthJMX13Cyu3iU1lf0XcwsFHFPlQIhVPVLVoKt9rmDUHWV9Z3u2IbKlYN8EelUumPBAi/qj+HvqLPmhWTu5YKSSaTJbcnHT8L+oo+89bjGsqxWExhs/2fDpT1kfWZhyeXpSIECbSZOOlz57V0d2XVp3bAuiwdoB5ZakcC1ZfVKm5B/SXAAH0iC/8NwaJxAAAAAElFTkSuQmCC" width="85">
+								</div>
+							
+</div>
+						
+</div>
+					
+</div>
+				
+</div>
+				
+<div class="content_width_canvas_right">
+					
+<div class="axes_canvas_layer" id="Axes_Canvas">
+						
+<svg xmlns="http://www.w3.org/2000/svg" height="344" version="1.1" width="344">
+							
+<path d="M0,172H344" style="stroke: #fff; stroke-width: 2;"></path>
+							
+<path d="M172,0V344" style="stroke: #fff; stroke-width: 2;"></path>
+						
+</svg>
+					
+</div>
+					
+<div class="label_canvas_layer">
+						
+<div class="label_top_left">
+<span id="Mixed_To_Label">Mischwert auf</span> <span id="Mixer_To_Name_Canvas">--</span>
+</div>
+						
+<div class="label_bottom_right">
+<span id="Live_Data_Label">Live Daten</span> / <span id="Mixer_From_Name_Canvas">--</span>
+</div>
+						
+<div class="label_percent_center">0%</div>
+						
+<div class="label_percent_top">+100%</div>
+						
+<div class="label_percent_right">+100%</div>
+						
+<div class="label_percent_bottom">-100%</div>
+						
+<div class="label_percent_left">-100%</div>
+					
+</div>
+					
+<canvas class="curve_canvas_layer" height="344" id="Curve_Canvas" width="344"></canvas>
+					
+<canvas class="crosshair_canvas_layer" height="344" id="Crosshair_Canvas_X" width="344"></canvas>
+					
+<canvas class="crosshair_canvas_layer" height="344" id="Crosshair_Canvas_Y" width="344"></canvas>
+					
+<div class="overlay_button_layer">
+						
+<div class="button_blue round_all" style="margin: 278px 0px 0px 4px; width: 60px; height: 60px;">
+							
+<a class="curve_edit_button" draggable="false" href="#" id="Curve_Edit_Button"></a>
+						
+</div>
+					
+</div>
+				
+</div>
+			
+</article>
+			
+<footer>
+				
+<div class="black_bar"></div>
+				
+<div class="right_button_box">
+					
+<div class="button_blue round_all" style="width: 60px; height: 60px; margin-right: 4px;">
+<a class="option_button" draggable="false" href="1.8.1__FunctionMixerSetup.html" id="Option_Button"></a>
+</div>
+					
+<div id="Navi_Box">
+						
+<div class="button_blue round_all" style="width: 180px; height: 60px;">
+<a class="back_button" draggable="false" href="1.8.0__FunctionMixers.html" id="Navi_Button"></a>
+</div>
+					
+</div>
+					
+<div id="Safe_Cancel_Box" style="display: none;">
+						
+<div class="button_blue round_left" style="width: 89px; height: 60px;">
+<a class="check_button" draggable="false" href="1.8.1__FunctionMixerSetup.html" id="Safe_Button"></a>
+</div>
+						
+<div class="button_blue round_right" style="width: 89px; height: 60px;">
+<a class="delete_button" draggable="false" href="1.8.1__FunctionMixerSetup.html" id="Cancel_Button"></a>
+</div>
+					
+</div>
+				
+</div>
+			
+</footer>
+			
+<div id="Pop_Up_Blocker"></div>
+			
+<div id="Pop_Up" style="position: absolute; z-index: 100000;"></div>
+		
+</main>
+	
+</body>
+
+</html>

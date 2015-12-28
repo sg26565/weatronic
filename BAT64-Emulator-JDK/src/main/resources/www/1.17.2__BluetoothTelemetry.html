@@ -1,0 +1,276 @@
+<!DOCTYPE html SYSTEM "html">
+<html>
+	
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		
+<title>1.17.2__BluetoothTelemetry</title>
+		
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+		
+<link href="css/bat60.css" rel="Stylesheet" type="text/css">
+		
+		
+<script src="js/jquery-1.11.0.min.js" type="text/javascript"></script>
+		<script src="js/common.js" type="text/javascript"></script>
+		<script defer src="1.17.2__BluetoothTelemetry.js" type="text/javascript"></script>	
+		
+		
+<style type="text/css">
+			
+			.telemetry_name {
+				overflow:				hidden;
+				text-align:				left;
+				text-overflow:			ellipsis;
+				white-space:			nowrap;
+				width:					330px;
+				word-break:				break-all;
+			}
+			.telemetry_interval {
+				width:					90px;
+			}
+			.list_content_row .telemetry_interval, .list_content_row .telemetry_live {
+				text-align:				center;
+			}
+			.telemetry_live {
+				overflow:				hidden;
+				text-overflow:			ellipsis;
+				white-space:			nowrap;
+				width:					224px;
+				word-break:				break-all;
+			}
+			.import_button, .export_button {
+				background-position:	center;
+				background-repeat:		no-repeat;
+			}
+			.import_button {
+				background-image:		url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADMAAAAfBAMAAAC44ehUAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAAbUExURf///////////////////////////////////wcFFt8AAAAIdFJOUwAYGRt/gLW2ueaSxgAAAJBJREFUKM/N0DESAiEMBdA/GmY4guV2XmNLjkBrZ+0JKLb4x1ZgJYzu7/eXvIRJAowYSYA1Ja6YE78ElLhp4qpp07S3hSMq7TFLCpSUf6ju1SnQadlHunXKHJV8dLk+GwVONKWMpgMKlJQ1JU020csPeq9jJKfF6VLJnODfoa2cNNk41B992iSZJiRNpglnpjdLKu3BnMoY+wAAAABJRU5ErkJggg==);
+			}
+			.export_button {
+				background-image:		url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADMAAAAfBAMAAAC44ehUAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAAbUExURf///////////////////////////////////wcFFt8AAAAIdFJOUwAYGRt/gLW2ueaSxgAAAIxJREFUKM/N0LENQjEMBNATfCSPQEnHGh4hK9BRM0EKR7qxKRwSF/96rsyzo+SAlYMkQJLs5qixHwHdQhNdU2iaa8cZ9Tx0TaGJXomsFJMe80l3sucU6UmvlOu7UCSVLKJrCk10TU3SgPGzC30WarD1KwCXTQMw7tuJTe2EsqgBSU3SgKQm6QZJ+Gf6Ai4p7cHYK6IpAAAAAElFTkSuQmCC);
+			}
+		</style>
+	
+</head>
+	
+<body>
+		
+<main>
+			
+<div id="Page_Name_Tag">Bluetooth_Telemetry_Label</div>
+			
+<header>
+				
+<div class="header_group_icon">
+					
+<div class="group_icon_wrench"></div>
+				
+</div>
+				
+<div class="header_center">
+					
+<div class="header_1st_div" id="Bluetooth_Telemetry_Label">Bluetooth Telemetrie</div>
+					
+<div class="header_sub_spacer"></div>
+					
+<div class="header_sub_div" id="Model_Name"></div>
+				
+</div>
+				
+<div class="header_battery_value" id="Battery_Value">-- V</div>
+				
+<div class="header_battery">          
+					
+<div class="header_battery_image">
+						
+<div class="battery_spacer"></div>
+						
+<div class="battery_segment" id="Battery_80"></div>
+						
+<div class="battery_segment" id="Battery_60"></div>
+						
+<div class="battery_segment" id="Battery_40"></div>
+						
+<div class="battery_segment" id="Battery_20"></div>
+						
+<div class="battery_segment" id="Battery_0"></div>
+					
+</div>
+				
+</div>
+			
+</header>
+			
+<article>
+				
+<div class="content_width_list">
+					
+<div class="list_header">
+						
+<div class="telemetry_name" id="Telemetry_Data_Label">Telemetrie Daten</div>
+						
+<div class="telemetry_interval" id="Interval_Label" style="margin: 0px 3px 0px -3px;">Wiederholungen</div>
+						
+<div class="telemetry_live" id="Live_Data_Label">Live Daten</div>
+					
+</div>
+					
+<div class="list_content scrollContainerOuterVertical" id="List_Container" style="max-height: 350px;">
+						
+<div class="inner_list_content" id="scrollContainerInnerVertical">
+							
+<div class="list_content_row">
+								
+<div class="telemetry_name" id="Telemetry__0_Name" onClick="">RxVolt</div>
+								
+<div class="telemetry_interval numpad" id="Telemetry__0_Interval" onClick="showNumpad('Telemetry__0_Interval', 'FadeDuration');">10s</div>
+								
+<div class="telemetry_live no_edit" id="Telemetry__0_Live">4.9V</div>
+							
+</div>
+							
+<div class="list_content_row">
+								
+<div class="telemetry_name" id="Telemetry__1_Name" onClick="">GPS Speed</div>
+								
+<div class="telemetry_interval numpad" id="Telemetry__1_Interval" onClick="showNumpad('Telemetry__1_Interval', 'FadeDuration');">1s</div>
+								
+<div class="telemetry_live no_edit" id="Telemetry__1_Live">736km/h</div>
+							
+</div>
+							
+<div class="list_content_row">
+								
+<div class="telemetry_name" id="Telemetry__2_Name" onClick="">Vario Altitude</div>
+								
+<div class="telemetry_interval numpad" id="Telemetry__2_Interval" onClick="showNumpad('Telemetry__2_Interval', 'FadeDuration');">1s</div>
+								
+<div class="telemetry_live no_edit" id="Telemetry__2_Live">-35m</div>
+							
+</div>
+							
+<div class="list_content_row">
+								
+<div class="telemetry_name" id="Telemetry__3_Name" onClick="">GPS Longitude</div>
+								
+<div class="telemetry_interval numpad" id="Telemetry__3_Interval" onClick="showNumpad('Telemetry__3_Interval', 'FadeDuration');">2s</div>
+								
+<div class="telemetry_live no_edit" id="Telemetry__3_Live">42.037612356347546</div>
+							
+</div>
+							
+<div class="list_content_row">
+								
+<div class="telemetry_name" id="Telemetry__4_Name" onClick="">RxVolt</div>
+								
+<div class="telemetry_interval numpad" id="Telemetry__4_Interval" onClick="showNumpad('Telemetry__4_Interval', 'FadeDuration');">10s</div>
+								
+<div class="telemetry_live no_edit" id="Telemetry__4_Live">4.9V</div>
+							
+</div>
+							
+<div class="list_content_row">
+								
+<div class="telemetry_name" id="Telemetry__5_Name" onClick="">GPS Speed</div>
+								
+<div class="telemetry_interval numpad" id="Telemetry__5_Interval" onClick="showNumpad('Telemetry__5_Interval', 'FadeDuration');">1s</div>
+								
+<div class="telemetry_live no_edit" id="Telemetry__5_Live">736km/h</div>
+							
+</div>
+							
+<div class="list_content_row">
+								
+<div class="telemetry_name" id="Telemetry__6_Name" onClick="">Vario Altitude</div>
+								
+<div class="telemetry_interval numpad" id="Telemetry__6_Interval" onClick="showNumpad('Telemetry__6_Interval', 'FadeDuration');">1s</div>
+								
+<div class="telemetry_live no_edit" id="Telemetry__6_Live">-35m</div>
+							
+</div>
+							
+<div class="list_content_row">
+								
+<div class="telemetry_name" id="Telemetry__7_Name" onClick="">GPS Longitude</div>
+								
+<div class="telemetry_interval numpad" id="Telemetry__7_Interval" onClick="showNumpad('Telemetry__7_Interval', 'FadeDuration');">2s</div>
+								
+<div class="telemetry_live no_edit" id="Telemetry__7_Live">42.0376</div>
+							
+</div>
+						
+</div>
+					
+</div>
+				
+</div>
+				
+<aside class="ard_buttons" id="ARD_Buttons">
+					
+<div class="button_blue round_top" style="width: 60px; height: 60px;">
+<a class="add_button" draggable="false" id="Add_Button"></a>
+</div>
+					
+<div class="button_blue round_bottom" style="width: 60px; height: 60px;">
+<a class="trash_button" draggable="false" id="Delete_Button"></a>
+</div>
+					
+<div class="button_blue round_all" style="margin-top: 4px; width: 60px; height: 60px; display: none;">
+<a class="reorder_button" draggable="false" id="Reorder_Button"></a>
+</div>
+					
+<div class="button_blue round_top" style="margin-top: 4px; width: 60px; height: 60px;">
+<a class="import_button" draggable="false" id="Import_Button"></a>
+</div>
+					
+<div class="button_blue round_bottom" style="width: 60px; height: 60px;">
+<a class="export_button" draggable="false" id="Export_Button"></a>
+</div>
+				
+</aside>
+			
+</article>
+			
+<footer>
+				
+<div class="black_bar"></div>
+				
+<div class="right_button_box">
+					
+<div class="button_blue round_all" style="width: 60px; height: 60px; margin-right: 4px;">
+<a class="option_button" draggable="false" href="1.17.2__BluetoothTelemetry.html" id="Option_Button"></a>
+</div>
+					
+<div id="Navi_Box">
+						
+<div class="button_blue round_all" style="width: 180px; height: 60px;">
+<a class="back_button" draggable="false" href="1.17.1__BluetoothConfiguration.html" id="Navi_Button"></a>
+</div>
+					
+</div>
+					
+<div id="Safe_Cancel_Box" style="display: none;">
+						
+<div class="button_blue round_left" style="width: 89px; height: 60px;">
+<a class="check_button" draggable="false" href="1.17.2__BluetoothTelemetry.html" id="Safe_Button"></a>
+</div>
+						
+<div class="button_blue round_right" style="width: 89px; height: 60px;">
+<a class="delete_button" draggable="false" href="1.17.2__BluetoothTelemetry.html" id="Cancel_Button"></a>
+</div>
+					
+</div>
+				
+</div>
+			
+</footer>
+			
+<div id="Pop_Up_Blocker"></div>
+			
+<div id="Pop_Up" style="position: absolute; z-index: 100000;"></div>
+		
+</main>
+	
+</body>
+
+</html>

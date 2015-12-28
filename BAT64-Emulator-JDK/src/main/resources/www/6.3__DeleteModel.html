@@ -1,0 +1,192 @@
+<!DOCTYPE html SYSTEM "html">
+<html>
+	
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		
+<title>6.3__DeleteModel</title>
+		
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+		
+<link href="css/bat60.css" rel="Stylesheet" type="text/css">
+		
+		
+<script src="js/jquery-1.11.0.min.js" type="text/javascript"></script>
+		<script src="js/common.js" type="text/javascript"></script>
+		<script defer src="6.3__DeleteModel.js" type="text/javascript"></script>
+		
+		
+<style type="text/css">
+			
+			.model_header {
+				border-color:			#000;
+				border-style:			solid;
+				border-width:			1px 0px 1px 0px;
+				font-size:				19px;
+				height:					54px;
+				line-height:			54px;
+				
+				width:					758px;
+			}
+			.model_header div {
+				padding:				0px 6px 0px 6px;
+				
+				width:					366px;
+			}
+			.model_header div:first-child {
+				background:				rgba(255, 255, 255, .08);
+				border-color:			#000;
+				border-style:			solid;
+				border-width:			0px 1px 0px 0px;
+				color:					#ccc;
+			}
+			.model_header div:last-child {
+				background:				rgba(255, 255, 255, .2);
+				border-color:			#999;
+				border-style:			solid;
+				border-width:			0px 0px 0px 1px;
+				color:					#fff;
+			}
+			.model_pic {
+				text-align:				center;
+				width:					58px;
+			}
+			.model_pic img {
+				margin-top:				7px;
+			}
+			.model_name, .model_info {
+				overflow:				hidden;
+				text-overflow:			ellipsis;
+				white-space:			nowrap;
+			}
+			.model_name {
+				width:					295px;
+			}
+			.model_info {
+				width:					294px;
+			}
+			.current_model div:not(.button_red) {
+				background:				-moz-linear-gradient(top, rgba(69, 91, 130, .8) 0%, rgba(42, 64, 76, .8) 100%) !important; 
+				background:				-webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(69, 91, 130, .8)), color-stop(100%, rgba(42, 64, 76, .8))) !important; 
+				background:				-webkit-linear-gradient(top, rgba(69, 91, 130, .8) 0%, rgba(42, 64, 76, .8) 100%) !important; 
+				background:				-o-linear-gradient(top, rgba(69, 91, 130, .8) 0%, rgba(42, 64, 76, .8) 100%) !important; 
+				background:				-ms-linear-gradient(top, rgba(69, 91, 130, .8) 0%, rgba(42, 64, 76, .8) 100%) !important; 
+				background:				linear-gradient(to bottom, rgba(69, 91, 130, .8) 0%, rgba(42, 64, 76, .8) 100%) !important; 
+			}
+			.mCustomScrollBox>.mCSB_scrollTools {
+				height:					253px !important;
+			}
+		</style>
+	
+</head>
+	
+<body>
+		
+<main>
+			
+<div id="Page_Name_Tag">Delete_Model_Label</div>
+			
+<header>
+				
+<div class="header_group_icon">
+					
+<div class="group_icon_model"></div>
+				
+</div>
+				
+<div class="header_center">
+					
+<div class="header_1st_div" id="Delete_Model_Label">Modell l&ouml;schen</div>
+				
+</div>
+				
+<div class="header_battery_value" id="Battery_Value">-- V</div>
+				
+<div class="header_battery">          
+					
+<div class="header_battery_image">
+						
+<div class="battery_spacer"></div>
+						
+<div class="battery_segment" id="Battery_80"></div>
+						
+<div class="battery_segment" id="Battery_60"></div>
+						
+<div class="battery_segment" id="Battery_40"></div>
+						
+<div class="battery_segment" id="Battery_20"></div>
+						
+<div class="battery_segment" id="Battery_0"></div>
+					
+</div>
+				
+</div>
+			
+</header>
+			
+<article>
+				
+<div style="margin-bottom: 6px;">
+					
+<div class="model_header">
+						
+<div id="Model_Type_Label">Modelltyp</div>
+						
+<div id="Model_Type_Selection">All Models</div>
+					
+</div>
+					
+				
+</div>
+				
+<div class="list_header" style="width: 675px;">
+					
+<div class="model_pic" id="Select_Model_Picture_Label">Bild</div>
+					
+<div class="model_name" id="Select_Model_Name_Label">Name</div>
+					
+<div class="model_info" id="Select_Model_Info_Label">Info</div>
+				
+</div>
+				
+<div class="list_content scrollContainerOuterVertical" id="List_Container" style="max-height: 254px; width: 760px;">
+					
+<div class="inner_list_content" id="scrollContainerInnerVertical">
+					
+</div>
+				
+</div>
+			
+</article>
+			
+<footer>
+				
+<div class="black_bar"></div>
+				
+<div class="right_button_box">
+					
+<div class="button_blue round_all" style="width: 60px; height: 60px; margin-right: 4px;">
+<a class="option_button" draggable="false" href="6.3__DeleteModel.html" id="Option_Button"></a>
+</div>
+					
+<div id="Navi_Box">
+						
+<div class="button_blue round_all" style="width: 180px; height: 60px;">
+<a class="back_button" draggable="false" href="6.0__ModelManagement.html" id="Navi_Button"></a>
+</div>
+					
+</div>
+				
+</div>
+			
+</footer>
+			
+<div id="Pop_Up_Blocker"></div>
+			
+<div id="Pop_Up" style="position: absolute; z-index: 100000;"></div>
+		
+</main>
+	
+</body>
+
+</html>
