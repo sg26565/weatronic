@@ -1,5 +1,7 @@
 package de.treichels.wea.bat64.config.function;
 
+import org.simpleframework.xml.Attribute;
+
 import de.treichels.wea.bat64.config.ConfigElement;
 import de.treichels.wea.bat64.config.value.IntValue;
 import de.treichels.wea.bat64.config.value.ShortValue;
@@ -20,7 +22,7 @@ public class Function extends ConfigElement {
 	public FunctionSetups Setups;
 	public Trim Trim;
 
-	public Function() {
-		super(17);
+	public Function(@Attribute(name = TYPEINFO) final int typeinfo) {
+		super(typeinfo);
 	}
 }

@@ -1,9 +1,18 @@
 package de.treichels.wea.bat64.config.vario;
 
-import de.treichels.wea.bat64.config.Group;
-import de.treichels.wea.bat64.config.List;
+import org.simpleframework.xml.Attribute;
+import org.simpleframework.xml.Element;
 
-public class Sensors extends Group {
+import de.treichels.wea.bat64.config.ConfigElement;
+import de.treichels.wea.bat64.config.ConfigList;
+
+public class Sensors extends ConfigElement {
+	@Element
 	public Motor Motor;
-	public List<Sensor> Sensor;
+	@Element
+	public ConfigList<Sensor> Sensor;
+
+	public Sensors(@Attribute(name = TYPEINFO) final int typeinfo) {
+		super(typeinfo);
+	}
 }

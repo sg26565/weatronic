@@ -1,7 +1,6 @@
 package de.treichels.wea.bat64.config.value;
 
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlValue;
+import org.simpleframework.xml.Attribute;
 
 /**
  * -1000 ... 0 ... +1000
@@ -9,10 +8,8 @@ import javax.xml.bind.annotation.XmlValue;
  * @author oli
  *
  */
-public class PercentValue {
-	@XmlAttribute
-	public final int typeinfo = 44;
-
-	@XmlValue
-	public long value;
+public class PercentValue extends Value<Short> {
+	public PercentValue(@Attribute(name = TYPEINFO) final int typeinfo) {
+		super(typeinfo);
+	}
 }

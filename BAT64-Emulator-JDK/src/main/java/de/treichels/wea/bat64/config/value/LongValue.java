@@ -1,12 +1,9 @@
 package de.treichels.wea.bat64.config.value;
 
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlValue;
+import org.simpleframework.xml.Attribute;
 
-public class LongValue {
-	@XmlAttribute
-	public final int typeinfo = 55;
-
-	@XmlValue
-	public long value;
+public class LongValue extends Value<Long> {
+	public LongValue(@Attribute(name = TYPEINFO) final int typeinfo) {
+		super(typeinfo);
+	}
 }

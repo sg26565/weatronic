@@ -1,29 +1,34 @@
 package de.treichels.wea.bat64.config.sequencer;
 
-import javax.xml.bind.annotation.XmlElement;
+import org.simpleframework.xml.Attribute;
+import org.simpleframework.xml.Element;
 
-import de.treichels.wea.bat64.config.Group;
+import de.treichels.wea.bat64.config.ConfigElement;
 
-public class Sequencers extends Group {
-	@XmlElement(name = "Sequencer__00")
+public class Sequencers extends ConfigElement {
+	@Element(name = "Sequencer__00")
 	public Sequencer item0;
-	@XmlElement(name = "Sequencer__01")
+	@Element(name = "Sequencer__01")
 	public Sequencer item1;
-	@XmlElement(name = "Sequencer__02")
+	@Element(name = "Sequencer__02")
 	public Sequencer item2;
-	@XmlElement(name = "Sequencer__03")
+	@Element(name = "Sequencer__03")
 	public Sequencer item3;
-	@XmlElement(name = "Sequencer__04")
+	@Element(name = "Sequencer__04")
 	public Sequencer item4;
-	@XmlElement(name = "Sequencer__05")
+	@Element(name = "Sequencer__05")
 	public Sequencer item5;
-	@XmlElement(name = "Sequencer__06")
+	@Element(name = "Sequencer__06")
 	public Sequencer item6;
-	@XmlElement(name = "Sequencer__07")
+	@Element(name = "Sequencer__07")
 	public Sequencer item7;
-	@XmlElement(name = "Sequencer__08")
+	@Element(name = "Sequencer__08")
 	public Sequencer item8;
-	@XmlElement(name = "Sequencer__09")
+	@Element(name = "Sequencer__09")
 	public Sequencer item9;
+
+	public Sequencers(@Attribute(name = TYPEINFO) final int typeinfo) {
+		super(typeinfo);
+	}
 
 }

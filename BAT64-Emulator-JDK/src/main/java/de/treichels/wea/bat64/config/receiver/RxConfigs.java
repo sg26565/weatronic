@@ -1,14 +1,19 @@
 package de.treichels.wea.bat64.config.receiver;
 
-import javax.xml.bind.annotation.XmlElement;
+import org.simpleframework.xml.Attribute;
+import org.simpleframework.xml.Element;
 
-import de.treichels.wea.bat64.config.Group;
+import de.treichels.wea.bat64.config.ConfigElement;
 
-public class RxConfigs extends Group {
-	@XmlElement(name = "RxConfig__00")
+public class RxConfigs extends ConfigElement {
+	@Element(name = "RxConfig__00")
 	public RxConfig main;
-	@XmlElement(name = "RxConfig__01")
+	@Element(name = "RxConfig__01")
 	public RxConfig sub1;
-	@XmlElement(name = "RxConfig__02")
+	@Element(name = "RxConfig__02")
 	public RxConfig sub2;
+
+	public RxConfigs(@Attribute(name = TYPEINFO) final int typeinfo) {
+		super(typeinfo);
+	}
 }

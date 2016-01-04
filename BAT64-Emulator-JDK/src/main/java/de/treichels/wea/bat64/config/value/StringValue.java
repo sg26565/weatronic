@@ -1,12 +1,9 @@
 package de.treichels.wea.bat64.config.value;
 
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlValue;
+import org.simpleframework.xml.Attribute;
 
-public class StringValue {
-	@XmlAttribute
-	public final int typeinfo = 47;
-
-	@XmlValue
-	public String value;
+public class StringValue extends Value<String> {
+	public StringValue(@Attribute(name = TYPEINFO) final int typeinfo) {
+		super(typeinfo);
+	}
 }

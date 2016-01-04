@@ -2,10 +2,13 @@ package de.treichels.wea.bat64.config.limiter;
 
 import javax.xml.bind.annotation.XmlElement;
 
-import de.treichels.wea.bat64.config.Group;
+import org.simpleframework.xml.Attribute;
+import org.simpleframework.xml.Element;
 
-public class Limiters extends Group {
-	@XmlElement(name = "Limiter__00")
+import de.treichels.wea.bat64.config.ConfigElement;
+
+public class Limiters extends ConfigElement {
+	@Element(name = "Limiter__00")
 	public Limiter item0;
 	@XmlElement(name = "Limiter__01")
 	public Limiter item1;
@@ -25,4 +28,8 @@ public class Limiters extends Group {
 	public Limiter item8;
 	@XmlElement(name = "Limiter__09")
 	public Limiter item9;
+
+	public Limiters(@Attribute(name = TYPEINFO) final int typeinfo) {
+		super(typeinfo);
+	}
 }

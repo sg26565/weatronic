@@ -1,28 +1,33 @@
 package de.treichels.wea.bat64.config.rotary;
 
-import javax.xml.bind.annotation.XmlElement;
+import org.simpleframework.xml.Attribute;
+import org.simpleframework.xml.Element;
 
-import de.treichels.wea.bat64.config.Group;
+import de.treichels.wea.bat64.config.ConfigElement;
 
-public class RotaryValueInfoSingles extends Group {
-	@XmlElement(name = "RotaryValueInfoSingle__00")
+public class RotaryValueInfoSingles extends ConfigElement {
+	@Element(name = "RotaryValueInfoSingle__00")
 	public RotaryValueInfoSingle item0;
-	@XmlElement(name = "RotaryValueInfoSingle__01")
+	@Element(name = "RotaryValueInfoSingle__01")
 	public RotaryValueInfoSingle item1;
-	@XmlElement(name = "RotaryValueInfoSingle__02")
+	@Element(name = "RotaryValueInfoSingle__02")
 	public RotaryValueInfoSingle item2;
-	@XmlElement(name = "RotaryValueInfoSingle__03")
+	@Element(name = "RotaryValueInfoSingle__03")
 	public RotaryValueInfoSingle item3;
-	@XmlElement(name = "RotaryValueInfoSingle__04")
+	@Element(name = "RotaryValueInfoSingle__04")
 	public RotaryValueInfoSingle item4;
-	@XmlElement(name = "RotaryValueInfoSingle__05")
+	@Element(name = "RotaryValueInfoSingle__05")
 	public RotaryValueInfoSingle item5;
-	@XmlElement(name = "RotaryValueInfoSingle__06")
+	@Element(name = "RotaryValueInfoSingle__06")
 	public RotaryValueInfoSingle item6;
-	@XmlElement(name = "RotaryValueInfoSingle__07")
+	@Element(name = "RotaryValueInfoSingle__07")
 	public RotaryValueInfoSingle item7;
-	@XmlElement(name = "RotaryValueInfoSingle__08")
+	@Element(name = "RotaryValueInfoSingle__08")
 	public RotaryValueInfoSingle item8;
-	@XmlElement(name = "RotaryValueInfoSingle__09")
+	@Element(name = "RotaryValueInfoSingle__09")
 	public RotaryValueInfoSingle item9;
+
+	public RotaryValueInfoSingles(@Attribute(name = TYPEINFO) final int typeinfo) {
+		super(typeinfo);
+	}
 }

@@ -1,12 +1,9 @@
 package de.treichels.wea.bat64.config.value;
 
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlValue;
+import org.simpleframework.xml.Attribute;
 
-public class ByteValue {
-	@XmlAttribute
-	public final int typeinfo = 52;
-
-	@XmlValue
-	public int value;
+public class ByteValue extends Value<Byte> {
+	public ByteValue(@Attribute(name = TYPEINFO) final int typeinfo) {
+		super(typeinfo);
+	}
 }

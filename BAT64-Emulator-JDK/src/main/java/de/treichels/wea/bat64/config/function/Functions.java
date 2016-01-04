@@ -1,28 +1,33 @@
 package de.treichels.wea.bat64.config.function;
 
-import javax.xml.bind.annotation.XmlElement;
+import org.simpleframework.xml.Attribute;
+import org.simpleframework.xml.Element;
 
-import de.treichels.wea.bat64.config.Group;
+import de.treichels.wea.bat64.config.ConfigElement;
 
-public class Functions extends Group {
-	@XmlElement(name = "Function__00")
+public class Functions extends ConfigElement {
+	@Element(name = "Function__00")
 	public Function item0;
-	@XmlElement(name = "Function__01")
+	@Element(name = "Function__01")
 	public Function item1;
-	@XmlElement(name = "Function__02")
+	@Element(name = "Function__02")
 	public Function item2;
-	@XmlElement(name = "Function__03")
+	@Element(name = "Function__03")
 	public Function item3;
-	@XmlElement(name = "Function__04")
+	@Element(name = "Function__04")
 	public Function item4;
-	@XmlElement(name = "Function__05")
+	@Element(name = "Function__05")
 	public Function item5;
-	@XmlElement(name = "Function__06")
+	@Element(name = "Function__06")
 	public Function item6;
-	@XmlElement(name = "Function__07")
+	@Element(name = "Function__07")
 	public Function item7;
-	@XmlElement(name = "Function__08")
+	@Element(name = "Function__08")
 	public Function item8;
-	@XmlElement(name = "Function__09")
+	@Element(name = "Function__09")
 	public Function item9;
+
+	public Functions(@Attribute(name = TYPEINFO) final int typeinfo) {
+		super(typeinfo);
+	}
 }

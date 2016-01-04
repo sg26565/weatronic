@@ -1,5 +1,7 @@
 package de.treichels.wea.bat64.config.mixer;
 
+import org.simpleframework.xml.Attribute;
+
 import de.treichels.wea.bat64.config.ConfigElement;
 import de.treichels.wea.bat64.config.value.ByteValue;
 import de.treichels.wea.bat64.config.value.IntValue;
@@ -17,7 +19,7 @@ public class Mixer extends ConfigElement {
 	public ShortValue ToFunction;
 	public ByteValue Trim;
 
-	public Mixer() {
-		super(29);
+	public Mixer(@Attribute(name = TYPEINFO) final int typeinfo) {
+		super(typeinfo);
 	}
 }

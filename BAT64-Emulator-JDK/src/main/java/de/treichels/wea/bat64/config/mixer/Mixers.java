@@ -1,28 +1,33 @@
 package de.treichels.wea.bat64.config.mixer;
 
-import javax.xml.bind.annotation.XmlElement;
+import org.simpleframework.xml.Attribute;
+import org.simpleframework.xml.Element;
 
-import de.treichels.wea.bat64.config.Group;
+import de.treichels.wea.bat64.config.ConfigElement;
 
-public class Mixers extends Group {
-	@XmlElement(name = "Mixer__00")
+public class Mixers extends ConfigElement {
+	@Element(name = "Mixer__00")
 	public Mixer item0;
-	@XmlElement(name = "Mixer__01")
+	@Element(name = "Mixer__01")
 	public Mixer item1;
-	@XmlElement(name = "Mixer__02")
+	@Element(name = "Mixer__02")
 	public Mixer item2;
-	@XmlElement(name = "Mixer__03")
+	@Element(name = "Mixer__03")
 	public Mixer item3;
-	@XmlElement(name = "Mixer__04")
+	@Element(name = "Mixer__04")
 	public Mixer item4;
-	@XmlElement(name = "Mixer__05")
+	@Element(name = "Mixer__05")
 	public Mixer item5;
-	@XmlElement(name = "Mixer__06")
+	@Element(name = "Mixer__06")
 	public Mixer item6;
-	@XmlElement(name = "Mixer__07")
+	@Element(name = "Mixer__07")
 	public Mixer item7;
-	@XmlElement(name = "Mixer__08")
+	@Element(name = "Mixer__08")
 	public Mixer item8;
-	@XmlElement(name = "Mixer__09")
+	@Element(name = "Mixer__09")
 	public Mixer item9;
+
+	public Mixers(@Attribute(name = TYPEINFO) final int typeinfo) {
+		super(typeinfo);
+	}
 }
