@@ -13,6 +13,6 @@ public class TravelValue {
 	public final int typeinfo = 45;
 
 	@XmlValue
-	public long value;
+	public short value;
 
 }

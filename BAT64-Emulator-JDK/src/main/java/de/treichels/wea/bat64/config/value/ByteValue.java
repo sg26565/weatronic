@@ -8,5 +8,5 @@ public class ByteValue {
 	public final int typeinfo = 52;
 
 	@XmlValue
-	public int value;
+	public short value;
 }
