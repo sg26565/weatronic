@@ -1,4 +1,4 @@
-package de.treichels.wea.bat64.config.receiver;
+package de.treichels.wea.bat64.config.adapters;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBElement;
@@ -12,12 +12,12 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
-public abstract class Adapter<T> extends XmlAdapter<Element, T> {
+public abstract class ListAdapter<T> extends XmlAdapter<Element, T> {
 	private final Class<T> clazz;
 	private final String prefix;
 	private int index = 0;
 
-	protected Adapter(final Class<T> clazz, final String prefix) {
+	protected ListAdapter(final Class<T> clazz, final String prefix) {
 		this.clazz = clazz;
 		this.prefix = prefix;
 	}
