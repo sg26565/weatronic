@@ -1,6 +1,5 @@
 package de.treichels.wea.bat64.config.receiver;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.xml.bind.annotation.XmlAnyElement;
