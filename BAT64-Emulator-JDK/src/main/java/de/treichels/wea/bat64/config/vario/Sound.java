@@ -1,10 +1,8 @@
 package de.treichels.wea.bat64.config.vario;
 
-import de.treichels.wea.bat64.config.Group;
-import de.treichels.wea.bat64.config.List;
-import de.treichels.wea.bat64.config.value.ShortValue;
+import de.treichels.wea.bat64.config.ConfigGroup;
 
-public class Sound extends Group {
-	public List<ClimbRate> ClimbRates;
-	public List<ShortValue> ToneRates;
+public class Sound extends ConfigGroup {
+	public ClimbRates ClimbRates;
+	public ToneRates ToneRates;
 }

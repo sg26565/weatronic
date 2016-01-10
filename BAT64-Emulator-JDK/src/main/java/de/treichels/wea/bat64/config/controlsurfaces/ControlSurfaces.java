@@ -1,28 +1,21 @@
 package de.treichels.wea.bat64.config.controlsurfaces;
 
-import javax.xml.bind.annotation.XmlElement;
+import java.util.List;
 
-import de.treichels.wea.bat64.config.Group;
+import javax.xml.bind.annotation.XmlAnyElement;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
-public class ControlSurfaces extends Group {
-	@XmlElement(name = "ControlSurface__00")
-	public ControlSurface item0;
-	@XmlElement(name = "ControlSurface__01")
-	public ControlSurface item1;
-	@XmlElement(name = "ControlSurface__02")
-	public ControlSurface item2;
-	@XmlElement(name = "ControlSurface__03")
-	public ControlSurface item3;
-	@XmlElement(name = "ControlSurface__04")
-	public ControlSurface item4;
-	@XmlElement(name = "ControlSurface__05")
-	public ControlSurface item5;
-	@XmlElement(name = "ControlSurface__06")
-	public ControlSurface item6;
-	@XmlElement(name = "ControlSurface__07")
-	public ControlSurface item7;
-	@XmlElement(name = "ControlSurface__08")
-	public ControlSurface item8;
-	@XmlElement(name = "ControlSurface__09")
-	public ControlSurface item9;
+import de.treichels.wea.bat64.config.ConfigGroup;
+import de.treichels.wea.bat64.config.adapters.ListAdapter;
+
+public class ControlSurfaces extends ConfigGroup {
+	private static class ControlSurfaceListAdapter extends ListAdapter<ControlSurface> {
+		protected ControlSurfaceListAdapter() {
+			super(ControlSurface.class, "ControlSurface__%02d");
+		}
+	}
+
+	@XmlAnyElement
+	@XmlJavaTypeAdapter(ControlSurfaceListAdapter.class)
+	public List<ControlSurface> list;
 }

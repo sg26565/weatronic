@@ -2,9 +2,9 @@ package de.treichels.wea.bat64.config.rotary;
 
 import javax.xml.bind.annotation.XmlElement;
 
-import de.treichels.wea.bat64.config.Group;
+import de.treichels.wea.bat64.config.ConfigGroup;
 
-public class RotaryValueInfoSingles extends Group {
+public class RotaryValueInfoSingles extends ConfigGroup {
 	@XmlElement(name = "RotaryValueInfoSingle__00")
 	public RotaryValueInfoSingle item0;
 	@XmlElement(name = "RotaryValueInfoSingle__01")

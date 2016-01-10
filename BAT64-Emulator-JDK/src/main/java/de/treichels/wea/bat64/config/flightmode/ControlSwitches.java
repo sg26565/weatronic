@@ -2,9 +2,9 @@ package de.treichels.wea.bat64.config.flightmode;
 
 import javax.xml.bind.annotation.XmlElement;
 
-import de.treichels.wea.bat64.config.Group;
+import de.treichels.wea.bat64.config.ConfigGroup;
 
-public class ControlSwitches extends Group {
+public class ControlSwitches extends ConfigGroup {
 	@XmlElement(name = "ControlSwitch__00")
 	public ControlSwitch item0;
 	@XmlElement(name = "ControlSwitch__01")

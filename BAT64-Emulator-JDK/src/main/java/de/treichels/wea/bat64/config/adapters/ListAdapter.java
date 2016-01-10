@@ -14,19 +14,19 @@ import org.w3c.dom.Element;
 
 public abstract class ListAdapter<T> extends XmlAdapter<Element, T> {
 	private final Class<T> clazz;
-	private final String prefix;
+	private final String format;
 	private int index = 0;
 
-	protected ListAdapter(final Class<T> clazz, final String prefix) {
+	protected ListAdapter(final Class<T> clazz, final String format) {
 		this.clazz = clazz;
-		this.prefix = prefix;
+		this.format = format;
 	}
 
 	@Override
 	public Element marshal(final T v) throws Exception {
 		final JAXBContext context = JAXBContext.newInstance(clazz);
 		final Marshaller marshaller = context.createMarshaller();
-		final QName tagName = new QName(String.format("%s__%02d", prefix, index++));
+		final QName tagName = new QName(String.format(format, index++));
 		final JAXBElement<T> jaxbElement = new JAXBElement<T>(tagName, clazz, v);
 		final DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
 		final DocumentBuilder builder = dbf.newDocumentBuilder();
@@ -39,7 +39,7 @@ public abstract class ListAdapter<T> extends XmlAdapter<Element, T> {
 	@Override
 	public T unmarshal(final Element v) throws Exception {
 		final String tagName = v.getTagName();
-		final String expexted = String.format("%s__%02d", prefix, index++);
+		final String expexted = String.format(format, index++);
 		assert expexted.equals(tagName);
 
 		final JAXBContext context = JAXBContext.newInstance(clazz);

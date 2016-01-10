@@ -1,9 +1,8 @@
 package de.treichels.wea.bat64.config.controlsurfaces;
 
-import de.treichels.wea.bat64.config.Group;
-import de.treichels.wea.bat64.config.value.ShortValue;
+import de.treichels.wea.bat64.config.ConfigGroup;
 
-public class DependentFunction extends Group {
-	public ShortValue Index;
-	public ShortValue UsedSurfaces;
+public class DependentFunction extends ConfigGroup {
+	public Short Index;
+	public Short UsedSurfaces;
 }

@@ -15,11 +15,14 @@ import javax.xml.bind.Unmarshaller;
 import javax.xml.bind.annotation.XmlRootElement;
 
 import de.treichels.wea.bat64.config.bluetooth.BluetoothConfig;
+import de.treichels.wea.bat64.config.controlsurfaces.ControlSurfaces;
+import de.treichels.wea.bat64.config.controlsurfaces.ControlSurfacesConfigs;
 import de.treichels.wea.bat64.config.receiver.BindingConfig;
+import de.treichels.wea.bat64.config.receiver.Receiver;
 import de.treichels.wea.bat64.config.vario.ConfigLinkVario;
 
 @XmlRootElement(name = "root")
-public class ConfigRoot extends Group {
+public class ConfigRoot extends ConfigGroup {
 	public static void main(final String[] args) throws JAXBException, FileNotFoundException, IOException {
 		final JAXBContext ctx = JAXBContext.newInstance(ConfigRoot.class);
 		final Unmarshaller unmarshaller = ctx.createUnmarshaller();
@@ -36,7 +39,9 @@ public class ConfigRoot extends Group {
 					root = (ConfigRoot) unmarshaller.unmarshal(is);
 				}
 
-				System.out.println(root.BindingConfig.receivers.items.get(0).Serial);
+				for (final Receiver r : root.BindingConfig.receivers.list) {
+					System.out.println(r.Serial);
+				}
 
 				final ByteArrayOutputStream baos = new ByteArrayOutputStream();
 				marshaller.marshal(root, baos);
@@ -52,8 +57,8 @@ public class ConfigRoot extends Group {
 	public BluetoothConfig BTConfig;
 	public BindingConfig BindingConfig;
 	public ConfigLinkVario ConfigLVario;
-	// public ControlSurfaces ControlSurfaces;
-	// public ControlSurfacesConfigs ControlSurfacesConfig;
+	public ControlSurfaces ControlSurfaces;
+	public ControlSurfacesConfigs ControlSurfacesConfig;
 	// public Curves Curves;
 	// public FMControlAssign FMControlAssign;
 	// public FlightModes FlightModes;

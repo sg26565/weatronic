@@ -14,7 +14,7 @@ public abstract class ConfigElement {
 	public final int typeinfo;
 
 	public ConfigElement(final int typeinfo) {
-		if (typeinfo != 32) {
+		if (typeinfo != 32 && typeinfo != 6) {
 			final Class<?> thisClass = getClass();
 			final Class<?> otherClass = TYPE_CACHE.get(typeinfo);
 
