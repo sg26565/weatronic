@@ -1,28 +1,21 @@
 package de.treichels.wea.bat64.config.controlsurfaces;
 
-import javax.xml.bind.annotation.XmlElement;
+import java.util.List;
 
-import de.treichels.wea.bat64.config.Group;
+import javax.xml.bind.annotation.XmlAnyElement;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
-public class DependentFunctions extends Group {
-	@XmlElement(name = "DependentFunction__00")
-	public DependentFunction item0;
-	@XmlElement(name = "DependentFunction__01")
-	public DependentFunction item1;
-	@XmlElement(name = "DependentFunction__02")
-	public DependentFunction item2;
-	@XmlElement(name = "DependentFunction__03")
-	public DependentFunction item3;
-	@XmlElement(name = "DependentFunction__04")
-	public DependentFunction item4;
-	@XmlElement(name = "DependentFunction__05")
-	public DependentFunction item5;
-	@XmlElement(name = "DependentFunction__06")
-	public DependentFunction item6;
-	@XmlElement(name = "DependentFunction__07")
-	public DependentFunction item7;
-	@XmlElement(name = "DependentFunction__08")
-	public DependentFunction item8;
-	@XmlElement(name = "DependentFunction__09")
-	public DependentFunction item9;
+import de.treichels.wea.bat64.config.ConfigGroup;
+import de.treichels.wea.bat64.config.adapters.ListAdapter;
+
+public class DependentFunctions extends ConfigGroup {
+	private static class DependentFunctionListAdapter extends ListAdapter<DependentFunction> {
+		protected DependentFunctionListAdapter() {
+			super(DependentFunction.class, "DependentFunction__%02d");
+		}
+	}
+
+	@XmlAnyElement
+	@XmlJavaTypeAdapter(DependentFunctionListAdapter.class)
+	public List<DependentFunction> list;
 }

@@ -2,9 +2,9 @@ package de.treichels.wea.bat64.config.sequencer;
 
 import javax.xml.bind.annotation.XmlElement;
 
-import de.treichels.wea.bat64.config.Group;
+import de.treichels.wea.bat64.config.ConfigGroup;
 
-public class Sequencers extends Group {
+public class Sequencers extends ConfigGroup {
 	@XmlElement(name = "Sequencer__00")
 	public Sequencer item0;
 	@XmlElement(name = "Sequencer__01")

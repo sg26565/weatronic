@@ -2,9 +2,9 @@ package de.treichels.wea.bat64.config.function;
 
 import javax.xml.bind.annotation.XmlElement;
 
-import de.treichels.wea.bat64.config.Group;
+import de.treichels.wea.bat64.config.ConfigGroup;
 
-public class Servos extends Group {
+public class Servos extends ConfigGroup {
 	@XmlElement(name = "Servo__00")
 	public Servo item0;
 	@XmlElement(name = "Servo__01")

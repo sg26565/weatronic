@@ -14,5 +14,5 @@ public class PercentValue {
 	public final int typeinfo = 44;
 
 	@XmlValue
-	public long value;
+	public short value;
 }

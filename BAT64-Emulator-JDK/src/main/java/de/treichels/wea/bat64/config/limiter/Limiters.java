@@ -2,9 +2,9 @@ package de.treichels.wea.bat64.config.limiter;
 
 import javax.xml.bind.annotation.XmlElement;
 
-import de.treichels.wea.bat64.config.Group;
+import de.treichels.wea.bat64.config.ConfigGroup;
 
-public class Limiters extends Group {
+public class Limiters extends ConfigGroup {
 	@XmlElement(name = "Limiter__00")
 	public Limiter item0;
 	@XmlElement(name = "Limiter__01")

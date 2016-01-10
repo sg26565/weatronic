@@ -1,14 +1,21 @@
 package de.treichels.wea.bat64.config.receiver;
 
-import javax.xml.bind.annotation.XmlElement;
+import java.util.List;
 
-import de.treichels.wea.bat64.config.Group;
+import javax.xml.bind.annotation.XmlAnyElement;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
-public class Receivers extends Group {
-	@XmlElement(name = "Rx__00")
-	public Receiver main;
-	@XmlElement(name = "Rx__01")
-	public Receiver sub1;
-	@XmlElement(name = "Rx__02")
-	public Receiver sub2;
+import de.treichels.wea.bat64.config.ConfigGroup;
+import de.treichels.wea.bat64.config.adapters.ListAdapter;
+
+public class Receivers extends ConfigGroup {
+	private static class ReceiverAdapter extends ListAdapter<Receiver> {
+		protected ReceiverAdapter() {
+			super(Receiver.class, "Rx__%02d");
+		}
+	}
+
+	@XmlAnyElement
+	@XmlJavaTypeAdapter(ReceiverAdapter.class)
+	public List<Receiver> list;
 }

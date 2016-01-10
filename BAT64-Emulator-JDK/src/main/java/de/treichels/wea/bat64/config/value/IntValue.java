@@ -8,5 +8,5 @@ public class IntValue {
 	public final int typeinfo = 54;
 
 	@XmlValue
-	public int value;
+	public long value;
 }

@@ -2,9 +2,9 @@ package de.treichels.wea.bat64.config.mixer;
 
 import javax.xml.bind.annotation.XmlElement;
 
-import de.treichels.wea.bat64.config.Group;
+import de.treichels.wea.bat64.config.ConfigGroup;
 
-public class Mixers extends Group {
+public class Mixers extends ConfigGroup {
 	@XmlElement(name = "Mixer__00")
 	public Mixer item0;
 	@XmlElement(name = "Mixer__01")

@@ -2,9 +2,9 @@ package de.treichels.wea.bat64.config.curve;
 
 import javax.xml.bind.annotation.XmlElement;
 
-import de.treichels.wea.bat64.config.Group;
+import de.treichels.wea.bat64.config.ConfigGroup;
 
-public class Curves extends Group {
+public class Curves extends ConfigGroup {
 	@XmlElement(name = "Curve__00")
 	public Curve item0;
 	@XmlElement(name = "Curve__01")

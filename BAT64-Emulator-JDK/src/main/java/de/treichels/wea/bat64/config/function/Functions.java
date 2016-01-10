@@ -2,9 +2,9 @@ package de.treichels.wea.bat64.config.function;
 
 import javax.xml.bind.annotation.XmlElement;
 
-import de.treichels.wea.bat64.config.Group;
+import de.treichels.wea.bat64.config.ConfigGroup;
 
-public class Functions extends Group {
+public class Functions extends ConfigGroup {
 	@XmlElement(name = "Function__00")
 	public Function item0;
 	@XmlElement(name = "Function__01")
