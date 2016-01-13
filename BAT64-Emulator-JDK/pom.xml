@@ -30,5 +30,10 @@
 			<artifactId>jersey-media-json-processing</artifactId>
 			<version>2.22.1</version>
 		</dependency>
+		<dependency>
+			<groupId>com.sun.codemodel</groupId>
+			<artifactId>codemodel</artifactId>
+			<version>2.6</version>
+		</dependency>
 	</dependencies>
 </project>
