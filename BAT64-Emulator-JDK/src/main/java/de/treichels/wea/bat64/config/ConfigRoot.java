@@ -54,8 +54,8 @@ public class ConfigRoot extends ConfigGroup {
 		}
 	}
 
-	public BluetoothConfig BTConfig;
 	public BindingConfig BindingConfig;
+	public BluetoothConfig BTConfig;
 	public ConfigLinkVario ConfigLVario;
 	public ControlSurfaces ControlSurfaces;
 	public ControlSurfacesConfigs ControlSurfacesConfig;

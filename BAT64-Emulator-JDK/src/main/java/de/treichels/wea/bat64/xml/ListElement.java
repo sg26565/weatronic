@@ -1,0 +1,16 @@
+package de.treichels.wea.bat64.xml;
+
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
+
+@Retention(RetentionPolicy.RUNTIME)
+@Target(ElementType.FIELD)
+public @interface ListElement {
+	String name() default "";
+
+	Class<?> type();
+
+	int typeinfo();
+}

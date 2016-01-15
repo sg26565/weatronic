@@ -6,14 +6,16 @@ import java.util.Set;
 import java.util.TreeMap;
 
 public class XmlElement implements Map<String, XmlElement> {
-	private final String name;
-	private final int typeinfo;
-	private String text = null;
 	private final Map<String, XmlElement> children = new TreeMap<String, XmlElement>();
+	private final String name;
+	private final XmlElement parent;
+	private String text = null;
+	private final int typeinfo;
 
-	public XmlElement(final String name, final int typeinfo) {
+	public XmlElement(final String name, final int typeinfo, final XmlElement parent) {
 		this.name = name;
 		this.typeinfo = typeinfo;
+		this.parent = parent;
 	}
 
 	@Override
@@ -43,6 +45,10 @@ public class XmlElement implements Map<String, XmlElement> {
 
 	public String getName() {
 		return name;
+	}
+
+	public XmlElement getParent() {
+		return parent;
 	}
 
 	public String getText() {

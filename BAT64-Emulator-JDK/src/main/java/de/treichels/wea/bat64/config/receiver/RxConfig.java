@@ -9,10 +9,10 @@ import de.treichels.wea.bat64.config.value.TravelValue;
 public class RxConfig extends ConfigElement {
 	public ByteValue AutoPowerOff;
 	public TravelValue BackChannelWarning;
-	public TravelValue BattWarning__0;
-	public TravelValue BattWarning__1;
 	public TravelValue BatteryTestVoltage__0;
 	public TravelValue BatteryTestVoltage__1;
+	public TravelValue BattWarning__0;
+	public TravelValue BattWarning__1;
 	public TravelValue FailSafeTimeout;
 	public IntValue Flags;
 	public ByteValue IsServopulseSynchron;
