@@ -5,6 +5,8 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.SortedSet;
+import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -116,6 +118,13 @@ public class SourceCodeGenerator {
 		generateClass(root, basePackage);
 
 		model.build(outputDir);
+
+		final SortedSet<Integer> keys = new TreeSet<Integer>();
+		keys.addAll(classes.keySet());
+		for (final int key : keys) {
+			final JDefinedClass definedClass = classes.get(key);
+			System.out.printf("%2d: %s\n", key, definedClass.fullName());
+		}
 	}
 
 	private void generateClass(final XmlElement element, final JPackage elementPackage)
