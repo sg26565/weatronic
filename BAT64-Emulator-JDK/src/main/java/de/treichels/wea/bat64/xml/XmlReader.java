@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.Reader;
 import java.io.StringReader;
 import java.util.Stack;
@@ -35,8 +36,12 @@ public class XmlReader {
 		}
 	}
 
-	public XmlElement read(final InputStream is) throws XMLStreamException {
-		return read(new StreamSource(is));
+	public XmlElement read(final InputStream inputstream) throws XMLStreamException {
+		try (Reader reader = new InputStreamReader(inputstream, "utf-8")) {
+			return read(reader);
+		} catch (final IOException e) {
+			throw new XMLStreamException(e);
+		}
 	}
 
 	public XmlElement read(final Reader reader) throws XMLStreamException {

@@ -4,7 +4,9 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.io.OutputStreamWriter;
 import java.io.StringWriter;
+import java.io.UnsupportedEncodingException;
 import java.io.Writer;
 
 import javax.xml.stream.XMLOutputFactory;
@@ -34,8 +36,13 @@ public class XmlWriter {
 		}
 	}
 
-	public void write(final XmlElement element, final OutputStream outputStream) throws XMLStreamException {
-		write(element, new StreamResult(outputStream));
+	public void write(final XmlElement element, final OutputStream outputStream)
+			throws XMLStreamException, UnsupportedEncodingException {
+		try (Writer writer = new OutputStreamWriter(outputStream, "utf-8")) {
+			write(element, writer);
+		} catch (final IOException e) {
+			throw new XMLStreamException(e);
+		}
 	}
 
 	public void write(final XmlElement element, final Result result) throws XMLStreamException {
@@ -43,7 +50,7 @@ public class XmlWriter {
 
 		try {
 			writer = XML_OUTPUT_FACTORY.createXMLStreamWriter(result);
-			writer.writeStartDocument();
+			writer.writeStartDocument("utf-8", "1.0");
 			write(element, writer);
 			writer.writeEndDocument();
 			writer.close();
