@@ -238,7 +238,7 @@ public class SourceCodeGenerator {
 			final XmlElement listElement = getFirstChild(childElement);
 			final int typeinfo = listElement.getTypeinfo();
 			final JType listElementType = getListElementType(childElement, childPackage);
-			if (!(typeinfo == 47 || typeinfo == 6 || typeinfo == 32 || listElementType.isPrimitive())) {
+			if (!(typeinfo == 47 || listElementType.isPrimitive())) {
 				generateClass(listElement, childPackage);
 			}
 			break;
