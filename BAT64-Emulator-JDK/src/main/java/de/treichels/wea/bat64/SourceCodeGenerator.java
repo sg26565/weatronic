@@ -96,9 +96,7 @@ public class SourceCodeGenerator {
 	private final Map<Integer, JDefinedClass> classes = new HashMap<Integer, JDefinedClass>();
 	private final Pattern groupPattern;
 	private final Pattern listPattern;
-
 	private final JCodeModel model;
-
 	private final File outputDir;
 
 	public SourceCodeGenerator() throws JClassAlreadyExistsException {
@@ -123,98 +121,134 @@ public class SourceCodeGenerator {
 	private void generateClass(final XmlElement element, final JPackage elementPackage)
 			throws JClassAlreadyExistsException, ClassNotFoundException {
 		final String elementName = element.getName();
-		final String className;
 		final int elementTypeinfo = element.getTypeinfo();
+		final String elementClassName;
 
-		if (listPattern.matcher(elementName).matches()) {
-			className = element.getParent().getName();
+		final Matcher listMatcher = listPattern.matcher(elementName);
+		final Matcher groupMatcher = groupPattern.matcher(elementName);
+		if (listMatcher.matches()) {
+			elementClassName = element.getParent().getName();
+		} else if (groupMatcher.matches()) {
+			elementClassName = groupMatcher.group(1);
 		} else {
-			final Matcher matcher = groupPattern.matcher(elementName);
-			if (matcher.matches()) {
-				className = matcher.group(1);
-			} else {
-				className = className(elementName);
-			}
+			elementClassName = className(elementName);
 		}
 
-		System.out.printf("\nElement: %s (%d) => %s\n", elementName, elementTypeinfo, className);
+		final JDefinedClass elementClass = getDefinedClass(elementClassName, elementTypeinfo, elementPackage);
 
-		final JDefinedClass elementClass = getDefinedClass(className, elementTypeinfo, elementPackage);
+		System.out.printf("\nElement: %s (%d) => %s\n", elementName, elementTypeinfo, elementClass.fullName());
 
 		// if class name does not match element name, then an already existing
 		// class was used
-		if (elementClass.name().equalsIgnoreCase(className)) {
-			for (final XmlElement childElement : element.values()) {
-				final String childName = childElement.getName();
-				final int childTypeinfo = childElement.getTypeinfo();
-				System.out.printf("\tChild: %s (%d)\n", childName, childTypeinfo);
+		if (!elementClass.name().equalsIgnoreCase(elementClassName)) {
+			return;
+		}
 
-				final String childClassName = className(childName);
-				final String childPackageName = packageName(childClassName);
-				final JPackage childPackage = elementPackage.subPackage(childPackageName);
-				final JType childType = getType(childClassName, childTypeinfo, childPackage, childElement);
-				final String fieldName = fieldName(childName);
+		for (final XmlElement childElement : element.values()) {
+			generateField(childElement, elementClass, elementPackage);
+		}
+	}
 
-				if (!elementClass.fields().containsKey(fieldName)) {
-					final JFieldVar field = elementClass.field(JMod.PRIVATE, childType, fieldName);
-					field.annotate(Element.class).param("name", childName).param("typeinfo", childTypeinfo);
-					if (childTypeinfo == 6) {
-						final XmlElement listElement = getFirstChild(childElement);
-						field.annotate(ListElement.class)
-								.param("type",
-										getType(childClassName, listElement.getTypeinfo(), childPackage, listElement))
-								.param("typeinfo", listElement.getTypeinfo());
-					} else if (childTypeinfo == 32) {
-						final XmlElement listElement = getFirstChild(childElement);
-						if (listElement != null) {
-							final String listElementName = listElement.getName();
-							if (listElementName.endsWith("__00")) {
-								final String listElementClassName = listElement.getName().substring(0,
-										listElementName.length() - 4);
-								field.annotate(ListElement.class).param("name", listElementClassName)
-										.param("type", getType(listElementClassName, listElement.getTypeinfo(),
-												childPackage, listElement))
-										.param("typeinfo", listElement.getTypeinfo());
-							}
-						}
-					}
+	private void generateField(final XmlElement childElement, final JDefinedClass parentClass,
+			final JPackage parentPackage) throws JClassAlreadyExistsException, ClassNotFoundException {
+		final String childName = childElement.getName();
+		final int childTypeinfo = childElement.getTypeinfo();
+		final String childClassName = className(childName);
+		final String childPackageName = packageName(childClassName);
+		final JPackage childPackage = parentPackage.subPackage(childPackageName);
+		final JType childType = getType(childClassName, childTypeinfo, childPackage, childElement);
+		final String fieldName = fieldName(childName);
 
-					final String getMethodName = methodName(GETTER_PREFIX, fieldName);
-					final JMethod getterMethod = elementClass.method(JMod.PUBLIC, childType, getMethodName);
-					getterMethod.body()._return(field);
+		System.out.printf("\tChild: %s (%d) => %s %s\n", childName, childTypeinfo, childType.fullName(), fieldName);
 
-					final String setMethodName = methodName(SETTER_PREFIX, fieldName);
-					final JMethod setterMethod = elementClass.method(JMod.PUBLIC, model.VOID, setMethodName);
-					final JVar setterParam = setterMethod.param(JMod.FINAL, childType, fieldName);
-					setterMethod.body().assign(JExpr._this().ref(field), setterParam);
-				}
+		if (!parentClass.fields().containsKey(fieldName)) {
+			// field & element annotation
+			final JFieldVar field = parentClass.field(JMod.PRIVATE, childType, fieldName);
+			field.annotate(Element.class).param("name", childName).param("typeinfo", childTypeinfo);
 
-				if (childTypeinfo == 47 || childType.isPrimitive()) {
-					continue;
-				}
+			// listelement annotation
+			switch (childTypeinfo) {
+			case 6:
+				// list
+				final XmlElement listElement = getFirstChild(childElement);
+				final int listElementTypeinfo = listElement.getTypeinfo();
+				final JType listElementType = getType(childClassName, listElementTypeinfo, childPackage, listElement);
+				field.annotate(ListElement.class).param("type", listElementType).param("typeinfo", listElementTypeinfo);
+				System.out.printf("\t\tListElement: %s (%d)\n", listElementType.fullName(), listElementTypeinfo);
+				break;
 
-				if (childTypeinfo == 6) {
-					final XmlElement firtChild = getFirstChild(childElement);
-					final int firstChildTypeinfo = firtChild.getTypeinfo();
-					final JType listElementType = getListElementType(childElement, childPackage);
-					if (!(firstChildTypeinfo == 47 || firstChildTypeinfo == 6 || firstChildTypeinfo == 32
-							|| listElementType.isPrimitive())) {
-						generateClass(firtChild, childPackage);
-					}
-				} else if (childTypeinfo == 32) {
-					final XmlElement firtChild = getFirstChild(childElement);
-					final JType groupElementType = getGroupElementType(childElement, childPackage);
-					if (groupElementType == null) {
-						generateClass(childElement, childPackage);
-					} else if (groupElementType.isPrimitive() || firtChild.getTypeinfo() == 47) {
-						continue;
+			case 32:
+				// group
+				final XmlElement groupElement = getFirstChild(childElement);
+
+				if (groupElement != null) {
+					final String groupElementName = groupElement.getName();
+
+					if (groupPattern.matcher(groupElementName).matches()) {
+						final int groupElementTypeinfo = groupElement.getTypeinfo();
+						final String groupElementClassName = className(groupElementName);
+						final JType groupElementType = getType(groupElementClassName, groupElementTypeinfo,
+								childPackage, groupElement);
+						field.annotate(ListElement.class).param("name", groupElementClassName)
+								.param("type", groupElementType).param("typeinfo", groupElement.getTypeinfo());
+						System.out.printf("\t\tGroupElement: %s %s (%d)\n", groupElementType.fullName(),
+								groupElementClassName, groupElementTypeinfo);
 					} else {
-						generateClass(firtChild, childPackage);
+						System.out.println("\t\tGroup is not a list.");
 					}
 				} else {
-					generateClass(childElement, childPackage);
+					System.out.println("\t\tGroup is empty, nothing known about it.");
 				}
+				break;
 			}
+
+			// getter method
+			final String getMethodName = methodName(GETTER_PREFIX, fieldName);
+			final JMethod getterMethod = parentClass.method(JMod.PUBLIC, childType, getMethodName);
+			getterMethod.body()._return(field);
+
+			// setter method
+			final String setMethodName = methodName(SETTER_PREFIX, fieldName);
+			final JMethod setterMethod = parentClass.method(JMod.PUBLIC, model.VOID, setMethodName);
+			final JVar setterParam = setterMethod.param(JMod.FINAL, childType, fieldName);
+			setterMethod.body().assign(JExpr._this().ref(field), setterParam);
+		}
+
+		if (childType.isPrimitive()) {
+			return;
+		}
+
+		// generate classes references by fields
+		switch (childTypeinfo) {
+		case 47:
+			// String
+			return;
+
+		case 6:
+			// list
+			final XmlElement listElement = getFirstChild(childElement);
+			final int typeinfo = listElement.getTypeinfo();
+			final JType listElementType = getListElementType(childElement, childPackage);
+			if (!(typeinfo == 47 || typeinfo == 6 || typeinfo == 32 || listElementType.isPrimitive())) {
+				generateClass(listElement, childPackage);
+			}
+			break;
+
+		case 32:
+			// group
+			final XmlElement groupElement = getFirstChild(childElement);
+			final JType groupElementType = getGroupElementType(childElement, childPackage);
+			if (groupElementType == null) {
+				generateClass(childElement, childPackage);
+			} else if (groupElementType.isPrimitive() || groupElement.getTypeinfo() == 47) {
+				return;
+			} else {
+				generateClass(groupElement, childPackage);
+			}
+			break;
+
+		default:
+			generateClass(childElement, childPackage);
 		}
 	}
 
