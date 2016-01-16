@@ -39,6 +39,45 @@ public class XmlElement implements Map<String, XmlElement> {
 	}
 
 	@Override
+	public boolean equals(final Object obj) {
+		if (this == obj) {
+			return true;
+		}
+		if (obj == null) {
+			return false;
+		}
+		if (getClass() != obj.getClass()) {
+			return false;
+		}
+		final XmlElement other = (XmlElement) obj;
+		if (children == null) {
+			if (other.children != null) {
+				return false;
+			}
+		} else if (!children.equals(other.children)) {
+			return false;
+		}
+		if (name == null) {
+			if (other.name != null) {
+				return false;
+			}
+		} else if (!name.equals(other.name)) {
+			return false;
+		}
+		if (text == null) {
+			if (other.text != null) {
+				return false;
+			}
+		} else if (!text.equals(other.text)) {
+			return false;
+		}
+		if (typeinfo != other.typeinfo) {
+			return false;
+		}
+		return true;
+	}
+
+	@Override
 	public XmlElement get(final Object key) {
 		return children.get(key);
 	}
@@ -57,6 +96,17 @@ public class XmlElement implements Map<String, XmlElement> {
 
 	public int getTypeinfo() {
 		return typeinfo;
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + (children == null ? 0 : children.hashCode());
+		result = prime * result + (name == null ? 0 : name.hashCode());
+		result = prime * result + (text == null ? 0 : text.hashCode());
+		result = prime * result + typeinfo;
+		return result;
 	}
 
 	public boolean hasText() {
