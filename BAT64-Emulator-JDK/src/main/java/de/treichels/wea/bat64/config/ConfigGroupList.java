@@ -11,7 +11,7 @@ public class ConfigGroupList<T> extends ConfigList<T> {
 		return prefix;
 	}
 
-	public void setPrefix(String prefix) {
+	public void setPrefix(final String prefix) {
 		this.prefix = prefix;
 	}
 }

@@ -39,26 +39,22 @@ public class Handler {
 		final Map<String, String> config = new HashMap<String, String>();
 		final JsonBuilderFactory factory = Json.createBuilderFactory(config);
 		final JsonObject result = factory.createObjectBuilder()
-				.add("Telemetry_Val",
-						factory.createArrayBuilder()
-								.add(factory.createObjectBuilder().add("ID", "11398").add("Value", "802976")
-										.add("ID", "33968").add("Value",
-												factory.createObjectBuilder().add("RemPowerTime", "08h:35m")
-														.add("InputVoltage", 0).add("IsReserve", 0).add("IsRunOnDc", 0)
-														.add("MainVoltage", 4018).add("ReserveVoltage", 4190)
-														.add("Voltage", 4018).add("Cells", factory.createArrayBuilder().
+		        .add("Telemetry_Val",
+		                factory.createArrayBuilder()
+		                        .add(factory.createObjectBuilder().add("ID", "11398").add("Value", "802976").add("ID", "33968").add("Value",
+		                                factory.createObjectBuilder().add("RemPowerTime", "08h:35m").add("InputVoltage", 0).add("IsReserve", 0)
+		                                        .add("IsRunOnDc", 0).add("MainVoltage", 4018).add("ReserveVoltage", 4190).add("Voltage", 4018)
+		                                        .add("Cells", factory.createArrayBuilder().
 
-		add(factory.createObjectBuilder().add("Capacity", "3.00Ah").add("Status", "0x0010F100")
-				.add("Temperature", "+24°C").add("Voltage", 4018).add("VoltageStr", "4.018V")).add(
-						factory.createObjectBuilder().add("Capacity", "3.00Ah").add("Status", "0x0010F100")
-								.add("Temperature", "+24°C").add("Voltage", 4018).add("VoltageStr", "4.018V")).add(
-										factory.createObjectBuilder().add("Capacity", "3.00Ah")
-												.add("Status", "0x0010F100").add("Temperature", "+24°C")
-												.add("Voltage", 4018).add("VoltageStr", "4.018V")).add(
-														factory.createObjectBuilder().add("Capacity", "3.00Ah")
-																.add("Status", "0x0014F110").add("Temperature", "+24°C")
-																.add("Voltage", 4018).add("VoltageStr", "4.018V"))))))
-				.build();
+		add(factory.createObjectBuilder().add("Capacity", "3.00Ah").add("Status", "0x0010F100").add("Temperature", "+24°C").add("Voltage", 4018)
+		        .add("VoltageStr", "4.018V"))
+		                                                .add(factory.createObjectBuilder().add("Capacity", "3.00Ah").add("Status", "0x0010F100")
+		                                                        .add("Temperature", "+24°C").add("Voltage", 4018).add("VoltageStr", "4.018V"))
+		                                                .add(factory.createObjectBuilder().add("Capacity", "3.00Ah").add("Status", "0x0010F100")
+		                                                        .add("Temperature", "+24°C").add("Voltage", 4018).add("VoltageStr", "4.018V"))
+		                                                .add(factory.createObjectBuilder().add("Capacity", "3.00Ah").add("Status", "0x0014F110")
+		                                                        .add("Temperature", "+24°C").add("Voltage", 4018).add("VoltageStr", "4.018V"))))))
+		        .build();
 		System.out.printf("%s: %s\n", method, result);
 
 		return result;

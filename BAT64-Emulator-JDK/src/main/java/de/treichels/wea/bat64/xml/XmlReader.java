@@ -60,8 +60,7 @@ public class XmlReader {
 				case XMLStreamConstants.START_ELEMENT:
 					final String tagName = reader.getLocalName();
 					final int typeinfo = Integer.parseInt(reader.getAttributeValue(null, TYPEINFO));
-					final XmlElement newElement = new XmlElement(tagName, typeinfo,
-							stack.isEmpty() ? null : stack.peek());
+					final XmlElement newElement = new XmlElement(tagName, typeinfo, stack.isEmpty() ? null : stack.peek());
 
 					if (stack.isEmpty()) {
 						rootElement = newElement;

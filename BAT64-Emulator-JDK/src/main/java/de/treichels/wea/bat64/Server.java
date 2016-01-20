@@ -17,8 +17,7 @@ import com.sun.net.httpserver.HttpServer;
 public class Server {
 	public static void main(final String[] args) throws IOException, URISyntaxException {
 		final URI baseUri = UriBuilder.fromUri("http://localhost/").port(8080).build();
-		final ResourceConfig config = new ResourceConfig(Handler.class).register(JsonProcessingFeature.class)
-				.property(JsonGenerator.PRETTY_PRINTING, true);
+		final ResourceConfig config = new ResourceConfig(Handler.class).register(JsonProcessingFeature.class).property(JsonGenerator.PRETTY_PRINTING, true);
 		final HttpServer server = JdkHttpServerFactory.createHttpServer(baseUri, config);
 
 		System.in.read();

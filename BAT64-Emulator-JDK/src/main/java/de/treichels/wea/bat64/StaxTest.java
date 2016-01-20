@@ -15,8 +15,7 @@ public class StaxTest {
 
 		if (e.hasText()) {
 			// element with text - start & stop tag on one line
-			System.out.printf("%s<%s typeinfo=\"%d\">%s</%s>\n", indent(level), tagName, typeinfo, e.getText(),
-					tagName);
+			System.out.printf("%s<%s typeinfo=\"%d\">%s</%s>\n", indent(level), tagName, typeinfo, e.getText(), tagName);
 		} else if (e.isEmpty()) {
 			// empty element
 			System.out.printf("%s<%s typeinfo=\"%d\" />\n", indent(level), tagName, typeinfo);

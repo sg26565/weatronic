@@ -1,8 +1,8 @@
 package de.treichels.wea.bat64.config;
 
 public abstract class ConfigElement {
-	private int	typeinfo	= 0;
-	private int	listIndex	= -1;
+	private int typeinfo = 0;
+	private int listIndex = -1;
 
 	public int getListIndex() {
 		return listIndex;

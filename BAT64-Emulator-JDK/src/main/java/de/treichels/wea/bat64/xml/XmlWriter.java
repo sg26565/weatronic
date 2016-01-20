@@ -36,8 +36,7 @@ public class XmlWriter {
 		}
 	}
 
-	public void write(final XmlElement element, final OutputStream outputStream)
-			throws XMLStreamException, UnsupportedEncodingException {
+	public void write(final XmlElement element, final OutputStream outputStream) throws XMLStreamException, UnsupportedEncodingException {
 		try (Writer writer = new OutputStreamWriter(outputStream, "utf-8")) {
 			write(element, writer);
 		} catch (final IOException e) {

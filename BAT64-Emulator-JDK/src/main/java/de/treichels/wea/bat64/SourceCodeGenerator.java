@@ -33,10 +33,10 @@ import de.treichels.wea.bat64.xml.XmlElement;
 import de.treichels.wea.bat64.xml.XmlReader;
 
 public class SourceCodeGenerator {
-	private static final String	BASE_PACKAGE_NAME	= "de.treichels.wea.bat64.gen";
-	private static final String	GETTER_PREFIX		= "get";
-	private static final String	OUTPUT_DIR			= "src/main/gen";
-	private static final String	SETTER_PREFIX		= "set";
+	private static final String BASE_PACKAGE_NAME = "de.treichels.wea.bat64.gen";
+	private static final String GETTER_PREFIX = "get";
+	private static final String OUTPUT_DIR = "src/main/gen";
+	private static final String SETTER_PREFIX = "set";
 
 	public static String className(final String name) {
 		String result;
@@ -115,12 +115,12 @@ public class SourceCodeGenerator {
 		return clean(name.toLowerCase());
 	}
 
-	private final JPackage						basePackage;
-	private final Map<Integer, JDefinedClass>	classes	= new HashMap<Integer, JDefinedClass>();
-	private final Pattern						groupPattern;
-	private final Pattern						listPattern;
-	private final JCodeModel					model;
-	private final File							outputDir;
+	private final JPackage basePackage;
+	private final Map<Integer, JDefinedClass> classes = new HashMap<Integer, JDefinedClass>();
+	private final Pattern groupPattern;
+	private final Pattern listPattern;
+	private final JCodeModel model;
+	private final File outputDir;
 
 	public SourceCodeGenerator() throws JClassAlreadyExistsException {
 		model = new JCodeModel();
