@@ -2,161 +2,154 @@ package de.treichels.wea.bat64.xml;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 
 import de.treichels.wea.bat64.SourceCodeGenerator;
 import de.treichels.wea.bat64.config.ConfigElement;
-import de.treichels.wea.bat64.config.ConfigGroup;
 import de.treichels.wea.bat64.config.ConfigGroupList;
 import de.treichels.wea.bat64.config.ConfigList;
 import de.treichels.wea.bat64.config.ConfigValue;
 
 public class Unmarshaller {
-	private static <T> void setValue(final ConfigValue<T> instance, final Class<T> valueType, final String text) throws Exception {
-		// get constructor that accepts a String argument
-		final Constructor<T> valueCtor = valueType.getConstructor(String.class);
-
-		// create field value
-		final T fieldValue = valueCtor.newInstance(text);
-
-		// set value
-		instance.setValue(fieldValue);
-	}
-
-	public static void unmarshal(final XmlElement source, final ConfigElement target) throws Exception {
-		System.out.printf("\nElement %s (%d)\n", source.getName(), source.getTypeinfo());
-		System.out.flush();
-		final Class<?> targetClass = target.getClass();
-
-		for (final Field field : target.getClass().getDeclaredFields()) {
+	private static void setChildElements(final XmlElement element, final ConfigElement instance)
+	        throws NoSuchMethodException, InstantiationException, IllegalAccessException, InvocationTargetException, Exception {
+		final Class<? extends ConfigElement> instanceType = instance.getClass();
+		for (final Field field : instanceType.getDeclaredFields()) {
 			final Element annotation = field.getAnnotation(Element.class);
 			if (annotation != null) {
-				final String fieldName = annotation.name();
-				final XmlElement fieldElement = source.get(fieldName);
+				final String elementName = annotation.name();
+				final XmlElement fieldElement = element.get(elementName);
 				if (fieldElement == null) {
 					continue;
 				}
-				final int fieldTypeinfo = fieldElement.getTypeinfo();
-				final Class<?> fieldType = field.getType();
-				final String fieldText = fieldElement.getText();
-				field.setAccessible(true);
 
-				System.out.printf("\n\tElement(name=\"%s\", typeinfo=%d, text=\"%s\", type=%s)\n", fieldName, fieldTypeinfo, fieldText, fieldType.getName());
-				System.out.flush();
-
-				// create new instance of ConfigValue subtype
-				final ConfigElement fieldInstance = (ConfigElement) fieldType.newInstance();
-				fieldInstance.setTypeinfo(source.getTypeinfo());
-				final String setMethodName = SourceCodeGenerator.methodName("set", field.getName());
-				final Method setMethod = targetClass.getDeclaredMethod(setMethodName, fieldType);
-				setMethod.invoke(target, fieldInstance);
-
-				if (fieldInstance instanceof ConfigValue) {
-					// get type of value field
-					final ParameterizedType parameterizedType = (ParameterizedType) field.getGenericType();
-					final Class<?> valueType = (Class<?>) parameterizedType.getActualTypeArguments()[0];
-					System.out.printf("\t%s %s = new %s<%s>()\n", fieldType.getSimpleName(), field.getName(), fieldType.getSimpleName(),
-					        valueType.getSimpleName());
-
-					if (fieldText != null) {
-						System.out.printf("\t%s.setValue(new %s(\"%s\"))\n", field.getName(), valueType.getSimpleName(), fieldText);
-						setValue((ConfigValue) fieldInstance, valueType, fieldText);
-					}
-				} else if (fieldInstance instanceof ConfigGroupList) {
-					final ParameterizedType parameterizedType = (ParameterizedType) field.getGenericType();
-					final Class<?> listElementType = (Class<?>) parameterizedType.getActualTypeArguments()[0];
-					System.out.printf("\t%s %s = new %s<%s>()\n", fieldType.getSimpleName(), field.getName(), fieldType.getSimpleName(),
-					        listElementType.getName());
-
-					for (final XmlElement listElement : fieldElement.values()) {
-						final String listElementName = listElement.getName();
-						final int length = listElementName.length();
-						final String prefix = listElementName.substring(0, length - 4);
-						final int listIndex = Integer.parseInt(listElementName.substring(length - 2));
-
-						System.out.printf("\n\t%s = new %s()\n", listElementName, listElementType.getSimpleName());
-						final ConfigElement listInstance = (ConfigElement) listElementType.newInstance();
-
-						System.out.printf("\t%s.setListIndex(%d)\n", listElementName, listIndex);
-						listInstance.setListIndex(listIndex);
-
-						System.out.printf("\t%s.add(%s)\n", fieldName, listElementName);
-						final ConfigGroupList configGroupList = (ConfigGroupList) fieldInstance;
-						configGroupList.add(listInstance);
-
-						System.out.printf("\t%s.setPrefix(%s)\n", fieldName, prefix);
-						configGroupList.setPrefix(prefix);
-
-						if (listInstance instanceof ConfigValue) {
-							final String listElementText = listElement.getText();
-							System.out.printf("\t%s.setValue(new %s(\"%s\"))\n", listElementName, listElementType.getSimpleName(), listElementText);
-							setValue((ConfigValue) listInstance, listElementType, listElementText);
-						} else {
-							unmarshal(listElement, listInstance);
-						}
-					}
-
-				} else if (fieldInstance instanceof ConfigList) {
-					// get type of list elements
-					final ParameterizedType parameterizedType = (ParameterizedType) field.getGenericType();
-					final Type listElementType = parameterizedType.getActualTypeArguments()[0];
-					System.out.printf("\t%s %s = new %s<%s>()\n", fieldType.getSimpleName(), field.getName(), fieldType.getSimpleName(),
-					        listElementType.getTypeName());
-
-					if (fieldTypeinfo == 47) {
-						if (fieldText != null) {
-							for (final String s : fieldText.split(",")) {
-								final String s1 = s.trim();
-								System.out.printf("\t%s.add(%s)\n", field.getName(), s1);
-								((ConfigList<Integer>) fieldInstance).add(new Integer(s1));
-							}
-						}
-					} else {
-						final Class<?> listElementClass;
-						if (listElementType instanceof Class) {
-							listElementClass = (Class<?>) listElementType;
-						} else if (listElementType instanceof ParameterizedType) {
-							final String rawType = ((ParameterizedType) listElementType).getRawType().getTypeName();
-							listElementClass = Class.forName(rawType);
-						} else {
-							throw new RuntimeException(String.format("unexpected type for listElmentType: %s", listElementType.getClass().getName()));
-						}
-						for (final XmlElement listElement : fieldElement.values()) {
-							final String listElementName = listElement.getName();
-							final int listIndex = Integer.parseInt(listElementName.substring(1, 3));
-
-							System.out.printf("\n\t%s = new %s()\n", listElementName, listElementClass.getSimpleName());
-							final ConfigElement listInstance = (ConfigElement) listElementClass.newInstance();
-
-							System.out.printf("\t%s.setListIndex(%d)\n", listElementName, listIndex);
-							listInstance.setListIndex(listIndex);
-
-							System.out.printf("\t%s.add(%s)\n", fieldName, listElementName);
-							final ConfigList configList = (ConfigList) fieldInstance;
-							configList.add(listInstance);
-
-							if (listInstance instanceof ConfigValue) {
-								final String listElementText = listElement.getText();
-								final Class<?> valueType = (Class<?>) ((ParameterizedType) listElementType).getActualTypeArguments()[0];
-								System.out.printf("\t%s.setValue(new %s(\"%s\"))\n", listElementName, valueType.getSimpleName(), listElementText);
-								setValue((ConfigValue) listInstance, valueType, listElementText);
-							} else {
-								unmarshal(listElement, listInstance);
-							}
-						}
-					}
-				} else if (ConfigGroup.class.isAssignableFrom(fieldType)) {
-					System.out.printf("\t%s %s = new %s()\n", fieldType.getSimpleName(), field.getName(), fieldType.getSimpleName());
-					unmarshal(fieldElement, fieldInstance);
-				} else if (ConfigElement.class.isAssignableFrom(fieldType)) {
-					System.out.printf("\t%s %s = new %s()\n", fieldType.getSimpleName(), field.getName(), fieldType.getSimpleName());
-					unmarshal(fieldElement, fieldInstance);
-				} else {
-					throw new RuntimeException(String.format("unknown field type: %s", fieldType.getName()));
-				}
+				@SuppressWarnings("unchecked")
+				final Class<? extends ConfigElement> fieldType = (Class<? extends ConfigElement>) field.getType();
+				final String setMethodName = SourceCodeGenerator.methodName("set", elementName);
+				final Method setMethod = instanceType.getMethod(setMethodName, fieldType);
+				final ConfigElement fieldInstance = fieldType.newInstance();
+				setMethod.invoke(instance, fieldInstance);
+				final Type childParameterType = field.getGenericType();
+				unmarshal(fieldElement, fieldInstance, childParameterType);
 			}
+		}
+	}
+
+	@SuppressWarnings("unchecked")
+	private static void setConfigGroupList(final XmlElement element, final ConfigGroupList<ConfigElement> configGroupList, final ParameterizedType type)
+	        throws Exception {
+		final String elementName = element.getName();
+		final Type parameterType = type.getActualTypeArguments()[0];
+		final Class<ConfigElement> listItemType;
+		if (parameterType instanceof Class) {
+			listItemType = (Class<ConfigElement>) parameterType;
+		} else if (parameterType instanceof ParameterizedType) {
+			listItemType = (Class<ConfigElement>) ((ParameterizedType) parameterType).getRawType();
+		} else {
+			throw new RuntimeException("unexpected type of parameterType: " + parameterType.getClass().getName());
+		}
+
+		for (final XmlElement listElement : element.values()) {
+			final String listElementName = listElement.getName();
+			final int length = listElementName.length();
+			final String prefix = listElementName.substring(0, length - 4);
+			final int listIndex = Integer.parseInt(listElementName.substring(length - 2));
+
+			System.out.printf("\n\t%s = new %s()\n", listElementName, listItemType.getSimpleName());
+			final ConfigElement listInstance = listItemType.newInstance();
+
+			System.out.printf("\t%s.setListIndex(%d)\n", listElementName, listIndex);
+			listInstance.setListIndex(listIndex);
+
+			System.out.printf("\t%s.add(%s)\n", elementName, listElementName);
+			configGroupList.add(listInstance);
+
+			System.out.printf("\t%s.setPrefix(\"%s\")\n", elementName, prefix);
+			configGroupList.setPrefix(prefix);
+
+			unmarshal(listElement, listInstance, parameterType);
+		}
+	}
+
+	@SuppressWarnings("unchecked")
+	private static void setConfigList(final XmlElement element, final ConfigList<ConfigElement> configList, final ParameterizedType type) throws Exception {
+		final String elementName = element.getName();
+		final Type parameterType = type.getActualTypeArguments()[0];
+		final Class<ConfigElement> listItemType;
+		if (parameterType instanceof Class) {
+			listItemType = (Class<ConfigElement>) parameterType;
+		} else if (parameterType instanceof ParameterizedType) {
+			listItemType = (Class<ConfigElement>) ((ParameterizedType) parameterType).getRawType();
+		} else {
+			throw new RuntimeException("unexpected type of parameterType: " + parameterType.getClass().getName());
+		}
+
+		for (final XmlElement listElement : element.values()) {
+			final String listElementName = listElement.getName();
+			final int listIndex = Integer.parseInt(listElementName.substring(1));
+
+			System.out.printf("\n\t%s = new %s()\n", listElementName, listItemType.getSimpleName());
+			final ConfigElement listInstance = listItemType.newInstance();
+
+			System.out.printf("\t%s.setListIndex(%d)\n", listElementName, listIndex);
+			listInstance.setListIndex(listIndex);
+
+			System.out.printf("\t%s.add(%s)\n", elementName, listElementName);
+			configList.add(listInstance);
+
+			unmarshal(listElement, listInstance, parameterType);
+		}
+	}
+
+	private static void setConfigList(final XmlElement element, final ConfigList<Integer> configList) {
+		final String elementText = element.getText();
+		if (elementText != null) {
+			for (final String s : elementText.split(",")) {
+				final Integer value = new Integer(s.trim());
+				System.out.printf("\t%s.add(%d)\n", element.getName(), value);
+				configList.add(value);
+			}
+		}
+	}
+
+	private static <T> void setConfigValue(final XmlElement element, final ConfigValue<T> configValue, final ParameterizedType type) throws Exception {
+		final String elementText = element.getText();
+		@SuppressWarnings("unchecked")
+		final Class<T> valueType = (Class<T>) type.getActualTypeArguments()[0];
+		if (elementText != null) {
+			System.out.printf("\t%s.setValue(new %s(\"%s\"))\n", element.getName(), valueType.getSimpleName(), elementText);
+
+			final Constructor<T> valueCtor = valueType.getConstructor(String.class);
+			final T value = valueCtor.newInstance(elementText);
+			configValue.setValue(value);
+		}
+	}
+
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	public static void unmarshal(final XmlElement element, final ConfigElement instance, final Type type) throws Exception {
+		final String elementName = element.getName();
+		final int elementTypeinfo = element.getTypeinfo();
+
+		System.out.printf("\nElement %s %s (%d)\n", instance.getClass().getName(), elementName, elementTypeinfo);
+		System.out.flush();
+
+		instance.setTypeinfo(elementTypeinfo);
+
+		if (instance instanceof ConfigValue) {
+			setConfigValue(element, (ConfigValue) instance, (ParameterizedType) type);
+		} else if (instance instanceof ConfigGroupList) {
+			setConfigGroupList(element, (ConfigGroupList<ConfigElement>) instance, (ParameterizedType) type);
+		} else if (instance instanceof ConfigList) {
+			if (elementTypeinfo == 47) {
+				setConfigList(element, (ConfigList<Integer>) instance);
+			} else {
+				setConfigList(element, (ConfigList<ConfigElement>) instance, (ParameterizedType) type);
+			}
+		} else {
+			setChildElements(element, instance);
 		}
 	}
 }

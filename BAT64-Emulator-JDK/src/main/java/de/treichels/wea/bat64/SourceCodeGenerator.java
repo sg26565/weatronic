@@ -11,6 +11,7 @@ import java.util.regex.Pattern;
 
 import javax.xml.stream.XMLStreamException;
 
+import com.sun.codemodel.JClass;
 import com.sun.codemodel.JClassAlreadyExistsException;
 import com.sun.codemodel.JCodeModel;
 import com.sun.codemodel.JDefinedClass;
@@ -41,7 +42,7 @@ public class SourceCodeGenerator {
 		String result;
 
 		if ("elevators".equalsIgnoreCase(name)) {
-			result = "SurfaceConfig";
+			result = "Config";
 		} else if ("flexdifferential".equalsIgnoreCase(name)) {
 			result = "FlexSetup";
 		} else {
@@ -94,14 +95,21 @@ public class SourceCodeGenerator {
 	}
 
 	public static String methodName(final String prefix, final String name) {
+		final String fieldName = fieldName(name);
 		final StringBuilder sb = new StringBuilder();
-		sb.append(prefix).append(name.substring(0, 1).toUpperCase()).append(name.substring(1));
+		sb.append(prefix).append(fieldName.substring(0, 1).toUpperCase()).append(fieldName.substring(1));
 		return sb.toString();
 	}
 
 	public static String packageName(final String name) {
 		if ("switch".equalsIgnoreCase(name)) {
 			return "controlswitch";
+		} else if ("elevators".equalsIgnoreCase(name)) {
+			return "config";
+		} else if ("rudders".equalsIgnoreCase(name)) {
+			return "config";
+		} else if ("wings".equalsIgnoreCase(name)) {
+			return "config";
 		}
 
 		return clean(name.toLowerCase());
@@ -127,7 +135,7 @@ public class SourceCodeGenerator {
 		final XmlReader reader = new XmlReader();
 		final XmlElement root = reader.read(file);
 
-		generateClass(root, null, basePackage);
+		generateClass(root, basePackage);
 
 		model.build(outputDir);
 
@@ -139,41 +147,27 @@ public class SourceCodeGenerator {
 		}
 	}
 
-	private void generateClass(final XmlElement element, final JType listElementType, final JPackage elementPackage)
-	        throws JClassAlreadyExistsException, ClassNotFoundException {
-		final String elementName = element.getName();
-		final int elementTypeinfo = element.getTypeinfo();
-		final String elementClassName;
-
-		final Matcher listMatcher = listPattern.matcher(elementName);
-		final Matcher groupMatcher = groupPattern.matcher(elementName);
-		if (listMatcher.matches()) {
-			elementClassName = element.getParent().getName();
-		} else if (groupMatcher.matches()) {
-			elementClassName = groupMatcher.group(1);
-		} else {
-			elementClassName = className(elementName);
-		}
-
-		final JDefinedClass elementClass = getDefinedClass(elementClassName, elementTypeinfo, elementPackage);
-
-		System.out.printf("\nElement: %s (%d) => %s\n", elementName, elementTypeinfo, elementClass.fullName());
-		System.out.flush();
-
-		if (listElementType == null) {
-			for (final XmlElement childElement : element.values()) {
-				generateField(childElement, elementClass, elementPackage);
+	private void generateChildClass(final XmlElement childElement, final JPackage childPackage) throws JClassAlreadyExistsException, ClassNotFoundException {
+		switch (childElement.getTypeinfo()) {
+		case 6:
+			for (final XmlElement listElement : childElement.values()) {
+				generateChildClass(listElement, childPackage);
 			}
-		}
-	}
+			break;
 
-	private void generateField(final XmlElement childElement, final JDefinedClass parentClass, final JPackage parentPackage)
-	        throws JClassAlreadyExistsException, ClassNotFoundException {
-		final String childName = childElement.getName();
-		final int childTypeinfo = childElement.getTypeinfo();
+		case 32:
+			final JClass groupListElementType = getGroupElementType(childElement, childPackage);
+			if (groupListElementType == null) {
+				// normal group
+				generateClass(childElement, childPackage);
+			} else {
+				for (final XmlElement listElement : childElement.values()) {
+					generateChildClass(listElement, childPackage);
+				}
+			}
+			break;
 
-		final JPackage childPackage;
-		switch (childTypeinfo) {
+		case 43:
 		case 44:
 		case 45:
 		case 47:
@@ -181,12 +175,44 @@ public class SourceCodeGenerator {
 		case 53:
 		case 54:
 		case 55:
-			childPackage = parentPackage;
 			break;
 
 		default:
-			final String childPackageName = packageName(childName);
-			childPackage = parentPackage.subPackage(childPackageName);
+			generateClass(childElement, childPackage);
+		}
+	}
+
+	private void generateClass(final XmlElement element, final JPackage elementPackage) throws JClassAlreadyExistsException, ClassNotFoundException {
+		final String elementName = element.getName();
+		final int elementTypeinfo = element.getTypeinfo();
+
+		String className = elementName;
+		while (listPattern.matcher(className).matches()) {
+			className = element.getParent().getName();
+		}
+
+		final JDefinedClass elementType = getDefinedClass(className(className), elementTypeinfo, elementPackage);
+
+		System.out.printf("Element: %s (%d) => %s\n", elementName, elementTypeinfo, elementType.fullName());
+		System.out.flush();
+
+		for (final XmlElement childElement : element.values()) {
+			final JPackage childPackage = generateField(childElement, elementType, elementPackage);
+			generateChildClass(childElement, childPackage);
+		}
+	}
+
+	private JPackage generateField(final XmlElement childElement, final JDefinedClass parentClass, final JPackage parentPackage)
+	        throws JClassAlreadyExistsException, ClassNotFoundException {
+		final String childName = childElement.getName();
+		final int childTypeinfo = childElement.getTypeinfo();
+
+		final JPackage childPackage;
+		if (childTypeinfo == 44 || childTypeinfo == 45 || childTypeinfo == 47 || childTypeinfo == 52 || childTypeinfo == 53 || childTypeinfo == 54
+		        || childTypeinfo == 55) {
+			childPackage = parentPackage;
+		} else {
+			childPackage = parentPackage.subPackage(packageName(childName));
 		}
 
 		final JType childType = getType(childName, childElement, childPackage);
@@ -212,58 +238,31 @@ public class SourceCodeGenerator {
 			setterMethod.body().assign(JExpr._this().ref(field), setterParam);
 		}
 
-		// generate classes referenced by fields
-		final JType elementType;
-		switch (childTypeinfo) {
-		case 44:
-		case 45:
-		case 47:
-		case 52:
-		case 53:
-		case 54:
-		case 55:
-			return;
-
-		case 6:
-			// list
-			elementType = getListElementType(childElement, childPackage);
-			break;
-
-		case 32:
-			// group
-			final XmlElement groupElement = getFirstChild(childElement);
-			elementType = getGroupElementType(childElement, childPackage);
-			if (elementType == null) {
-				generateClass(childElement, elementType, childPackage);
-			} else {
-				generateClass(groupElement, null, childPackage);
-			}
-			break;
-
-		default:
-			generateClass(childElement, null, childPackage);
-		}
-
+		return childPackage;
 	}
 
 	private JDefinedClass getDefinedClass(final String name, final int typeinfo, final JPackage elementPackage) throws JClassAlreadyExistsException {
 		final String className = className(name);
 
+		// lookup by typeinfo
 		JDefinedClass result = classes.get(typeinfo);
 
 		if (result == null) {
+			// lookup by name
 			result = elementPackage._getClass(className);
 		}
 
 		if (result == null) {
+			// generate new
 			result = elementPackage._class(className);
-			switch (typeinfo) {
-			case 32:
-				result._extends(ConfigGroup.class);
-				break;
 
-			default:
+			if (typeinfo == 32) {
+				result._extends(ConfigGroup.class);
+			} else {
 				result._extends(ConfigElement.class);
+			}
+
+			if (typeinfo != 0 && typeinfo != 6 && typeinfo != 32) {
 				classes.put(typeinfo, result);
 			}
 		}
@@ -271,7 +270,7 @@ public class SourceCodeGenerator {
 		return result;
 	}
 
-	private JType getGroupElementType(final XmlElement element, final JPackage elementPackage) throws JClassAlreadyExistsException {
+	private JClass getGroupElementType(final XmlElement element, final JPackage elementPackage) throws JClassAlreadyExistsException {
 		final XmlElement childElement = getFirstChild(element);
 		if (childElement == null) {
 			// group is empty
@@ -289,7 +288,7 @@ public class SourceCodeGenerator {
 		return null;
 	}
 
-	private JType getListElementType(final XmlElement element, final JPackage elementPackage) throws JClassAlreadyExistsException {
+	private JClass getListElementType(final XmlElement element, final JPackage elementPackage) throws JClassAlreadyExistsException {
 		final XmlElement childElement = getFirstChild(element);
 		if (childElement == null) {
 			// list is empty
@@ -298,12 +297,15 @@ public class SourceCodeGenerator {
 		return getType(element.getName(), childElement, elementPackage);
 	}
 
-	private JType getType(final String elementName, final XmlElement element, final JPackage elementPackage) throws JClassAlreadyExistsException {
+	private JClass getType(final String elementName, final XmlElement element, final JPackage elementPackage) throws JClassAlreadyExistsException {
 		final int typeinfo = element.getTypeinfo();
 		switch (typeinfo) {
 		case 6:
 			final JType listElementType = getListElementType(element, elementPackage);
-			return model.ref(ConfigList.class).narrow(listElementType);
+			if (listElementType != null) {
+				return model.ref(ConfigList.class).narrow(listElementType);
+			}
+			return model.ref(ConfigList.class).narrow(model.wildcard());
 
 		case 32:
 			final JType groupElementType = getGroupElementType(element, elementPackage);
@@ -320,9 +322,8 @@ public class SourceCodeGenerator {
 			return model.ref(ConfigValue.class).narrow(String.class);
 
 		case 52:
+		case 43:
 		case 44:
-			return model.ref(ConfigValue.class).narrow(Short.class);
-
 		case 45:
 		case 53:
 		case 54:
