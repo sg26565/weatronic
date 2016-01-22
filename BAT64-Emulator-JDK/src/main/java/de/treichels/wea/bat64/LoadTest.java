@@ -12,7 +12,7 @@ public class LoadTest {
 		final XmlReader reader = new XmlReader();
 		final XmlWriter writer = new XmlWriter();
 
-		final XmlElement rootElement = reader.read("Full2.model");
+		final XmlElement rootElement = reader.read("aaaFull2.model");
 		final Root root = new Root();
 		Unmarshaller.unmarshal(rootElement, root, null);
 
