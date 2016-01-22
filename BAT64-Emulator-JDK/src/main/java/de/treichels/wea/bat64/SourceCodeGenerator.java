@@ -35,7 +35,7 @@ import de.treichels.wea.bat64.xml.XmlReader;
 public class SourceCodeGenerator {
 	private static final String BASE_PACKAGE_NAME = "de.treichels.wea.bat64.gen";
 	private static final String GETTER_PREFIX = "get";
-	private static final String OUTPUT_DIR = "src/main/gen";
+	private static final String OUTPUT_DIR = "src/main/java";
 	private static final String SETTER_PREFIX = "set";
 
 	public static String className(final String name) {
@@ -90,8 +90,7 @@ public class SourceCodeGenerator {
 
 	public static void main(final String[] args) throws ClassNotFoundException, XMLStreamException, IOException, JClassAlreadyExistsException {
 		final SourceCodeGenerator generator = new SourceCodeGenerator();
-		final File file = new File("Full2.model");
-		generator.generate(file);
+		generator.generate();
 	}
 
 	public static String methodName(final String prefix, final String name) {
@@ -131,11 +130,15 @@ public class SourceCodeGenerator {
 		listPattern = Pattern.compile("_[0-9][0-9]");
 	}
 
-	public void generate(final File file) throws XMLStreamException, IOException, JClassAlreadyExistsException, ClassNotFoundException {
+	public void generate() throws XMLStreamException, IOException, JClassAlreadyExistsException, ClassNotFoundException {
 		final XmlReader reader = new XmlReader();
-		final XmlElement root = reader.read(file);
 
-		generateClass(root, basePackage);
+		for (final File file : new File(".").listFiles()) {
+			if (file.getName().endsWith(".model")) {
+				final XmlElement root = reader.read(file);
+				generateClass(root, basePackage);
+			}
+		}
 
 		model.build(outputDir);
 
