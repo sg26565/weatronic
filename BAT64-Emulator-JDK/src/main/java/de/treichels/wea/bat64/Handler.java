@@ -46,14 +46,14 @@ public class Handler {
 		                                        .add("IsRunOnDc", 0).add("MainVoltage", 4018).add("ReserveVoltage", 4190).add("Voltage", 4018)
 		                                        .add("Cells", factory.createArrayBuilder().
 
-		add(factory.createObjectBuilder().add("Capacity", "3.00Ah").add("Status", "0x0010F100").add("Temperature", "+24°C").add("Voltage", 4018)
+		add(factory.createObjectBuilder().add("Capacity", "3.00Ah").add("Status", "0x0010F100").add("Temperature", "+24\u00B0C").add("Voltage", 4018)
 		        .add("VoltageStr", "4.018V"))
 		                                                .add(factory.createObjectBuilder().add("Capacity", "3.00Ah").add("Status", "0x0010F100")
-		                                                        .add("Temperature", "+24°C").add("Voltage", 4018).add("VoltageStr", "4.018V"))
+		                                                        .add("Temperature", "+24\u00B0C").add("Voltage", 4018).add("VoltageStr", "4.018V"))
 		                                                .add(factory.createObjectBuilder().add("Capacity", "3.00Ah").add("Status", "0x0010F100")
-		                                                        .add("Temperature", "+24°C").add("Voltage", 4018).add("VoltageStr", "4.018V"))
+		                                                        .add("Temperature", "+24\u00B0C").add("Voltage", 4018).add("VoltageStr", "4.018V"))
 		                                                .add(factory.createObjectBuilder().add("Capacity", "3.00Ah").add("Status", "0x0014F110")
-		                                                        .add("Temperature", "+24°C").add("Voltage", 4018).add("VoltageStr", "4.018V"))))))
+		                                                        .add("Temperature", "+24\u00B0C").add("Voltage", 4018).add("VoltageStr", "4.018V"))))))
 		        .build();
 		System.out.printf("%s: %s\n", method, result);
 
