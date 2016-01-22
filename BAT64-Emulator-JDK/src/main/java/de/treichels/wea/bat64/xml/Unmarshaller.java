@@ -119,7 +119,9 @@ public class Unmarshaller {
 		final String elementText = element.getText();
 		@SuppressWarnings("unchecked")
 		final Class<T> valueType = (Class<T>) type.getActualTypeArguments()[0];
-		if (elementText != null) {
+		if (elementText == null) {
+			configValue.setValue(null);
+		} else {
 			System.out.printf("\t%s.setValue(new %s(\"%s\"))\n", element.getName(), valueType.getSimpleName(), elementText);
 
 			final Constructor<T> valueCtor = valueType.getConstructor(String.class);

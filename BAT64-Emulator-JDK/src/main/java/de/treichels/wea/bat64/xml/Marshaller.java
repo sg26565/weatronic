@@ -54,7 +54,9 @@ public class Marshaller {
 
 	private static <T> void getConfigValue(final ConfigValue<T> configValue, final XmlElement element) {
 		final T value = configValue.getValue();
-		if (value != null) {
+		if (value == null) {
+			element.setText(null);
+		} else {
 			final String text = value.toString();
 			System.out.printf("\tsetText(\"%s\")\n", text);
 			element.setText(text);
@@ -62,15 +64,19 @@ public class Marshaller {
 	}
 
 	private static void getStringConfigList(final ConfigList<Integer> configList, final XmlElement element) {
-		final StringBuilder sb = new StringBuilder();
-		for (final int i : configList) {
-			if (sb.length() != 0) {
-				sb.append(',');
-			}
+		if (configList.isEmpty()) {
+			element.setText(null);
+		} else {
+			final StringBuilder sb = new StringBuilder();
+			for (final int i : configList) {
+				if (sb.length() != 0) {
+					sb.append(',');
+				}
 
-			sb.append(i);
+				sb.append(i);
+			}
+			element.setText(sb.toString());
 		}
-		element.setText(sb.toString());
 	}
 
 	@SuppressWarnings("unchecked")
