@@ -25,7 +25,7 @@ public class TextDifferenceEvaluator implements DifferenceEvaluator {
 				final String t2 = testText.replaceAll(" ", "");
 
 				if (t1.equals(t2)) {
-					return ComparisonResult.EQUAL;
+					return ComparisonResult.SIMILAR;
 				}
 			}
 		}

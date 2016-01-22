@@ -61,7 +61,7 @@ public class MarshallerUnmarshallerTest {
 		final Source output = Input.fromByteArray(os.toByteArray()).build();
 
 		// compare xml files
-		final CompareMatcher matcher = CompareMatcher.isIdenticalTo(input).ignoreWhitespace().withDifferenceEvaluator(new TextDifferenceEvaluator());
+		final CompareMatcher matcher = CompareMatcher.isSimilarTo(input).ignoreWhitespace().withDifferenceEvaluator(new TextDifferenceEvaluator());
 		if (!matcher.matches(output)) {
 			final Description description = new StringDescription();
 			matcher.describeTo(description);
