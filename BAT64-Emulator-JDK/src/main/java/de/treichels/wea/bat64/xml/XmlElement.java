@@ -1,6 +1,7 @@
 package de.treichels.wea.bat64.xml;
 
 import java.util.Collection;
+import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
@@ -33,6 +34,14 @@ public class XmlElement implements Map<String, XmlElement> {
 		return children.containsValue(value);
 	}
 
+	public String dumpHierachy() {
+		final StringBuilder sb = new StringBuilder(name);
+		if (parent != null) {
+			sb.append(".").append(parent.dumpHierachy());
+		}
+		return sb.toString();
+	}
+
 	@Override
 	public Set<java.util.Map.Entry<String, XmlElement>> entrySet() {
 		return children.entrySet();
@@ -43,37 +52,59 @@ public class XmlElement implements Map<String, XmlElement> {
 		if (this == obj) {
 			return true;
 		}
+
 		if (obj == null) {
 			return false;
 		}
+
 		if (getClass() != obj.getClass()) {
 			return false;
 		}
+
 		final XmlElement other = (XmlElement) obj;
-		if (children == null) {
-			if (other.children != null) {
-				return false;
-			}
-		} else if (!children.equals(other.children)) {
-			return false;
-		}
-		if (name == null) {
-			if (other.name != null) {
-				return false;
-			}
-		} else if (!name.equals(other.name)) {
-			return false;
-		}
-		if (text == null) {
-			if (other.text != null) {
-				return false;
-			}
-		} else if (!text.equals(other.text)) {
+
+		if (!name.equals(other.name)) {
 			return false;
 		}
 		if (typeinfo != other.typeinfo) {
 			return false;
 		}
+
+		if (text == null) {
+			if (other.text != null) {
+				return false;
+			}
+		} else if (text.contains(",")) {
+			if (!text.replaceAll(" ", "").equals(other.text.replaceAll(" ", ""))) {
+				return false;
+			}
+		} else if (!text.equals(other.text)) {
+			return false;
+		}
+
+		if (children.size() != other.children.size()) {
+			return false;
+		}
+
+		final Iterator<java.util.Map.Entry<String, XmlElement>> thisIterator = children.entrySet().iterator();
+		final Iterator<java.util.Map.Entry<String, XmlElement>> otherIterator = other.children.entrySet().iterator();
+		while (thisIterator.hasNext()) {
+			final Entry<String, XmlElement> thisEntry = thisIterator.next();
+			final String thisKey = thisEntry.getKey();
+			final XmlElement thisChild = thisEntry.getValue();
+			final Entry<String, XmlElement> otherEntry = otherIterator.next();
+			final String otherKey = otherEntry.getKey();
+			final XmlElement otherChild = otherEntry.getValue();
+
+			if (!thisKey.equals(otherKey)) {
+				return false;
+			}
+
+			if (!thisChild.equals(otherChild)) {
+				return false;
+			}
+		}
+
 		return true;
 	}
 
@@ -96,17 +127,6 @@ public class XmlElement implements Map<String, XmlElement> {
 
 	public int getTypeinfo() {
 		return typeinfo;
-	}
-
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + (children == null ? 0 : children.hashCode());
-		result = prime * result + (name == null ? 0 : name.hashCode());
-		result = prime * result + (text == null ? 0 : text.hashCode());
-		result = prime * result + typeinfo;
-		return result;
 	}
 
 	public boolean hasText() {
