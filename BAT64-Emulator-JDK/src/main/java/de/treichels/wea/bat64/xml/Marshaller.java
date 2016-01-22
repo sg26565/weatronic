@@ -3,6 +3,9 @@ package de.treichels.wea.bat64.xml;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import de.treichels.wea.bat64.SourceCodeGenerator;
 import de.treichels.wea.bat64.config.ConfigElement;
 import de.treichels.wea.bat64.config.ConfigGroupList;
@@ -10,6 +13,8 @@ import de.treichels.wea.bat64.config.ConfigList;
 import de.treichels.wea.bat64.config.ConfigValue;
 
 public class Marshaller {
+	private static Logger log = LogManager.getLogger(Marshaller.class);
+
 	private static void getChildElements(final ConfigElement instance, final XmlElement element) throws Exception {
 		for (final Field field : instance.getClass().getDeclaredFields()) {
 			final Class<? extends ConfigElement> instanceType = instance.getClass();
@@ -58,7 +63,7 @@ public class Marshaller {
 			element.setText(null);
 		} else {
 			final String text = value.toString();
-			System.out.printf("\tsetText(\"%s\")\n", text);
+			log.debug(String.format("setText(\"%s\")", text));
 			element.setText(text);
 		}
 	}
@@ -81,8 +86,7 @@ public class Marshaller {
 
 	@SuppressWarnings("unchecked")
 	public static void marshal(final ConfigElement instance, final XmlElement element) throws Exception {
-		System.out.printf("\nElement %s %s (%d)\n", instance.getClass().getName(), element.getName(), element.getTypeinfo());
-		System.out.flush();
+		log.debug(String.format("Element %s %s (%d)", instance.getClass().getName(), element.getName(), element.getTypeinfo()));
 
 		if (instance instanceof ConfigValue) {
 			getConfigValue((ConfigValue<?>) instance, element);

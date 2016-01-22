@@ -7,6 +7,9 @@ import java.lang.reflect.Method;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import de.treichels.wea.bat64.SourceCodeGenerator;
 import de.treichels.wea.bat64.config.ConfigElement;
 import de.treichels.wea.bat64.config.ConfigGroupList;
@@ -14,6 +17,8 @@ import de.treichels.wea.bat64.config.ConfigList;
 import de.treichels.wea.bat64.config.ConfigValue;
 
 public class Unmarshaller {
+	private static Logger log = LogManager.getLogger(Unmarshaller.class);
+
 	private static void setChildElements(final XmlElement element, final ConfigElement instance)
 	        throws NoSuchMethodException, InstantiationException, IllegalAccessException, InvocationTargetException, Exception {
 		final Class<? extends ConfigElement> instanceType = instance.getClass();
@@ -58,16 +63,16 @@ public class Unmarshaller {
 			final String prefix = listElementName.substring(0, length - 4);
 			final int listIndex = Integer.parseInt(listElementName.substring(length - 2));
 
-			System.out.printf("\n\t%s = new %s()\n", listElementName, listItemType.getSimpleName());
+			log.debug(String.format("%s = new %s()", listElementName, listItemType.getSimpleName()));
 			final ConfigElement listInstance = listItemType.newInstance();
 
-			System.out.printf("\t%s.setListIndex(%d)\n", listElementName, listIndex);
+			log.debug(String.format("%s.setListIndex(%d)", listElementName, listIndex));
 			listInstance.setListIndex(listIndex);
 
-			System.out.printf("\t%s.add(%s)\n", elementName, listElementName);
+			log.debug(String.format("%s.add(%s)", elementName, listElementName));
 			configGroupList.add(listInstance);
 
-			System.out.printf("\t%s.setPrefix(\"%s\")\n", elementName, prefix);
+			log.debug(String.format("%s.setPrefix(\"%s\")", elementName, prefix));
 			configGroupList.setPrefix(prefix);
 
 			unmarshal(listElement, listInstance, parameterType);
@@ -91,13 +96,13 @@ public class Unmarshaller {
 			final String listElementName = listElement.getName();
 			final int listIndex = Integer.parseInt(listElementName.substring(1));
 
-			System.out.printf("\n\t%s = new %s()\n", listElementName, listItemType.getSimpleName());
+			log.debug(String.format("%s = new %s()", listElementName, listItemType.getSimpleName()));
 			final ConfigElement listInstance = listItemType.newInstance();
 
-			System.out.printf("\t%s.setListIndex(%d)\n", listElementName, listIndex);
+			log.debug(String.format("%s.setListIndex(%d)", listElementName, listIndex));
 			listInstance.setListIndex(listIndex);
 
-			System.out.printf("\t%s.add(%s)\n", elementName, listElementName);
+			log.debug(String.format("%s.add(%s)", elementName, listElementName));
 			configList.add(listInstance);
 
 			unmarshal(listElement, listInstance, parameterType);
@@ -109,7 +114,7 @@ public class Unmarshaller {
 		if (elementText != null) {
 			for (final String s : elementText.split(",")) {
 				final Integer value = new Integer(s.trim());
-				System.out.printf("\t%s.add(%d)\n", element.getName(), value);
+				log.debug(String.format("%s.add(%d)", element.getName(), value));
 				configList.add(value);
 			}
 		}
@@ -122,7 +127,7 @@ public class Unmarshaller {
 		if (elementText == null) {
 			configValue.setValue(null);
 		} else {
-			System.out.printf("\t%s.setValue(new %s(\"%s\"))\n", element.getName(), valueType.getSimpleName(), elementText);
+			log.debug(String.format("%s.setValue(new %s(\"%s\"))", element.getName(), valueType.getSimpleName(), elementText));
 
 			final Constructor<T> valueCtor = valueType.getConstructor(String.class);
 			final T value = valueCtor.newInstance(elementText);
@@ -135,8 +140,7 @@ public class Unmarshaller {
 		final String elementName = element.getName();
 		final int elementTypeinfo = element.getTypeinfo();
 
-		System.out.printf("\nElement %s %s (%d)\n", instance.getClass().getName(), elementName, elementTypeinfo);
-		System.out.flush();
+		log.debug(String.format("Element %s %s (%d)", instance.getClass().getName(), elementName, elementTypeinfo));
 
 		instance.setTypeinfo(elementTypeinfo);
 
