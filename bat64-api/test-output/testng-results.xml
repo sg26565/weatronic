@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="7" passed="7">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="1363" started-at="2016-01-23T15:01:00Z" finished-at="2016-01-23T15:01:01Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="1363" started-at="2016-01-23T15:01:00Z" finished-at="2016-01-23T15:01:01Z">
+      <class name="de.treichels.wea.bat64.xml.MarshallerUnmarshallerTest">
+        <test-method status="PASS" signature="testEquals(java.io.File)[pri:0, instance:de.treichels.wea.bat64.xml.MarshallerUnmarshallerTest@483bf400]" name="testEquals" duration-ms="667" started-at="2016-01-23T16:01:00Z" data-provider="models" finished-at="2016-01-23T16:01:01Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[.\aaaFull2.model]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testEquals -->
+        <test-method status="PASS" signature="testEquals(java.io.File)[pri:0, instance:de.treichels.wea.bat64.xml.MarshallerUnmarshallerTest@483bf400]" name="testEquals" duration-ms="163" started-at="2016-01-23T16:01:01Z" data-provider="models" finished-at="2016-01-23T16:01:01Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[.\F4U-1D Corsair.model]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testEquals -->
+        <test-method status="PASS" signature="testEquals(java.io.File)[pri:0, instance:de.treichels.wea.bat64.xml.MarshallerUnmarshallerTest@483bf400]" name="testEquals" duration-ms="228" started-at="2016-01-23T16:01:01Z" data-provider="models" finished-at="2016-01-23T16:01:01Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[.\Full3.model]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testEquals -->
+        <test-method status="PASS" signature="testEquals(java.io.File)[pri:0, instance:de.treichels.wea.bat64.xml.MarshallerUnmarshallerTest@483bf400]" name="testEquals" duration-ms="91" started-at="2016-01-23T16:01:01Z" data-provider="models" finished-at="2016-01-23T16:01:01Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[.\Model Name.model]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testEquals -->
+        <test-method status="PASS" signature="testEquals(java.io.File)[pri:0, instance:de.treichels.wea.bat64.xml.MarshallerUnmarshallerTest@483bf400]" name="testEquals" duration-ms="75" started-at="2016-01-23T16:01:01Z" data-provider="models" finished-at="2016-01-23T16:01:01Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[.\P-38 Lightning.model]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testEquals -->
+        <test-method status="PASS" signature="testEquals(java.io.File)[pri:0, instance:de.treichels.wea.bat64.xml.MarshallerUnmarshallerTest@483bf400]" name="testEquals" duration-ms="74" started-at="2016-01-23T16:01:01Z" data-provider="models" finished-at="2016-01-23T16:01:01Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[.\SeaFury 2m.model]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testEquals -->
+        <test-method status="PASS" signature="testEquals(java.io.File)[pri:0, instance:de.treichels.wea.bat64.xml.MarshallerUnmarshallerTest@483bf400]" name="testEquals" duration-ms="50" started-at="2016-01-23T16:01:01Z" data-provider="models" finished-at="2016-01-23T16:01:01Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[.\Test.model]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testEquals -->
+      </class> <!-- de.treichels.wea.bat64.xml.MarshallerUnmarshallerTest -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
