@@ -4,8 +4,6 @@ import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.SortedSet;
-import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -121,7 +119,7 @@ public class SourceCodeGenerator {
 	private final JCodeModel model;
 	private final File outputDir;
 
-	public SourceCodeGenerator() throws JClassAlreadyExistsException {
+	public SourceCodeGenerator() {
 		model = new JCodeModel();
 		basePackage = model._package(BASE_PACKAGE_NAME);
 		outputDir = new File(OUTPUT_DIR);
@@ -142,12 +140,7 @@ public class SourceCodeGenerator {
 
 		model.build(outputDir);
 
-		final SortedSet<Integer> keys = new TreeSet<Integer>();
-		keys.addAll(classes.keySet());
-		for (final int key : keys) {
-			final JDefinedClass definedClass = classes.get(key);
-			System.out.printf("%2d: %s\n", key, definedClass.fullName());
-		}
+		classes.keySet().stream().sorted().forEach(key -> System.out.printf("%2d: %s\n", key, classes.get(key).fullName()));
 	}
 
 	private void generateChildClass(final XmlElement childElement, final JPackage childPackage) throws JClassAlreadyExistsException, ClassNotFoundException {
