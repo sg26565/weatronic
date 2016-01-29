@@ -23,40 +23,69 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 @Path("/")
 public class Handler {
+	private static final Logger LOG = LogManager.getLogger();
+
 	@POST
-	@Path("/cgi/{method}")
+	@Path("/cgi/command")
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
 	@Produces(MediaType.APPLICATION_JSON)
-	public JsonObject handleCGI(@PathParam("method") final String method, final String body) {
-
+	public JsonObject command(final String body) {
 		final Reader stringReader = new StringReader(body);
 		final JsonReader jsonReader = Json.createReader(stringReader);
 		final JsonObject jsonObject = jsonReader.readObject();
-		System.out.printf("%s: %s\n", method, jsonObject);
+		LOG.debug(jsonObject);
+
+		return jsonObject;
+	}
+
+	@POST
+	@Path("/cgi/event")
+	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+	@Produces(MediaType.APPLICATION_JSON)
+	public JsonObject event(final String body) {
+		final Reader stringReader = new StringReader(body);
+		final JsonReader jsonReader = Json.createReader(stringReader);
+		final JsonObject jsonObject = jsonReader.readObject();
+		LOG.debug(jsonObject);
+
+		return jsonObject;
+	}
+
+	@POST
+	@Path("/cgi/filemanagement")
+	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+	@Produces(MediaType.APPLICATION_JSON)
+	public JsonObject filemanagement(final String body) {
+		final Reader stringReader = new StringReader(body);
+		final JsonReader jsonReader = Json.createReader(stringReader);
+		final JsonObject jsonObject = jsonReader.readObject();
+		LOG.debug(jsonObject);
+
+		return jsonObject;
+	}
+
+	@POST
+	@Path("/cgi/get_json")
+	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+	@Produces(MediaType.APPLICATION_JSON)
+	public JsonObject getJson(final String body) {
+		final Reader stringReader = new StringReader(body);
+		final JsonReader jsonReader = Json.createReader(stringReader);
+		final JsonObject jsonObject = jsonReader.readObject();
+		LOG.debug(jsonObject);
 
 		final Map<String, String> config = new HashMap<String, String>();
 		final JsonBuilderFactory factory = Json.createBuilderFactory(config);
-		final JsonObject result = factory.createObjectBuilder()
-		        .add("Telemetry_Val",
-		                factory.createArrayBuilder()
-		                        .add(factory.createObjectBuilder().add("ID", "11398").add("Value", "802976").add("ID", "33968").add("Value",
-		                                factory.createObjectBuilder().add("RemPowerTime", "08h:35m").add("InputVoltage", 0).add("IsReserve", 0)
-		                                        .add("IsRunOnDc", 0).add("MainVoltage", 4018).add("ReserveVoltage", 4190).add("Voltage", 4018)
-		                                        .add("Cells", factory.createArrayBuilder().
-
-		add(factory.createObjectBuilder().add("Capacity", "3.00Ah").add("Status", "0x0010F100").add("Temperature", "+24\u00B0C").add("Voltage", 4018)
-		        .add("VoltageStr", "4.018V"))
-		                                                .add(factory.createObjectBuilder().add("Capacity", "3.00Ah").add("Status", "0x0010F100")
-		                                                        .add("Temperature", "+24\u00B0C").add("Voltage", 4018).add("VoltageStr", "4.018V"))
-		                                                .add(factory.createObjectBuilder().add("Capacity", "3.00Ah").add("Status", "0x0010F100")
-		                                                        .add("Temperature", "+24\u00B0C").add("Voltage", 4018).add("VoltageStr", "4.018V"))
-		                                                .add(factory.createObjectBuilder().add("Capacity", "3.00Ah").add("Status", "0x0014F110")
-		                                                        .add("Temperature", "+24\u00B0C").add("Voltage", 4018).add("VoltageStr", "4.018V"))))))
+		final JsonObject result = factory.createObjectBuilder().add("Telemetry_Val", factory.createArrayBuilder().add(factory.createObjectBuilder()
+		        .add("ID", "33968").add("Value", factory.createObjectBuilder().add("RemPowerTime", "01h:23m").add("IsRunOnDC", 0).add("MainVoltage", 3600))))
 		        .build();
-		System.out.printf("%s: %s\n", method, result);
 
+		LOG.debug(result);
 		return result;
 	}
 
@@ -69,7 +98,7 @@ public class Handler {
 	@GET
 	@Path("/{path:.+}")
 	public Response handleStaticContent(@PathParam("path") final String path) throws IOException, URISyntaxException {
-		System.out.println(path);
+		LOG.debug(path);
 
 		final InputStream is = Handler.class.getClassLoader().getResourceAsStream("www/" + path);
 		if (is == null) {
@@ -77,5 +106,31 @@ public class Handler {
 		}
 
 		return Response.ok(is).build();
+	}
+
+	@POST
+	@Path("/cgi/service")
+	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+	@Produces(MediaType.APPLICATION_JSON)
+	public JsonObject service(final String body) {
+		final Reader stringReader = new StringReader(body);
+		final JsonReader jsonReader = Json.createReader(stringReader);
+		final JsonObject jsonObject = jsonReader.readObject();
+		LOG.debug(jsonObject);
+
+		return jsonObject;
+	}
+
+	@POST
+	@Path("/cgi/set_json")
+	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+	@Produces(MediaType.APPLICATION_JSON)
+	public JsonObject setJson(final String body) {
+		final Reader stringReader = new StringReader(body);
+		final JsonReader jsonReader = Json.createReader(stringReader);
+		final JsonObject jsonObject = jsonReader.readObject();
+		LOG.debug(jsonObject);
+
+		return jsonObject;
 	}
 }
