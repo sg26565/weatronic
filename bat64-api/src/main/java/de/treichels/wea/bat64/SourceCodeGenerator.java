@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.stream.Stream;
 
 import javax.xml.stream.XMLStreamException;
 
@@ -112,31 +113,28 @@ public class SourceCodeGenerator {
 		return clean(name.toLowerCase());
 	}
 
-	private final JPackage basePackage;
+	private final JCodeModel model = new JCodeModel();
+	private final JPackage basePackage = model._package(BASE_PACKAGE_NAME);
 	private final Map<Integer, JDefinedClass> classes = new HashMap<Integer, JDefinedClass>();
-	private final Pattern groupPattern;
-	private final Pattern listPattern;
-	private final JCodeModel model;
-	private final File outputDir;
+	private final Pattern groupPattern = Pattern.compile("(.*)__[0-9][0-9]");
+	private final Pattern listPattern = Pattern.compile("_[0-9][0-9]");
+	private final File outputDir = new File(OUTPUT_DIR);
 
 	public SourceCodeGenerator() {
-		model = new JCodeModel();
-		basePackage = model._package(BASE_PACKAGE_NAME);
-		outputDir = new File(OUTPUT_DIR);
 		outputDir.mkdirs();
-		groupPattern = Pattern.compile("(.*)__[0-9][0-9]");
-		listPattern = Pattern.compile("_[0-9][0-9]");
 	}
 
-	public void generate() throws XMLStreamException, IOException, JClassAlreadyExistsException, ClassNotFoundException {
+	public void generate() throws IOException {
 		final XmlReader reader = new XmlReader();
 
-		for (final File file : new File(".").listFiles()) {
-			if (file.getName().endsWith(".model")) {
+		Stream.of(new File(".").listFiles()).filter(f -> f.getName().endsWith(".model")).forEach(file -> {
+			try {
 				final XmlElement root = reader.read(file);
 				generateClass(root, basePackage);
+			} catch (final Exception e) {
+				throw new RuntimeException(e);
 			}
-		}
+		});
 
 		model.build(outputDir);
 
