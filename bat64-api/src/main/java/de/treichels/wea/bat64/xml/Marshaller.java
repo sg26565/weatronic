@@ -1,7 +1,10 @@
 package de.treichels.wea.bat64.xml;
 
+import static java.util.stream.Collectors.joining;
+
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
+import java.util.function.Function;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -36,20 +39,17 @@ public class Marshaller {
 
 	private static void getConfigGroupList(final ConfigGroupList<? extends ConfigElement> configGroupList, final XmlElement element) throws Exception {
 		final String prefix = configGroupList.getPrefix();
-		for (final ConfigElement listElementInstance : configGroupList) {
-			final int listElementIndex = listElementInstance.getListIndex();
-			final String listElementName = String.format("%s__%02d", prefix, listElementIndex);
-			final int listElementTypeinfo = listElementInstance.getTypeinfo();
-			final XmlElement listElement = new XmlElement(listElementName, listElementTypeinfo, element);
-			element.put(listElementName, listElement);
-			marshal(listElementInstance, listElement);
-		}
+		getConfigList(configGroupList, element, e -> String.format("%s__%02d", prefix, e.getListIndex()));
 	}
 
 	private static void getConfigList(final ConfigList<? extends ConfigElement> configList, final XmlElement element) throws Exception {
+		getConfigList(configList, element, e -> String.format("_%02d", e.getListIndex()));
+	}
+
+	private static void getConfigList(final ConfigList<? extends ConfigElement> configList, final XmlElement element,
+	        final Function<ConfigElement, String> nameFunction) throws Exception {
 		for (final ConfigElement listElementInstance : configList) {
-			final int listElementIndex = listElementInstance.getListIndex();
-			final String listElementName = String.format("_%02d", listElementIndex);
+			final String listElementName = nameFunction.apply(listElementInstance);
 			final int listElementTypeinfo = listElementInstance.getTypeinfo();
 			final XmlElement listElement = new XmlElement(listElementName, listElementTypeinfo, element);
 			element.put(listElementName, listElement);
@@ -59,29 +59,28 @@ public class Marshaller {
 
 	private static <T> void getConfigValue(final ConfigValue<T> configValue, final XmlElement element) {
 		final T value = configValue.getValue();
+		final String text;
+
 		if (value == null) {
-			element.setText(null);
+			text = null;
 		} else {
-			final String text = value.toString();
+			text = value.toString();
 			log.debug(String.format("setText(\"%s\")", text));
-			element.setText(text);
 		}
+
+		element.setText(text);
 	}
 
 	private static void getStringConfigList(final ConfigList<Integer> configList, final XmlElement element) {
-		if (configList.isEmpty()) {
-			element.setText(null);
-		} else {
-			final StringBuilder sb = new StringBuilder();
-			for (final int i : configList) {
-				if (sb.length() != 0) {
-					sb.append(',');
-				}
+		final String text;
 
-				sb.append(i);
-			}
-			element.setText(sb.toString());
+		if (configList.isEmpty()) {
+			text = null;
+		} else {
+			text = configList.stream().map(i -> Integer.toString(i)).collect(joining(","));
 		}
+
+		element.setText(text);
 	}
 
 	@SuppressWarnings("unchecked")

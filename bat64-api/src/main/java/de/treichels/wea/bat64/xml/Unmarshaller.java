@@ -1,11 +1,15 @@
 package de.treichels.wea.bat64.xml;
 
+import static java.util.stream.Collectors.toList;
+
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
+import java.util.function.Function;
+import java.util.stream.Stream;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -43,44 +47,18 @@ public class Unmarshaller {
 		}
 	}
 
-	@SuppressWarnings("unchecked")
 	private static void setConfigGroupList(final XmlElement element, final ConfigGroupList<ConfigElement> configGroupList, final ParameterizedType type)
 	        throws Exception {
-		final String elementName = element.getName();
-		final Type parameterType = type.getActualTypeArguments()[0];
-		final Class<ConfigElement> listItemType;
-		if (parameterType instanceof Class) {
-			listItemType = (Class<ConfigElement>) parameterType;
-		} else if (parameterType instanceof ParameterizedType) {
-			listItemType = (Class<ConfigElement>) ((ParameterizedType) parameterType).getRawType();
-		} else {
-			throw new RuntimeException("unexpected type of parameterType: " + parameterType.getClass().getName());
-		}
+		setConfigList(element, configGroupList, type, s -> s.substring(s.length() - 2), s -> s.substring(0, s.length() - 4));
+	}
 
-		for (final XmlElement listElement : element.values()) {
-			final String listElementName = listElement.getName();
-			final int length = listElementName.length();
-			final String prefix = listElementName.substring(0, length - 4);
-			final int listIndex = Integer.parseInt(listElementName.substring(length - 2));
-
-			log.debug(String.format("%s = new %s()", listElementName, listItemType.getSimpleName()));
-			final ConfigElement listInstance = listItemType.newInstance();
-
-			log.debug(String.format("%s.setListIndex(%d)", listElementName, listIndex));
-			listInstance.setListIndex(listIndex);
-
-			log.debug(String.format("%s.add(%s)", elementName, listElementName));
-			configGroupList.add(listInstance);
-
-			log.debug(String.format("%s.setPrefix(\"%s\")", elementName, prefix));
-			configGroupList.setPrefix(prefix);
-
-			unmarshal(listElement, listInstance, parameterType);
-		}
+	private static void setConfigList(final XmlElement element, final ConfigList<ConfigElement> configList, final ParameterizedType type) throws Exception {
+		setConfigList(element, configList, type, s -> s.substring(1), null);
 	}
 
 	@SuppressWarnings("unchecked")
-	private static void setConfigList(final XmlElement element, final ConfigList<ConfigElement> configList, final ParameterizedType type) throws Exception {
+	private static void setConfigList(final XmlElement element, final ConfigList<ConfigElement> configList, final ParameterizedType type,
+	        final Function<String, String> indexFunction, final Function<String, String> prefixFunction) throws Exception {
 		final String elementName = element.getName();
 		final Type parameterType = type.getActualTypeArguments()[0];
 		final Class<ConfigElement> listItemType;
@@ -94,7 +72,7 @@ public class Unmarshaller {
 
 		for (final XmlElement listElement : element.values()) {
 			final String listElementName = listElement.getName();
-			final int listIndex = Integer.parseInt(listElementName.substring(1));
+			final int listIndex = Integer.parseInt(indexFunction.apply(listElementName));
 
 			log.debug(String.format("%s = new %s()", listElementName, listItemType.getSimpleName()));
 			final ConfigElement listInstance = listItemType.newInstance();
@@ -105,6 +83,12 @@ public class Unmarshaller {
 			log.debug(String.format("%s.add(%s)", elementName, listElementName));
 			configList.add(listInstance);
 
+			if (prefixFunction != null) {
+				final String prefix = prefixFunction.apply(listElementName);
+				log.debug(String.format("%s.setPrefix(\"%s\")", elementName, prefix));
+				((ConfigGroupList<ConfigElement>) configList).setPrefix(prefix);
+			}
+
 			unmarshal(listElement, listInstance, parameterType);
 		}
 	}
@@ -112,11 +96,7 @@ public class Unmarshaller {
 	private static void setConfigList(final XmlElement element, final ConfigList<Integer> configList) {
 		final String elementText = element.getText();
 		if (elementText != null) {
-			for (final String s : elementText.split(",")) {
-				final Integer value = new Integer(s.trim());
-				log.debug(String.format("%s.add(%d)", element.getName(), value));
-				configList.add(value);
-			}
+			configList.addAll(Stream.of(elementText.split(",")).map(String::trim).map(Integer::new).collect(toList()));
 		}
 	}
 
