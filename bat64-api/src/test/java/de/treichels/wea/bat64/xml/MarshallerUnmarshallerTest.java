@@ -5,9 +5,8 @@ import static org.testng.Assert.fail;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
-import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.List;
+import java.util.stream.Stream;
 
 import javax.xml.transform.Source;
 
@@ -26,15 +25,7 @@ public class MarshallerUnmarshallerTest {
 
 	@DataProvider(name = "models")
 	public Iterator<Object[]> getModels() {
-		final List<Object[]> modelFiles = new ArrayList<Object[]>();
-
-		for (final File file : new File(".").listFiles()) {
-			if (file.getName().endsWith(".model")) {
-				modelFiles.add(new Object[] { file });
-			}
-		}
-
-		return modelFiles.iterator();
+		return Stream.of(new File(".").listFiles()).filter(f -> f.getName().endsWith(".model")).map(f -> new Object[] { f }).iterator();
 	}
 
 	@Test(dataProvider = "models")
