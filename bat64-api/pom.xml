@@ -14,12 +14,10 @@
 			<dependency>
 			<groupId>com.sun.codemodel</groupId>
 			<artifactId>codemodel</artifactId>
-			<version>2.6</version>
 		</dependency>
 		<dependency>
 			<groupId>org.xmlunit</groupId>
 			<artifactId>xmlunit-matchers</artifactId>
-			<version>2.0.0-alpha-03</version>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
